@@ -8,7 +8,7 @@ namespace _1._2
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) // O(n2) - квадратичная сложность
         {
             Console.WriteLine("Введите размер массива:");
             int[,] array;
