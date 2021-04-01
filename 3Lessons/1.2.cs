@@ -25,20 +25,17 @@ namespace _1._2
         static public void PrintList(Dictionary<string, string> format)
         {
             Console.Clear();
-            Dictionary<string, string> fileFormat = new Dictionary<string, string>();
-            fileFormat.Add("png", "portable network graphics");
-            fileFormat.Add("txt", "text");
-            fileFormat.Add("jpg", "joint photographic experts group");
-            fileFormat.Add("gif", "graphics interchange format");
-            fileFormat.Add("doc", "document");
-            foreach (KeyValuePair<string, string> kvp in fileFormat)
+            if (format.Count == 0)
             {
-                Console.WriteLine("Короткое описание = {0}, Полное описание = {1}", kvp.Key, kvp.Value);
+                Console.WriteLine("Список пуст.");
             }
-            foreach (KeyValuePair<string, string> elem in format)
+            else 
             {
-                Console.WriteLine("Короткое описание = {0}, Полное описание = {1}", elem.Key, elem.Value);
-            }
+                foreach (KeyValuePair<string, string> elem in format)
+                {
+                    Console.WriteLine("Короткое описание = {0}, Полное описание = {1}", elem.Key, elem.Value);
+                }
+            }    
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }
@@ -117,6 +114,15 @@ namespace _1._2
         static void Main(string[] args)
         {
             Dictionary<string, string> Format = new Dictionary<string, string>();
+            Format.Add("png", "portable network graphics");
+            Format.Add("txt", "text");
+            Format.Add("jpg", "joint photographic experts group");
+            Format.Add("gif", "graphics interchange format");
+            Format.Add("doc", "document");
+            foreach (KeyValuePair<string, string> kvp in Format)
+            {
+                Console.WriteLine("Короткое описание = {0}, Полное описание = {1}", kvp.Key, kvp.Value);
+            }
             ConsoleKey key = ConsoleKey.Enter;
             do
             {
