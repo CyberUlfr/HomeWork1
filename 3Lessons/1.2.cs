@@ -39,7 +39,7 @@ namespace _1._2
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }
-        static public void GetElem(Dictionary<string, string> format)
+        static public void AddElem(Dictionary<string, string> format)
         {
             Console.Clear();
             Console.Write("Введите короткое описание формата: ");
@@ -68,20 +68,18 @@ namespace _1._2
             Console.Clear();
             Console.Write("Введите короткое описание формата который хотите удалить: ");
             string shortDescription = Console.ReadLine();
-            if (shortDescription.Trim() != "")
+            while (shortDescription.Trim() == "")
             {
-                if (format.Remove(shortDescription)) 
-                {
-                    Console.Write("Формат удалён");
-                }
-                else 
-                {
-                    Console.Write("Формат введен неверно");
-                }
+                Console.Write("Попробуйте снова ввести формат: ");
+                shortDescription = Console.ReadLine();
+            }
+            if (format.Remove(shortDescription))
+            {
+                Console.Write("Формат удалён");
             }
             else
             {
-                Console.WriteLine("Попробуйте снова ввести формат");
+                Console.Write("Формат введен неверно");
             }
             Console.WriteLine();
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
@@ -92,20 +90,18 @@ namespace _1._2
             Console.Clear();
             Console.Write("Введите короткое описание формата который хотите найти: ");
             string shortDescription = Console.ReadLine();
-            if (shortDescription.Trim() != "")
+            while (shortDescription.Trim() == "")
             {
-                if (format.ContainsKey(shortDescription))
-                {
-                    Console.Write(format[shortDescription]);
-                }
-                else
-                {
-                    Console.Write("Формат введен неверно");
-                }
+                Console.Write("Попробуйте снова ввести формат: ");
+                shortDescription = Console.ReadLine();
+            }
+            if (format.ContainsKey(shortDescription))
+            {
+                Console.Write($"Полное описание = {format[shortDescription]}");
             }
             else
             {
-                Console.WriteLine("Попробуйте снова ввести формат");
+                Console.Write("Формат введен неверно");
             }
             Console.WriteLine();
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
@@ -134,7 +130,7 @@ namespace _1._2
                         PrintList(Format);
                         break;
                     case ConsoleKey.D2:
-                        GetElem(Format);
+                        AddElem(Format);
                         break;
                     case ConsoleKey.D3:
                         RemoveElem(Format);

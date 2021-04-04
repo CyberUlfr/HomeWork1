@@ -24,7 +24,6 @@ namespace _1._1
             Console.Write("Отсортированные элементы массива:");
             for (int nums = 0; nums < arraySize; ++nums)
             {
-                Array.Sort(array);
                 Console.Write(array[nums]);
             }
             Console.WriteLine();
