@@ -1,0 +1,7 @@
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\HomeWork1\travelOrganizer\travelOrganizer\bin\Debug\travelOrganizer.exe.config
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\HomeWork1\travelOrganizer\travelOrganizer\bin\Debug\travelOrganizer.exe
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\HomeWork1\travelOrganizer\travelOrganizer\bin\Debug\travelOrganizer.pdb
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\HomeWork1\travelOrganizer\travelOrganizer\obj\Debug\travelOrganizer.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\HomeWork1\travelOrganizer\travelOrganizer\obj\Debug\travelOrganizer.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\HomeWork1\travelOrganizer\travelOrganizer\obj\Debug\travelOrganizer.exe
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\HomeWork1\travelOrganizer\travelOrganizer\obj\Debug\travelOrganizer.pdb
