@@ -12,7 +12,6 @@ namespace travelOrganizer
              "2 - Добавить то что нужно купить",
              "3 - Удалить вещь из списка",
              "4 - Поиск вещей из списка",
-             "5 - Сортировка по цене",
              "6 - Выход",
         };
         static public void PrintMenu()
@@ -27,38 +26,82 @@ namespace travelOrganizer
         static public void PrintList(Dictionary<string, int> format)
         {
             Console.Clear();
-            if (format.Count == 0)
+            Console.WriteLine("1 - Вывести список");
+            Console.WriteLine("2 - Сортировать по возрастанию");
+            Console.WriteLine("3 - Сортировать по убыванию");
+            Console.WriteLine("4 - Вернуться в меню");
+            void list()
             {
-                Console.WriteLine("Список пуст.");
-            }
-            else
-            {
-                foreach (KeyValuePair<string, int> elem in format)
+                Console.Clear();
+                if (format.Count == 0)
                 {
-                    Console.WriteLine("Название продукта = {0}, Его стоймость = {1} руб.", elem.Key, elem.Value);
+                    Console.WriteLine("Список пуст.");
                 }
-            }
-            Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
-            Console.ReadKey();
-        }
-        static public void PrintListSorted(Dictionary<string, int> format)
-        {
-            Console.Clear();
-            if (format.Count == 0)
-            {
-                Console.WriteLine("Список пуст.");
-            }
-            else
-            {
-                IEnumerable<KeyValuePair<string, int>> sortedPrice = format.OrderBy(elem => elem.Value);
-                foreach (KeyValuePair<string, int> elem in sortedPrice)
+                else
                 {
-                    Console.WriteLine("Название продукта = {0}, Его стоймость = {1} руб.", elem.Key, elem.Value);
+                    foreach (KeyValuePair<string, int> elem in format)
+                    {
+                        Console.WriteLine("Название продукта = {0}, Его стоймость = {1} руб.", elem.Key, elem.Value);
+                    }
                 }
+                Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
+                Console.ReadKey();
             }
-            Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
-            Console.ReadKey();
-        }
+            void ListSortedIncrease()
+            {
+                Console.Clear();
+                if (format.Count == 0)
+                {
+                    Console.WriteLine("Список пуст.");
+                }
+                else
+                {
+                    IEnumerable<KeyValuePair<string, int>> sortedPrice = format.OrderBy(elem => elem.Value);
+                    foreach (KeyValuePair<string, int> elem in sortedPrice)
+                    {
+                        Console.WriteLine("Название продукта = {0}, Его стоймость = {1} руб.", elem.Key, elem.Value);
+                    }
+                }
+                Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
+                Console.ReadKey();
+            }
+            void ListSortedDescending()
+            {
+                Console.Clear();
+                if (format.Count == 0)
+                {
+                    Console.WriteLine("Список пуст.");
+                }
+                else
+                {
+                    IEnumerable<KeyValuePair<string, int>> sortedPrice = format.OrderByDescending(elem => elem.Value);
+                    foreach (KeyValuePair<string, int> elem in sortedPrice)
+                    {
+                        Console.WriteLine("Название продукта = {0}, Его стоймость = {1} руб.", elem.Key, elem.Value);
+                    }
+                }
+                Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
+                Console.ReadKey();
+            }
+            ConsoleKey key = ConsoleKey.Enter;
+            key = Console.ReadKey().Key;
+            switch (key)
+            {
+                case ConsoleKey.D1:
+                    list();
+                    break;
+                case ConsoleKey.D2:
+                    ListSortedIncrease();
+                    break;
+                case ConsoleKey.D3:
+                    ListSortedDescending();
+                    break;
+                case ConsoleKey.D4:
+                    Console.WriteLine("Удачи!");
+                    break;
+                default: break;
+            }       
+        } 
         static public void AddElem(Dictionary<string, int> format)
         {
             Console.Clear();
@@ -144,9 +187,6 @@ namespace travelOrganizer
                         break;
                     case ConsoleKey.D4:
                         SearchElem(Format);
-                        break;
-                    case ConsoleKey.D5:
-                        PrintListSorted(Format);
                         break;
                     default: continue;
                 }
