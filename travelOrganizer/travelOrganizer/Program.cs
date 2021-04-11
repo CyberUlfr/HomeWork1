@@ -23,13 +23,17 @@ namespace travelOrganizer
             }
             Console.WriteLine("Нажмите цифру, соотсвтующию номеру меню.");
         }
-        static public void PrintList(Dictionary<string, int> format)
+        static public void PrintList(Dictionary<string, double> format)
         {
             Console.Clear();
             Console.WriteLine("1 - Вывести список");
             Console.WriteLine("2 - Сортировать по возрастанию");
             Console.WriteLine("3 - Сортировать по убыванию");
-            Console.WriteLine("4 - Вернуться в меню");
+            Console.WriteLine("4 - фильтр цен до 100 руб");
+            Console.WriteLine("5 - Первести цену из руб. в доллары");
+            Console.WriteLine("6 - Посчитать общую стоймость");
+            Console.WriteLine("7 - Самый дешевый и дорогой продукт");
+            Console.WriteLine("8 - Вернуться в меню");
             void list()
             {
                 Console.Clear();
@@ -39,9 +43,9 @@ namespace travelOrganizer
                 }
                 else
                 {
-                    foreach (KeyValuePair<string, int> elem in format)
+                    foreach (KeyValuePair<string, double> elem in format)
                     {
-                        Console.WriteLine("Название продукта = {0}, Его стоймость = {1} руб.", elem.Key, elem.Value);
+                        Console.WriteLine("Название продукта = {0}, Его стоймость = {1:N2} руб.", elem.Key, elem.Value);
                     }
                 }
                 Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
@@ -56,10 +60,10 @@ namespace travelOrganizer
                 }
                 else
                 {
-                    IEnumerable<KeyValuePair<string, int>> sortedPrice = format.OrderBy(elem => elem.Value);
-                    foreach (KeyValuePair<string, int> elem in sortedPrice)
+                    var sortedPrice = format.OrderBy(elem => elem.Value);
+                    foreach (KeyValuePair<string, double> elem in sortedPrice)
                     {
-                        Console.WriteLine("Название продукта = {0}, Его стоймость = {1} руб.", elem.Key, elem.Value);
+                        Console.WriteLine("Название продукта = {0}, Его стоймость = {1:N2} руб.", elem.Key, elem.Value);
                     }
                 }
                 Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
@@ -74,11 +78,77 @@ namespace travelOrganizer
                 }
                 else
                 {
-                    IEnumerable<KeyValuePair<string, int>> sortedPrice = format.OrderByDescending(elem => elem.Value);
-                    foreach (KeyValuePair<string, int> elem in sortedPrice)
+                    var sortedPrice = format.OrderByDescending(elem => elem.Value);
+                    foreach (KeyValuePair<string, double> elem in sortedPrice)
                     {
-                        Console.WriteLine("Название продукта = {0}, Его стоймость = {1} руб.", elem.Key, elem.Value);
+                        Console.WriteLine("Название продукта = {0}, Его стоймость = {1:N2} руб.", elem.Key, elem.Value);
                     }
+                }
+                Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
+                Console.ReadKey();
+            }
+            void ListPriceBelow100()
+            {
+                Console.Clear();
+                if (format.Count == 0)
+                {
+                    Console.WriteLine("Список пуст.");
+                }
+                else
+                {
+                    var Below100 = format.Where(elem => elem.Value >= 100);
+                    foreach (KeyValuePair<string, double> elem in Below100)
+                    {
+                        Console.WriteLine("Название продукта = {0}, Его стоймость = {1:N2} руб.", elem.Key, elem.Value);
+                    }
+                }
+                Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
+                Console.ReadKey();
+            }
+            void ListTransferToDollars()
+            {
+                Console.Clear();
+                if (format.Count == 0)
+                {
+                    Console.WriteLine("Список пуст.");
+                }
+                else
+                {
+                    foreach (KeyValuePair<string, double> elem in format.Select(elem => new KeyValuePair<string, double>(elem.Key, elem.Value / 77)))
+                    {
+                        Console.WriteLine("Название продукта = {0}, Его стоймость в долларах = {1:N2} usd.", elem.Key, elem.Value);
+                    }
+                }
+                Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
+                Console.ReadKey();
+            }
+            void Sum()
+            {
+                Console.Clear();
+                if (format.Count == 0)
+                {
+                    Console.WriteLine("Список пуст.");
+                }
+                else
+                {
+                    var sum = format.Aggregate((elem1, elem2) => new KeyValuePair<string, double>(elem1.Key, elem1.Value + elem2.Value));
+                    Console.WriteLine($"Сумма всех продуктов = {sum.Value:N2} руб.");
+                }
+                Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
+                Console.ReadKey();
+            }
+            void MinMax()
+            {
+                Console.Clear();
+                if (format.Count == 0)
+                {
+                    Console.WriteLine("Список пуст.");
+                }
+                else
+                {
+                    var Min = format.Min(elem => (elem.Key, elem.Value));
+                    var Max = format.Max(elem => (elem.Key, elem.Value));
+                    Console.WriteLine($"Самый дешевый продукт = {Min:N2} руб. Самый дорогой продукт = {Max:N2} руб.");
                 }
                 Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
                 Console.ReadKey();
@@ -97,12 +167,24 @@ namespace travelOrganizer
                     ListSortedDescending();
                     break;
                 case ConsoleKey.D4:
+                    ListPriceBelow100();
+                    break;
+                case ConsoleKey.D5:
+                    ListTransferToDollars();
+                    break;
+                case ConsoleKey.D6:
+                    Sum();
+                    break;
+                case ConsoleKey.D7:
+                    MinMax();
+                    break;
+                case ConsoleKey.D8:
                     Console.WriteLine("Удачи!");
                     break;
                 default: break;
-            }       
-        } 
-        static public void AddElem(Dictionary<string, int> format)
+            }
+        }
+        static public void AddElem(Dictionary<string, double> format)
         {
             Console.Clear();
             Console.Write("Введите название продукта: ");
@@ -122,7 +204,7 @@ namespace travelOrganizer
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }
-        static public void RemoveElem(Dictionary<string, int> format)
+        static public void RemoveElem(Dictionary<string, double> format)
         {
             Console.Clear();
             Console.Write("Введите название продукта который хотите удалить из списка: ");
@@ -144,7 +226,7 @@ namespace travelOrganizer
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }
-        static public void SearchElem(Dictionary<string, int> format)
+        static public void SearchElem(Dictionary<string, double> format)
         {
             Console.Clear();
             Console.Write("Введите название продукта который хотите хотите найти: ");
@@ -168,7 +250,7 @@ namespace travelOrganizer
         }
         static void Main(string[] args)
         {
-            Dictionary<string, int> Format = new Dictionary<string, int>();
+            Dictionary<string, double> Format = new Dictionary<string, double>();
             ConsoleKey key = ConsoleKey.Enter;
             do
             {
