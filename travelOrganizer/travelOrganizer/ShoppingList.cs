@@ -4,15 +4,15 @@ using System.Linq;
 
 namespace travelOrganizer
 {
-    class Program
+    class ShoppingList
     {
         static public string[] MenuStrings =
         {
-             "1 - Меню списка покупок в поездку",
+             "1 - Меню работы со списком покупок",
              "2 - Добавить то что нужно купить",
              "3 - Удалить вещь из списка",
              "4 - Поиск вещей из списка",
-             "6 - Выход",
+             "6 - Вернуться в основное меню",
         };
         static public void PrintMenu()
         {
@@ -33,7 +33,7 @@ namespace travelOrganizer
             Console.WriteLine("5 - Первести цену из руб. в доллары");
             Console.WriteLine("6 - Посчитать общую стоймость");
             Console.WriteLine("7 - Самый дешевый и дорогой продукт");
-            Console.WriteLine("8 - Вернуться в меню");
+            Console.WriteLine("8 - Вернуться в меню покупок");
             void list()
             {
                 Console.Clear();
@@ -248,7 +248,7 @@ namespace travelOrganizer
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }
-        static void Main(string[] args)
+        public static void Start()
         {
             Dictionary<string, double> Format = new Dictionary<string, double>();
             ConsoleKey key = ConsoleKey.Enter;
