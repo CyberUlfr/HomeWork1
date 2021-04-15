@@ -39,23 +39,7 @@ namespace travelOrganizer
             }
             Console.WriteLine("Нажмите цифру, соотсвтующию номеру меню.");
         }
-        public void list()
-        {
-            Console.Clear();
-            if (format.Count == 0)
-            {
-                Console.WriteLine("Список пуст.");
-            }
-            else
-            {
-                foreach ()
-                {
-                    Console.WriteLine();
-                }
-            }
-            Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
-            Console.ReadKey();
-        }
+        
     }
     class travel
     {
@@ -82,7 +66,6 @@ namespace travelOrganizer
             {
                 Console.Write("Попробуйте снова ввести растояние: ");
             }
-            travel.Add(distance);
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }

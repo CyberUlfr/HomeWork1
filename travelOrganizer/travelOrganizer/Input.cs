@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace travelOrganizer
 {
-    class Menu
+    class Input
     {
         static private string[] MainMenuStrings { get; set; } =
         {
-             "1 - Меню покупок",
-             "2 - Меню статистики",
+             "1 - Список пользователей",
+             "2 - Меню админа",
              "3 - Выход",
         };
         static public void PrintMainMenu()
@@ -23,7 +19,7 @@ namespace travelOrganizer
             }
             Console.WriteLine("Нажмите цифру, соотсвтующию номеру меню.");
         }
-        public static void MenuRun ()
+        public static void Main(string[] args)
         {
             ConsoleKey key = ConsoleKey.Enter;
             do
@@ -33,17 +29,24 @@ namespace travelOrganizer
                 switch (key)
                 {
                     case ConsoleKey.D1:
-                        ShoppingListMenu();
+                        Users1();
                         break;
                     default: continue;
+                    case ConsoleKey.D2:
+                        Admin();
+                        break;
                 }
             } while (key != ConsoleKey.D3);
             Console.WriteLine("Удачи!");
-
         }
-        public static void ShoppingListMenu()
+        public static void Users1()
         {
-            ShoppingList.Start();
+            Users.StartUser();
+        }
+        private static void Admin()
+        {
+            Console.Write("Введите имя пользователя: ");
         }
     }
 }
+
