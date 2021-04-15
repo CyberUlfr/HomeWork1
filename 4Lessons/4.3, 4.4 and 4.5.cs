@@ -63,7 +63,7 @@ namespace _4._3_and_4._4
             List<int> collection = new List<int>(50);
             for (int i = 0; i < 50; i++)
             {
-                collection.Add(rand.Next(0, 25));
+                collection.Add(rand.Next(0, 26));
             }
             foreach (int elem in collection.Where(x => x >= 10 & x <= 20).Distinct().OrderByDescending(x => x))
             {
