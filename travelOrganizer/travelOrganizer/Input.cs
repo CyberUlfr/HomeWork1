@@ -41,11 +41,16 @@ namespace travelOrganizer
         }
         public static void Users1()
         {
-            Users.StartUser();
+            User.StartUser();
         }
-        private static void Admin()
+        public static void Admin()
         {
             Console.Write("Введите имя пользователя: ");
+            var userName = Console.ReadLine();
+            if (!string.IsNullOrWhiteSpace(userName))
+            {
+                User.Name.Add(userName);
+            }
         }
     }
 }
