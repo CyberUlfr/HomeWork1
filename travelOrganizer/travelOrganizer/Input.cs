@@ -31,10 +31,10 @@ namespace travelOrganizer
                     case ConsoleKey.D1:
                         Users1();
                         break;
-                    default: continue;
                     case ConsoleKey.D2:
                         Admin();
                         break;
+                    default: continue;
                 }
             } while (key != ConsoleKey.D3);
             Console.WriteLine("Удачи!");
@@ -45,11 +45,12 @@ namespace travelOrganizer
         }
         public static void Admin()
         {
+            Console.Clear();
             Console.Write("Введите имя пользователя: ");
             var userName = Console.ReadLine();
             if (!string.IsNullOrWhiteSpace(userName))
             {
-                User.Name.Add(userName);
+                new User(userName);
             }
         }
     }

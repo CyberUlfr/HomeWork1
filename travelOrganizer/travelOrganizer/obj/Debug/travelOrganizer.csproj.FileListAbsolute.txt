@@ -12,3 +12,13 @@ C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\travelOrga
 C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\travelOrganizer\obj\Debug\travelOrganizer.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\travelOrganizer\obj\Debug\travelOrganizer.exe
 C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\travelOrganizer\obj\Debug\travelOrganizer.pdb
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\travelOrganizer\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\travelOrganizer\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\travelOrganizer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\travelOrganizer\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\travelOrganizer\bin\Debug\Twilio.dll
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\travelOrganizer\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\travelOrganizer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\travelOrganizer\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\travelOrganizer\bin\Debug\Twilio.xml
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\travelOrganizer\obj\Debug\travelOrganizer.csproj.CopyComplete
