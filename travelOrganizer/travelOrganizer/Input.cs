@@ -17,7 +17,7 @@ namespace travelOrganizer
             {
                 Console.WriteLine(mainmenuString);
             }
-            Console.WriteLine("Нажмите цифру, соотсвтующию номеру меню.");
+            Console.WriteLine("Нажмите цифру, соответствующую номеру меню.");
         }
         public static void Main(string[] args)
         {

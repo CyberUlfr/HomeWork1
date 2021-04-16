@@ -21,7 +21,7 @@ namespace travelOrganizer
             {
                 Console.WriteLine(menuString);
             }
-            Console.WriteLine("Нажмите цифру, соотсвтующию номеру меню.");
+            Console.WriteLine("Нажмите цифру, соответствующую номеру меню.");
         }
         static public void PrintList(Dictionary<string, double> format)
         {
@@ -29,7 +29,7 @@ namespace travelOrganizer
             Console.WriteLine("1 - Вывести список");
             Console.WriteLine("2 - Сортировать по возрастанию");
             Console.WriteLine("3 - Сортировать по убыванию");
-            Console.WriteLine("4 - фильтр цен до 100 руб");
+            Console.WriteLine("4 - Фильтр цен до 100 руб");
             Console.WriteLine("5 - Первести цену из руб. в доллары");
             Console.WriteLine("6 - Посчитать общую стоймость");
             Console.WriteLine("7 - Самый дешевый и дорогой продукт");
@@ -96,7 +96,7 @@ namespace travelOrganizer
                 }
                 else
                 {
-                    var Below100 = format.Where(elem => elem.Value >= 100);
+                    var Below100 = format.Where(elem => elem.Value <= 100);
                     foreach (KeyValuePair<string, double> elem in Below100)
                     {
                         Console.WriteLine("Название продукта = {0}, Его стоймость = {1:N2} руб.", elem.Key, elem.Value);
@@ -146,9 +146,9 @@ namespace travelOrganizer
                 }
                 else
                 {
-                    var Min = format.Min(elem => (elem.Key, elem.Value));
-                    var Max = format.Max(elem => (elem.Key, elem.Value));
-                    Console.WriteLine($"Самый дешевый продукт = {Min:N2} руб. Самый дорогой продукт = {Max:N2} руб.");
+                    var Min = format.Min(elem => (elem.Value, elem.Key));
+                    var Max = format.Max(elem => (elem.Value, elem.Key));
+                    Console.WriteLine($"Самый дешевый продукт = {Min.Key} : {Min.Value:N2} руб. Самый дорогой продукт = {Max.Key} : {Max.Value:N2} руб.");
                 }
                 Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
                 Console.ReadKey();
