@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace travelOrganizer
 {
@@ -10,7 +8,7 @@ namespace travelOrganizer
     {
         public static List<User> Users { get; set; } = new List<User>();
         public string Name { get; set; }
-        public User (string name)
+        public User(string name)
         {
             Name = name;
             Users.Add(this);

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace travelOrganizer
 {
@@ -21,9 +17,9 @@ namespace travelOrganizer
             {
                 Console.WriteLine(mainmenuString);
             }
-            Console.WriteLine("Нажмите цифру, соотсвтующию номеру меню.");
+            Console.WriteLine("Нажмите цифру, соответствующую номеру меню.");
         }
-        public static void MenuRun ()
+        public static void MenuRun()
         {
             ConsoleKey key = ConsoleKey.Enter;
             do

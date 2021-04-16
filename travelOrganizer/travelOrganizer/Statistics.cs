@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace travelOrganizer
 {
@@ -21,7 +20,7 @@ namespace travelOrganizer
             {
                 Console.WriteLine(menuStatistics);
             }
-            Console.WriteLine("Нажмите цифру, соотсвтующию номеру меню.");
+            Console.WriteLine("Нажмите цифру, соответствующую номеру меню.");
         }
         static public string[] ListStatistics =
         {
@@ -37,9 +36,9 @@ namespace travelOrganizer
             {
                 Console.WriteLine(listStatistics);
             }
-            Console.WriteLine("Нажмите цифру, соотсвтующию номеру меню.");
+            Console.WriteLine("Нажмите цифру, соответствующую номеру меню.");
         }
-        
+
     }
     class travel
     {

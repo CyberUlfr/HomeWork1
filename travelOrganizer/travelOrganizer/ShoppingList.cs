@@ -12,7 +12,7 @@ namespace travelOrganizer
              "2 - Добавить то что нужно купить",
              "3 - Удалить вещь из списка",
              "4 - Поиск вещей из списка",
-             "6 - Вернуться в основное меню",
+             "5 - Вернуться в основное меню",
         };
         static public void PrintMenu()
         {
@@ -188,19 +188,19 @@ namespace travelOrganizer
         {
             Console.Clear();
             Console.Write("Введите название продукта: ");
-            string shortDescription = Console.ReadLine();
-            while (shortDescription.Trim() == "")
+            string productName = Console.ReadLine();
+            while (productName.Trim() == "")
             {
                 Console.Write("Попробуйте снова ввести название: ");
-                shortDescription = Console.ReadLine();
+                productName = Console.ReadLine();
             }
             Console.Write("Введите стоимость продукта в рублях: ");
-            int fullDescription;
-            while (!Int32.TryParse(Console.ReadLine(), out fullDescription))
+            int price;
+            while (!Int32.TryParse(Console.ReadLine(), out price))
             {
                 Console.Write("Попробуйте снова ввести стоимость: ");
             }
-            format.Add(shortDescription, fullDescription);
+            format.Add(productName, price);
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }
@@ -208,13 +208,13 @@ namespace travelOrganizer
         {
             Console.Clear();
             Console.Write("Введите название продукта который хотите удалить из списка: ");
-            string shortDescription = Console.ReadLine();
-            while (shortDescription.Trim() == "")
+            string productName = Console.ReadLine();
+            while (productName.Trim() == "")
             {
                 Console.Write("Попробуйте снова ввести название: ");
-                shortDescription = Console.ReadLine();
+                productName = Console.ReadLine();
             }
-            if (format.Remove(shortDescription))
+            if (format.Remove(productName))
             {
                 Console.Write("Продукт удалён");
             }
@@ -230,15 +230,15 @@ namespace travelOrganizer
         {
             Console.Clear();
             Console.Write("Введите название продукта который хотите хотите найти: ");
-            string shortDescription = Console.ReadLine();
-            while (shortDescription.Trim() == "")
+            string productName = Console.ReadLine();
+            while (productName.Trim() == "")
             {
                 Console.Write("Попробуйте снова ввести название: ");
-                shortDescription = Console.ReadLine();
+                productName = Console.ReadLine();
             }
-            if (format.ContainsKey(shortDescription))
+            if (format.ContainsKey(productName))
             {
-                Console.Write($"Стоимость продукта = {format[shortDescription]} руб.");
+                Console.Write($"Стоимость продукта = {format[productName]} руб.");
             }
             else
             {
@@ -272,7 +272,7 @@ namespace travelOrganizer
                         break;
                     default: continue;
                 }
-            } while (key != ConsoleKey.D6);
+            } while (key != ConsoleKey.D5);
             Console.WriteLine("Удачи!");
         }
     }
