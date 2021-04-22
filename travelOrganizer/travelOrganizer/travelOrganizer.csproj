@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminMenu.cs" />
     <Compile Include="Journey.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Input.cs" />

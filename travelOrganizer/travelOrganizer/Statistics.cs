@@ -5,18 +5,18 @@ namespace travelOrganizer
 {
     class Statistics
     {
-        static public string[] MenuStatistics =
+        static public string[] MenuStatisticsString =
         {
              "1 - Статистика по путешествиям",
              "2 - Записать сколько км. проехал в путешествии",
              "3 - Записать сколько часов провел в путешествии",
              "4 - Записать сколько потратил денег в путешествии",
-             "6 - Вернуться в основное меню",
+             "5 - Вернуться в основное меню",
         };
         static public void PrintMenuStatistics()
         {
             Console.Clear();
-            foreach (var menuStatistics in MenuStatistics)
+            foreach (var menuStatistics in MenuStatisticsString)
             {
                 Console.WriteLine(menuStatistics);
             }
@@ -38,25 +38,45 @@ namespace travelOrganizer
             }
             Console.WriteLine("Нажмите цифру, соответствующую номеру меню.");
         }
-
+        public static void MenuStatistics()
+        {
+            ConsoleKey key = ConsoleKey.Enter;
+            do
+            {
+                PrintMenuStatistics();
+                key = Console.ReadKey().Key;
+                switch (key)
+                {
+                    case ConsoleKey.D1:
+                        Travel.AddDistance();
+                        break;
+                    case ConsoleKey.D1:
+                        Travel.AddDistance();
+                        break;
+                    default: continue;
+                }
+            } while (key != ConsoleKey.D3);
+            Console.WriteLine("Удачи!");
+        }
     }
-    class travel
+    class Travel
     {
-        public double Distance { get; set; }
+        public static List<Travel> Travels { get; set; } = new List<Travel>();
+        public static double Distance { get; set; }
         public double Time { get; set; }
         public double Money { get; set; }
-        public travel(double distance, double time, double money)
+        public Travel(Journey Journeys, double distance, double time, double money)
         {
             Distance = distance;
             Time = time;
             Money = money;
+            Travels.Add(this);
         }
-
         public override string ToString()
         {
             return string.Format("{0};{1};{2}", Distance, Time, Money);
         }
-        static public void AddDistance(List<double> travel)
+        public static void AddDistance()
         {
             Console.Clear();
             Console.Write("Введите растояние пройденное в путешествии: ");
@@ -65,10 +85,11 @@ namespace travelOrganizer
             {
                 Console.Write("Попробуйте снова ввести растояние: ");
             }
+            Distance = distance;
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }
-        static public void AddTime(List<double> travel)
+        public void AddTime(Travel travel)
         {
             Console.Clear();
             Console.Write("Введите время проведенное в путешествии: ");
@@ -77,11 +98,11 @@ namespace travelOrganizer
             {
                 Console.Write("Попробуйте снова ввести время: ");
             }
-            travel.Add(time);
+            travel.Time = time;
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }
-        static public void AddMoney(List<double> travel)
+        public void AddMoney(Travel travel)
         {
             Console.Clear();
             Console.Write("Введите количество денег потраченные в путешествии: ");
@@ -90,9 +111,13 @@ namespace travelOrganizer
             {
                 Console.Write("Попробуйте снова ввести количество денег: ");
             }
-            travel.Add(money);
+            travel.Money = money;
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
+        }
+        public void PrintStatistic()
+        {
+            Console.WriteLine(ToString());
         }
 
     }

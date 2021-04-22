@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace travelOrganizer
 {
@@ -7,17 +8,26 @@ namespace travelOrganizer
     {
         public static Dictionary<int, Journey> Journeys { get; set; } = new Dictionary<int, Journey>();
         public string Name { get; set; }
-        public int Number { get; set; }
-        public Journey(int number, string name)
+        public static int GetFirstFreeNumber()
+        {
+            int number = 1;
+            foreach (var journey in Journey.Journeys.OrderBy(j => j.Key))
+                if (journey.Key == number)
+                    number++;
+            return number;
+        }
+        static Journey()
+        {
+            new Journey("Поездка в артышту");
+        }
+        public Journey(string name)
         {
             Name = name;
-            Number = number;
-            Journeys.Add(number, this);
+            Journeys.Add(GetFirstFreeNumber(), this);
         }
         static public void StartJourney()
         {
             Console.Clear();
-            new Journey(1, "Поездка в артышту");
             foreach (KeyValuePair<int, Journey> keyValue in Journeys)
             {
                 Console.WriteLine("{0}:Название путешествия - {1}", keyValue.Key, keyValue.Value.Name);
@@ -25,10 +35,13 @@ namespace travelOrganizer
             do
             {
                 Console.Write("Введите номер путишествия: ");
-                var journeyNumber = Console.ReadLine();
-                Menu.MenuRun();
+                int journeyNumber = Convert.ToInt32(Console.ReadLine());
+                if (Journeys.ContainsKey(journeyNumber))
+                {
+                    Menu.MenuRun();
+                }
                 Console.Clear();
-                Console.WriteLine("Пользователь введен неверно.");
+                Console.WriteLine("Номер путишествия введен неверно.");
             } while (true);
         }
     }

@@ -12,7 +12,7 @@ namespace travelOrganizer
              "2 - Добавить то что нужно купить",
              "3 - Удалить вещь из списка",
              "4 - Поиск вещей из списка",
-             "5 - Вернуться в основное меню",
+             "5 - Вернуться назад",
         };
         static public void PrintMenu()
         {
@@ -273,6 +273,7 @@ namespace travelOrganizer
                     default: continue;
                 }
             } while (key != ConsoleKey.D5);
+
             Console.WriteLine("Удачи!");
         }
     }

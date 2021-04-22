@@ -8,9 +8,9 @@ namespace travelOrganizer
         {
              "1 - Меню покупок",
              "2 - Меню статистики",
-             "3 - Выход",
+             "3 - Вернуться в основное меню",
         };
-        static public void PrintMainMenu()
+        static public void PrintMenu()
         {
             Console.Clear();
             foreach (var mainmenuString in MainMenuStrings)
@@ -24,18 +24,19 @@ namespace travelOrganizer
             ConsoleKey key = ConsoleKey.Enter;
             do
             {
-                PrintMainMenu();
+                PrintMenu();
                 key = Console.ReadKey().Key;
                 switch (key)
                 {
                     case ConsoleKey.D1:
                         ShoppingListMenu();
                         break;
-                    default: continue;
+                    case ConsoleKey.D2:
+                        Statistics.MenuStatistics();
+                        break;
                 }
             } while (key != ConsoleKey.D3);
-            Console.WriteLine("Удачи!");
-
+            Input.Main();
         }
         public static void ShoppingListMenu()
         {

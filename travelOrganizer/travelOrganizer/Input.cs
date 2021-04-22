@@ -19,7 +19,7 @@ namespace travelOrganizer
             }
             Console.WriteLine("Нажмите цифру, соответствующую номеру меню.");
         }
-        public static void Main(string[] args)
+        public static void Main()
         {
             ConsoleKey key = ConsoleKey.Enter;
             do
@@ -32,7 +32,7 @@ namespace travelOrganizer
                         Users1();
                         break;
                     case ConsoleKey.D2:
-                        Admin();
+                        PrintMenuAdmin1();
                         break;
                     default: continue;
                 }
@@ -43,15 +43,9 @@ namespace travelOrganizer
         {
             User.StartUser();
         }
-        public static void Admin()
+        public static void PrintMenuAdmin1()
         {
-            Console.Clear();
-            Console.Write("Введите имя пользователя: ");
-            var userName = Console.ReadLine();
-            if (!string.IsNullOrWhiteSpace(userName))
-            {
-                new User(userName);
-            }
+            AdminMenu.MenuAdmin();
         }
     }
 }

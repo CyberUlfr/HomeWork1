@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace travelOrganizer
 {
-    class User
+    public class User
     {
         public static List<User> Users { get; set; } = new List<User>();
         public string Name { get; set; }
@@ -13,11 +13,14 @@ namespace travelOrganizer
             Name = name;
             Users.Add(this);
         }
+        static User()
+        {
+            new User("Костя");
+            new User("Кирилл");
+        }
         static public void StartUser()
         {
             Console.Clear();
-            new User("Костя");
-            new User("Кирилл");
             foreach (var user in User.Users)
             {
                 Console.WriteLine("Список пользователей = {0}", user.Name);
@@ -28,7 +31,7 @@ namespace travelOrganizer
                 var userName = Console.ReadLine();
                 if (!string.IsNullOrWhiteSpace(userName) && Users.Any(user => user.Name == userName))
                 {
-                    Menu.MenuRun();
+                    Journey.StartJourney();
                 }
                 Console.Clear();
                 Console.WriteLine("Пользователь введен неверно.");
