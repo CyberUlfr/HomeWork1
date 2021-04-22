@@ -31,9 +31,7 @@ namespace travelOrganizer
                     case ConsoleKey.D1:
                         ShoppingListMenu();
                         break;
-                    case ConsoleKey.D2:
-                        Statistics.MenuStatistics();
-                        break;
+
                 }
             } while (key != ConsoleKey.D3);
             Input.Main();

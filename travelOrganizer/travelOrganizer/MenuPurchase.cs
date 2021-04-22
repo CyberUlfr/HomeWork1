@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace travelOrganizer
 {
-    class ShoppingList
+    class MenuPurchase
     {
         static public string[] MenuStrings =
         {
@@ -23,17 +23,116 @@ namespace travelOrganizer
             }
             Console.WriteLine("Нажмите цифру, соответствующую номеру меню.");
         }
+        
+        static public void AddElem(Dictionary<string, double> format)
+        {
+            Console.Clear();
+            Console.Write("Введите название продукта: ");
+            string productName = Console.ReadLine();
+            while (productName.Trim() == "")
+            {
+                Console.Write("Попробуйте снова ввести название: ");
+                productName = Console.ReadLine();
+            }
+            Console.Write("Введите стоимость продукта в рублях: ");
+            int price;
+            while (!Int32.TryParse(Console.ReadLine(), out price))
+            {
+                Console.Write("Попробуйте снова ввести стоимость: ");
+            }
+            format.Add(productName, price);
+            Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
+            Console.ReadKey();
+        }
+        static public void RemoveElem(Dictionary<string, double> format)
+        {
+            Console.Clear();
+            Console.Write("Введите название продукта который хотите удалить из списка: ");
+            string productName = Console.ReadLine();
+            while (productName.Trim() == "")
+            {
+                Console.Write("Попробуйте снова ввести название: ");
+                productName = Console.ReadLine();
+            }
+            if (format.Remove(productName))
+            {
+                Console.Write("Продукт удалён");
+            }
+            else
+            {
+                Console.Write("Название продукта введено неверно");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
+            Console.ReadKey();
+        }
+        static public void SearchElem(Dictionary<string, double> format)
+        {
+            Console.Clear();
+            Console.Write("Введите название продукта который хотите хотите найти: ");
+            string productName = Console.ReadLine();
+            while (productName.Trim() == "")
+            {
+                Console.Write("Попробуйте снова ввести название: ");
+                productName = Console.ReadLine();
+            }
+            if (format.ContainsKey(productName))
+            {
+                Console.Write($"Стоимость продукта = {format[productName]} руб.");
+            }
+            else
+            {
+                Console.Write("Название продукта введено неверно");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
+            Console.ReadKey();
+        }
+        public static void Start()
+        {
+            Dictionary<string, double> Format = new Dictionary<string, double>();
+            ConsoleKey key = ConsoleKey.Enter;
+            do
+            {
+                PrintMenu();
+                key = Console.ReadKey().Key;
+                switch (key)
+                {
+                    case ConsoleKey.D1:
+                        PrintList(Format);
+                        break;
+                    case ConsoleKey.D2:
+                        AddElem(Format);
+                        break;
+                    case ConsoleKey.D3:
+                        RemoveElem(Format);
+                        break;
+                    case ConsoleKey.D4:
+                        SearchElem(Format);
+                        break;
+                    default: continue;
+                }
+            } while (key != ConsoleKey.D5);
+
+            Console.WriteLine("Удачи!");
+        }
+    }
+    class ListPurchase
+    {
+        static public string[] MenuStrings =
+        {
+             "1 - Вывести список",
+             "2 - Сортировать по возрастанию",
+             "3 - Сортировать по убыванию",
+             "4 - Фильтр цен до 100 руб",
+             "5 - Первести цену из руб. в доллары",
+             "6 - Посчитать общую стоймость",
+             "7 - Самый дешевый и дорогой продукт",
+             "8 - Вернуться в меню покупок",
+        };
         static public void PrintList(Dictionary<string, double> format)
         {
             Console.Clear();
-            Console.WriteLine("1 - Вывести список");
-            Console.WriteLine("2 - Сортировать по возрастанию");
-            Console.WriteLine("3 - Сортировать по убыванию");
-            Console.WriteLine("4 - Фильтр цен до 100 руб");
-            Console.WriteLine("5 - Первести цену из руб. в доллары");
-            Console.WriteLine("6 - Посчитать общую стоймость");
-            Console.WriteLine("7 - Самый дешевый и дорогой продукт");
-            Console.WriteLine("8 - Вернуться в меню покупок");
             void list()
             {
                 Console.Clear();
@@ -183,98 +282,6 @@ namespace travelOrganizer
                     break;
                 default: break;
             }
-        }
-        static public void AddElem(Dictionary<string, double> format)
-        {
-            Console.Clear();
-            Console.Write("Введите название продукта: ");
-            string productName = Console.ReadLine();
-            while (productName.Trim() == "")
-            {
-                Console.Write("Попробуйте снова ввести название: ");
-                productName = Console.ReadLine();
-            }
-            Console.Write("Введите стоимость продукта в рублях: ");
-            int price;
-            while (!Int32.TryParse(Console.ReadLine(), out price))
-            {
-                Console.Write("Попробуйте снова ввести стоимость: ");
-            }
-            format.Add(productName, price);
-            Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
-            Console.ReadKey();
-        }
-        static public void RemoveElem(Dictionary<string, double> format)
-        {
-            Console.Clear();
-            Console.Write("Введите название продукта который хотите удалить из списка: ");
-            string productName = Console.ReadLine();
-            while (productName.Trim() == "")
-            {
-                Console.Write("Попробуйте снова ввести название: ");
-                productName = Console.ReadLine();
-            }
-            if (format.Remove(productName))
-            {
-                Console.Write("Продукт удалён");
-            }
-            else
-            {
-                Console.Write("Название продукта введено неверно");
-            }
-            Console.WriteLine();
-            Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
-            Console.ReadKey();
-        }
-        static public void SearchElem(Dictionary<string, double> format)
-        {
-            Console.Clear();
-            Console.Write("Введите название продукта который хотите хотите найти: ");
-            string productName = Console.ReadLine();
-            while (productName.Trim() == "")
-            {
-                Console.Write("Попробуйте снова ввести название: ");
-                productName = Console.ReadLine();
-            }
-            if (format.ContainsKey(productName))
-            {
-                Console.Write($"Стоимость продукта = {format[productName]} руб.");
-            }
-            else
-            {
-                Console.Write("Название продукта введено неверно");
-            }
-            Console.WriteLine();
-            Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
-            Console.ReadKey();
-        }
-        public static void Start()
-        {
-            Dictionary<string, double> Format = new Dictionary<string, double>();
-            ConsoleKey key = ConsoleKey.Enter;
-            do
-            {
-                PrintMenu();
-                key = Console.ReadKey().Key;
-                switch (key)
-                {
-                    case ConsoleKey.D1:
-                        PrintList(Format);
-                        break;
-                    case ConsoleKey.D2:
-                        AddElem(Format);
-                        break;
-                    case ConsoleKey.D3:
-                        RemoveElem(Format);
-                        break;
-                    case ConsoleKey.D4:
-                        SearchElem(Format);
-                        break;
-                    default: continue;
-                }
-            } while (key != ConsoleKey.D5);
-
-            Console.WriteLine("Удачи!");
         }
     }
 }

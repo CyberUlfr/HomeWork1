@@ -8,20 +8,29 @@ namespace travelOrganizer
     {
         public static List<User> Users { get; set; } = new List<User>();
         public string Name { get; set; }
-        public User(string name)
+        public bool IsAdmin { get; set; }
+        internal User(string name)
         {
             Name = name;
+            Users.Add(this);
+            IsAdmin = false;
+        }
+        internal User(string name, bool isAdmin)
+        {
+            Name = name;
+            IsAdmin = isAdmin;
             Users.Add(this);
         }
         static User()
         {
+            new User("Админ", true);
             new User("Костя");
-            new User("Кирилл");
+            new User("Кирилл"); 
         }
         static public void StartUser()
         {
             Console.Clear();
-            foreach (var user in User.Users)
+            foreach (var user in Users)
             {
                 Console.WriteLine("Список пользователей = {0}", user.Name);
             }
@@ -31,10 +40,21 @@ namespace travelOrganizer
                 var userName = Console.ReadLine();
                 if (!string.IsNullOrWhiteSpace(userName) && Users.Any(user => user.Name == userName))
                 {
-                    Journey.StartJourney();
+                    Console.Clear();
+                    var user = Users.First(username => username.Name == userName);
+                    if (!user.IsAdmin)
+                    {
+                        var users = Users.First(username => username == user);
+                        Menu.MenuRun();
+                    }
+                    else
+                    {
+                        var admin = Users.First(username => username == user);
+                        AdminMenu.MenuAdmin();
+                    }
+                    Console.Clear();
+                    Console.WriteLine("Пользователь введен неверно.");
                 }
-                Console.Clear();
-                Console.WriteLine("Пользователь введен неверно.");
             } while (true);
         }
     }

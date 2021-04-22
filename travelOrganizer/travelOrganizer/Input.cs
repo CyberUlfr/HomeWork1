@@ -7,8 +7,7 @@ namespace travelOrganizer
         static private string[] MainMenuStrings { get; set; } =
         {
              "1 - Список пользователей",
-             "2 - Меню админа",
-             "3 - Выход",
+             "2 - Выход",
         };
         static public void PrintMainMenu()
         {
@@ -29,23 +28,13 @@ namespace travelOrganizer
                 switch (key)
                 {
                     case ConsoleKey.D1:
-                        Users1();
-                        break;
-                    case ConsoleKey.D2:
-                        PrintMenuAdmin1();
+                        User.StartUser();
                         break;
                     default: continue;
                 }
-            } while (key != ConsoleKey.D3);
+            } while (key != ConsoleKey.D2);
+            Environment.Exit(0);
             Console.WriteLine("Удачи!");
-        }
-        public static void Users1()
-        {
-            User.StartUser();
-        }
-        public static void PrintMenuAdmin1()
-        {
-            AdminMenu.MenuAdmin();
         }
     }
 }

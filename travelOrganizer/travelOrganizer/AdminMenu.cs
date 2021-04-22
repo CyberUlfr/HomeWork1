@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace travelOrganizer
 {
@@ -14,7 +10,7 @@ namespace travelOrganizer
              "2 - Удалить пользователя",
              "3 - Добавить путешествие",
              "4 - Удалить путешествие",
-             "3 - Выход",
+             "5 - Выход",
         };
         static public void PrintMenuAdmin()
         {
@@ -61,7 +57,7 @@ namespace travelOrganizer
             Console.Clear();
             Console.Write("Введите имя пользователя: ");
             var userName = Console.ReadLine();
-            
+
         }
         public static void AddJourney()
         {
