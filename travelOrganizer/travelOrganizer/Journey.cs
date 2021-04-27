@@ -4,28 +4,45 @@ using System.Linq;
 
 namespace travelOrganizer
 {
-    class Journey
+    public class Journey
     {
-        public static Dictionary<int, Journey> Journeys { get; set; } = new Dictionary<int, Journey>();
-        public Dictionary<User, List<Distance>> Distance { get; set; } = new Dictionary<User, List<Distance>>();
+        public static List<Journey> Journeys { get; set; } = new List<Journey>();
+        public Dictionary<User, List<Distance>> Distances { get; set; } = new Dictionary<User, List<Distance>>();
         public Dictionary<User, List<Purchase>> Purchases { get; set; } = new Dictionary<User, List<Purchase>>();
         public List<User> Users { get; set; } = new List<User>();
-        
+        public bool IsStart { get; private set; }
+        public DateTime TimeStart { get; private set; }
+        public DateTime TimeFinish { get; private set; }
         public string Name { get; set; }
-        readonly DateTime TimeStart;
-        readonly DateTime TimeFinish;
-        
+        public bool AddUser(User user)
+        {
+            Console.Clear();
+            if (IsStart || Users.Contains(user))
+
+            {
+                return false;
+            }
+            else
+            {
+                Users.Add(user);
+                return true;
+            }
+        }
+        public Journey(string name, List<User> Users)
+        {
+            Name = name;
+            Journeys.Add(this);
+            foreach (User user in Users)
+            {
+                Users.Add(user);
+                Distances.Add(user, new List<Distance>());
+                Purchases.Add(user, new List<Purchase>());
+                IsStart = false;
+            }
+        }
         public double GetAmountOfMoney(User user)
         {
             return Purchases[user].Aggregate(0.0, (sum, next) => sum + next.Price);
-        }
-        public static int GetFirstFreeNumber()
-        {
-            int number = 1;
-            foreach (var journey in Journey.Journeys.OrderBy(j => j.Key))
-                if (journey.Key == number)
-                    number++;
-            return number;
         }
         static Journey()
         {
@@ -34,30 +51,24 @@ namespace travelOrganizer
         public Journey(string name)
         {
             Name = name;
-            Journeys.Add(GetFirstFreeNumber(), this);
+            Journeys.Add(this);
+            IsStart = false;
         }
         public Journey()
         {
-            User.Add(this);
+            Name = "Неизвестное путешествие";
+            Journeys.Add(this);
+            IsStart = false;
         }
-        static public void StartJourney()
+        static public void ListJourney()
         {
             Console.Clear();
-            foreach (KeyValuePair<int, Journey> keyValue in Journeys)
+            for (int i = 0; i < Journeys.Count; i++)
             {
-                Console.WriteLine("{0}:Название путешествия - {1}", keyValue.Key, keyValue.Value.Name);
+                Console.WriteLine("{0}:Название путешествия - {1}", i + 1, Journeys[i]);
             }
-            do
-            {
-                Console.Write("Введите номер путешествия: ");
-                int journeyNumber = Convert.ToInt32(Console.ReadLine());
-                if (Journeys.ContainsKey(journeyNumber))
-                {
-                    Menu.MenuRun();
-                }
-                Console.Clear();
-                Console.WriteLine("Номер путешествия введен неверно.");
-            } while (true);
+            Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
+            Console.ReadKey();
         }
     }
 }

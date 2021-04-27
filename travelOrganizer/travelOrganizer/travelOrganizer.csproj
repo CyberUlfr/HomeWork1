@@ -59,7 +59,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminMenu.cs" />
+    <Compile Include="..\..\..\..\AdminMenu.cs">
+      <Link>AdminMenu.cs</Link>
+    </Compile>
     <Compile Include="Distance.cs" />
     <Compile Include="Journey.cs" />
     <Compile Include="Purchase.cs" />

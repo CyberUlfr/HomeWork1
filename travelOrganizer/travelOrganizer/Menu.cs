@@ -1,15 +1,61 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace travelOrganizer
 {
-    class Menu
+    static public class Menu
     {
+        public static User ActiveUser { get; set; }
+        static public Journey SelectedJourney { get; set; }
         static private string[] MainMenuStrings { get; set; } =
         {
-             "1 - Меню покупок",
-             "2 - Меню статистики",
-             "3 - Вернуться в основное меню",
+             "1 - Покупки",
+             "2 - Передвижения",
+             "3 - Статистика",
+             "4 - Выбрать путишествие",
+             "5 - Вернуться в основное меню",
         };
+        static void MenuPurchase(User user)
+        {
+            ActiveUser = user;
+            for (int i = 0; i < SelectedJourney.Purchases[ActiveUser].Count; i++)
+            {
+                Purchase purchase = SelectedJourney.Purchases[ActiveUser][i];
+
+            }
+        }
+        static void MenuInit(User user)
+        {
+            Console.Clear();
+            ActiveUser = user;
+            List<Journey> journeys = (List<Journey>)Journey.Journeys.Where(j => j.Users.Contains(ActiveUser));
+            for (int i = 0; i < Journey.Journeys.Count; i++)
+            {
+                Console.WriteLine("{0}:Название путешествия - {1}", i + 1, Journey.Journeys[i]);
+            }
+            do
+            {
+                if (journeys.Count > 0)
+                {
+                    Console.Write("Введите номер путешествия: ");
+                    var journeyNumber = Convert.ToInt32(Console.ReadLine());
+                    if (journeyNumber > 0 && journeyNumber <= journeys.Count)
+                    {
+                        SelectedJourney = journeys[journeyNumber-1];
+                        MenuRun();
+                    }
+                    Console.Clear();
+                    Console.WriteLine("Номер путешествия введен неверно.");
+                }
+                else
+                {
+                    Console.WriteLine("Пользователь не участвует в путешествиях. Возврат в меню выбора пользователя");
+                    Console.ReadKey();
+                    User.StartUser();
+                }
+            } while (true);
+        }
         static public void PrintMenu()
         {
             Console.Clear();
@@ -19,8 +65,9 @@ namespace travelOrganizer
             }
             Console.WriteLine("Нажмите цифру, соответствующую номеру меню.");
         }
-        public static void MenuRun()
+        static public void MenuRun()
         {
+            User user = ActiveUser;
             ConsoleKey key = ConsoleKey.Enter;
             do
             {
@@ -29,16 +76,15 @@ namespace travelOrganizer
                 switch (key)
                 {
                     case ConsoleKey.D1:
-                        ShoppingListMenu();
+                        MenuPurchase(user);
                         break;
-
+                    case ConsoleKey.D4:
+                        MenuInit(user);
+                        break;
                 }
-            } while (key != ConsoleKey.D3);
+            } while (key != ConsoleKey.D5);
             Input.Main();
         }
-        public static void ShoppingListMenu()
-        {
-            ShoppingList.Start();
-        }
+
     }
 }

@@ -2,7 +2,7 @@
 
 namespace travelOrganizer
 {
-    class Input
+    public class Input
     {
         static private string[] MainMenuStrings { get; set; } =
         {

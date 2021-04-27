@@ -9,7 +9,8 @@ namespace travelOrganizer
         public static List<User> Users { get; set; } = new List<User>();
         public string Name { get; set; }
         public bool IsAdmin { get; set; }
-        internal User(string name)
+        public User() { Name = "Без имени"; IsAdmin = false; Users.Add(this); }
+        public User(string name)
         {
             Name = name;
             Users.Add(this);
@@ -25,7 +26,6 @@ namespace travelOrganizer
         {
             new User("Админ", true);
             new User("Костя");
-            new User("Кирилл"); 
         }
         static public void StartUser()
         {
