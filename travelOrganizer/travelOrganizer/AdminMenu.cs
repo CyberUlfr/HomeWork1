@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace travelOrganizer
 {
-    public class AdminMenu
+    static public class AdminMenu
     {
-        public static Dictionary<int, Journey> Journeys { get; set; } = new Dictionary<int, Journey>();
+        public static User ActiveUser { get; set; }
+        public static List<Journey> Journeys { get; set; } = new List<Journey>();
         static public string[] MenuAdminStrings { get; set; } =
         {
              "Раздел админа:",
@@ -13,10 +15,7 @@ namespace travelOrganizer
              "2 - Удалить путешествие",
              "3 - Меню управления путешествием",
              "4 - Список путешествий",
-             "Раздел пользователя:",
-             "5 - Покупки",
-             "6 - Передвижения",
-             "7 - Статистика",
+             "5 - Меню пользователя",
              "8 - Выход",
         };
         static public void PrintMenuAdmin()
@@ -47,7 +46,7 @@ namespace travelOrganizer
                         Journey.ListJourney();
                         break;
                     case ConsoleKey.D5:
-                        MenuPurchase.Start();
+                        Menu.MenuRun(ActiveUser);
                         break;
                     default: continue;
                 }
@@ -75,12 +74,30 @@ namespace travelOrganizer
         public static void AddJourney()
         {
             Console.Clear();
-            Console.Write("Введите название путишествия: ");
-            var journeyName = Console.ReadLine();
-            if (!string.IsNullOrWhiteSpace(journeyName))
+            string journeyName;
+            do
             {
-                new Journey(journeyName);
-            }
+                Console.Write("Введите название путишествия: ");
+                journeyName = Console.ReadLine();
+            } while (!string.IsNullOrWhiteSpace(journeyName));
+            List<User> users = new List<User>();
+            string userName;
+            do
+            {
+                Console.Write("Введите имя пользователя или нажмите Enter чтобы завершить ввод пользователя : ");
+                userName = Console.ReadLine();
+                User user = User.Users.Where(u => u.Name == userName).ToList().First();
+                if (!users.Contains(user))
+                {
+                    users.Add(user);
+                }
+                else
+                {
+                    Console.Write($"Данный пользователь{userName} уже добавлен!");
+                }
+            } while (!string.IsNullOrWhiteSpace(userName));
+            new Journey(journeyName,users);
+            Journey.Journeys.Last().Start();
         }
         static public void ListUser()
         {
@@ -96,8 +113,10 @@ namespace travelOrganizer
         {
              "1 - Добавить пользователя",
              "2 - Удалить пользователя",
-             "3 - Показать список пользователей",
-             "4 - Выход",
+             "3 - Добавить пользователя в путишествие",
+             "4 - Показать список пользователей",
+             "5 - Запустить путишествие",
+             "6 - Выход",
         };
         static public void PrintMenuTravelManagement()
         {
@@ -125,7 +144,7 @@ namespace travelOrganizer
                         break;
                     default: continue;
                 }
-            } while (key != ConsoleKey.D4);
+            } while (key != ConsoleKey.D5);
             Input.Main();
             Console.WriteLine("Удачи!");
         }

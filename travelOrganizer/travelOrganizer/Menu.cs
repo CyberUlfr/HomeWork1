@@ -28,7 +28,7 @@ namespace travelOrganizer
         {
             Console.Clear();
             ActiveUser = user;
-            List<Journey> journeys = (List<Journey>)Journey.Journeys.Where(j => j.Users.Contains(ActiveUser));
+            List<Journey> journeys = Journey.Journeys.ToArray().Where(j => j.Users.Contains(ActiveUser)).ToList();
             for (int i = 0; i < journeys.Count; i++)
             {
                 Console.WriteLine("{0}:Название путешествия - {1}", i + 1, journeys[i]);

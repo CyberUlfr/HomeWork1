@@ -40,13 +40,32 @@ namespace travelOrganizer
                 IsStart = false;
             }
         }
+        public bool Start()
+        {
+            if (IsStart)
+            {
+                return false;
+            }
+            IsStart = true;
+            TimeStart = DateTime.Now;
+            return true;
+        }
+        public bool Finish()
+        {
+            if (!IsStart||TimeFinish!=null)
+            {
+                return false;
+            }
+            TimeStart = DateTime.Now;
+            return true;
+        }
         public double GetAmountOfMoney(User user)
         {
             return Purchases[user].Aggregate(0.0, (sum, next) => sum + next.Price);
         }
         static Journey()
         {
-            new Journey("Поездка в артышту");
+            new Journey("Поездка в артышту", User.Users);
         }
         public Journey(string name)
         {
@@ -59,6 +78,10 @@ namespace travelOrganizer
             Name = "Неизвестное путешествие";
             Journeys.Add(this);
             IsStart = false;
+        }
+        public override string ToString()
+        {
+            return string.Format($"{Name}");
         }
         static public void ListJourney()
         {
