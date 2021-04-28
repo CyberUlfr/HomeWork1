@@ -3,11 +3,12 @@ using System.Collections.Generic;
 
 namespace travelOrganizer
 {
-    class AdminMenu:Menu
+    public class AdminMenu
     {
         public static Dictionary<int, Journey> Journeys { get; set; } = new Dictionary<int, Journey>();
         static public string[] MenuAdminStrings { get; set; } =
         {
+             "Раздел админа:",
              "1 - Добавить путешествие",
              "2 - Удалить путешествие",
              "3 - Меню управления путешествием",
