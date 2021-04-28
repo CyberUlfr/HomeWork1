@@ -22,17 +22,16 @@ namespace travelOrganizer
             for (int i = 0; i < SelectedJourney.Purchases[ActiveUser].Count; i++)
             {
                 Purchase purchase = SelectedJourney.Purchases[ActiveUser][i];
-
             }
         }
-        static void MenuInit(User user)
+        static bool MenuInit(User user)
         {
             Console.Clear();
             ActiveUser = user;
             List<Journey> journeys = (List<Journey>)Journey.Journeys.Where(j => j.Users.Contains(ActiveUser));
-            for (int i = 0; i < Journey.Journeys.Count; i++)
+            for (int i = 0; i < journeys.Count; i++)
             {
-                Console.WriteLine("{0}:Название путешествия - {1}", i + 1, Journey.Journeys[i]);
+                Console.WriteLine("{0}:Название путешествия - {1}", i + 1, journeys[i]);
             }
             do
             {
@@ -42,8 +41,9 @@ namespace travelOrganizer
                     var journeyNumber = Convert.ToInt32(Console.ReadLine());
                     if (journeyNumber > 0 && journeyNumber <= journeys.Count)
                     {
-                        SelectedJourney = journeys[journeyNumber-1];
-                        MenuRun();
+                        SelectedJourney = journeys[journeyNumber - 1];
+                        return true;
+
                     }
                     Console.Clear();
                     Console.WriteLine("Номер путешествия введен неверно.");
@@ -52,7 +52,7 @@ namespace travelOrganizer
                 {
                     Console.WriteLine("Пользователь не участвует в путешествиях. Возврат в меню выбора пользователя");
                     Console.ReadKey();
-                    User.StartUser();
+                    return false;
                 }
             } while (true);
         }
@@ -65,9 +65,10 @@ namespace travelOrganizer
             }
             Console.WriteLine("Нажмите цифру, соответствующую номеру меню.");
         }
-        static public void MenuRun()
+        static public void MenuRun(User user)
         {
-            User user = ActiveUser;
+            if (!MenuInit(user))
+                return;
             ConsoleKey key = ConsoleKey.Enter;
             do
             {
@@ -76,10 +77,10 @@ namespace travelOrganizer
                 switch (key)
                 {
                     case ConsoleKey.D1:
-                        MenuPurchase(user);
+                        MenuPurchase(ActiveUser);
                         break;
                     case ConsoleKey.D4:
-                        MenuInit(user);
+                        MenuInit(ActiveUser);
                         break;
                 }
             } while (key != ConsoleKey.D5);

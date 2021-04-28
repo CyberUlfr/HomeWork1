@@ -45,7 +45,7 @@ namespace travelOrganizer
                     if (!user.IsAdmin)
                     {
                         var users = Users.First(username => username == user);
-                        Menu.MenuRun();
+                        Menu.MenuRun(user);
                     }
                     else
                     {
