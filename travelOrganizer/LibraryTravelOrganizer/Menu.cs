@@ -7,7 +7,6 @@ namespace travelOrganizer
     static public class Menu
     {
         public static User ActiveUser { get; set; }
-        public static List<Purchase> purchases { get; set; }
         static public Journey SelectedJourney { get; set; }
         static private string[] MainMenuStrings { get; set; } =
         {
@@ -29,6 +28,7 @@ namespace travelOrganizer
         {
             Console.Clear();
             ActiveUser = user;
+            int journeyNumber;
             List<Journey> Journeys = Journey.Journeys.ToArray().Where(j => j.Users.Contains(ActiveUser)).ToList();
             for (int i = 0; i < Journeys.Count; i++)
             {
@@ -39,7 +39,11 @@ namespace travelOrganizer
                 if (Journeys.Count > 0)
                 {
                     Console.Write("Введите номер путешествия: ");
-                    var journeyNumber = Convert.ToInt32(Console.ReadLine());
+                    while (!Int32.TryParse(Console.ReadLine(), out journeyNumber))
+                    {
+                        Console.Clear();
+                        Console.Write("Введите номер путешествия: ");
+                    }
                     if (journeyNumber > 0 && journeyNumber <= Journeys.Count)
                     {
                         SelectedJourney = Journeys[journeyNumber - 1];
@@ -77,13 +81,30 @@ namespace travelOrganizer
                 switch (key)
                 {
                     case ConsoleKey.D1:
-                        MenuPurchase.Start(purchases);
+                        MenuPurchase.Start(SelectedJourney.Purchases[ActiveUser]);
+                        break;
+                    case ConsoleKey.D2:
+                        Distance.StartDistance(SelectedJourney.Distances[ActiveUser]);
+                        break;
+                    case ConsoleKey.D3:
+                        PrintStatistic();
                         break;
                     case ConsoleKey.D4:
                         MenuInit(ActiveUser);
                         break;    
                 }
             } while (key != ConsoleKey.D5);
+        }
+        static public void PrintStatistic()
+        {
+            double sum1 = SelectedJourney.Purchases[ActiveUser].Sum(elem => elem.Price);
+            double sum2 = SelectedJourney.Distances[ActiveUser].Sum(elem => elem.KMeters);
+            Console.Clear();
+            Console.WriteLine($"Общая статистика по путешествию: {sum1} руб. всего потратил, всего прошел {sum2} км.");
+            Console.WriteLine($"Время начала: {SelectedJourney.TimeStart}");
+            Console.WriteLine($"Общее время путешествия: {new DateTime(DateTime.Now.Ticks - SelectedJourney.TimeStart.Ticks).Second} сек.");
+            Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
+            Console.ReadKey();
         }
     }
 }

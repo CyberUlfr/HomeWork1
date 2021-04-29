@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 namespace travelOrganizer
 {
@@ -59,6 +60,56 @@ namespace travelOrganizer
                     return;
                 }
             } while (true);
+        }
+        public static class DataBase
+        {
+            public static string userPath { get; set; } = "D:\\Users.txt";
+            public static bool SaveUsers(List<User> users)
+            {
+                StreamWriter fileIn;
+                try
+                {
+                    fileIn = new StreamWriter(userPath);
+                    foreach (var user in users)
+                    {
+                        fileIn.WriteLine(user.Name);
+                    }
+                    fileIn.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Ошибка! {ex.Message}");
+                    return false;
+                }
+                return true;
+            }
+
+            public static List<User> LoadUsers()
+            {
+                List<User> users = new List<User>();
+                StreamReader fileOut;
+                try
+                {
+                    if (File.Exists(userPath))
+                    {
+                        fileOut = new StreamReader(userPath);
+                        while (!fileOut.EndOfStream)
+                        {
+                            string name = fileOut.ReadLine();
+                            users.Add(new User(name));
+                        }
+                        fileOut.Close();
+                    }
+                    else
+                        throw new Exception("Файла не существует!");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Ошибка! {ex.Message}");
+                    return null;
+                }
+                return users;
+            }
         }
     }
 }

@@ -5,7 +5,6 @@ namespace travelOrganizer
 {
     public class Purchase
     {
-        public static List<Purchase> Purchases { get; set; } = new List<Purchase>();
         public string Name { get; set; }
         public double Price { get; set; }
         public Purchase() { Name = "Без имени"; Price = 0; }
@@ -13,7 +12,6 @@ namespace travelOrganizer
         {
             Name = name;
             Price = price;
-            Purchases.Add(this);
         }
         public override string ToString()
         {

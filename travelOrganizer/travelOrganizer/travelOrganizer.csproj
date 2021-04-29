@@ -59,19 +59,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminMenu.cs" />
-    <Compile Include="Distance.cs" />
-    <Compile Include="Journey.cs" />
-    <Compile Include="Purchase.cs" />
-    <Compile Include="User.cs" />
     <Compile Include="Input.cs" />
-    <Compile Include="Menu.cs" />
-    <Compile Include="MenuPurchase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibraryTravelOrganizer\LibraryTravelOrganizer.csproj">
+      <Project>{19803e32-221a-4af4-808f-63a17d86a926}</Project>
+      <Name>LibraryTravelOrganizer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

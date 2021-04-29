@@ -9,7 +9,7 @@ namespace travelOrganizer
         public static List<Journey> Journeys { get; set; } = new List<Journey>();
         public Dictionary<User, List<Distance>> Distances { get; set; } = new Dictionary<User, List<Distance>>();
         public Dictionary<User, List<Purchase>> Purchases { get; set; } = new Dictionary<User, List<Purchase>>();
-        public List<User> Users { get; set; } = new List<User>();
+        public List<User> Users { get; private set; } = new List<User>();
         public bool IsStart { get; private set; }
         public DateTime TimeStart { get; private set; }
         public DateTime TimeFinish { get; private set; }
@@ -17,7 +17,7 @@ namespace travelOrganizer
         public bool AddUser(User user)
         {
             Console.Clear();
-            if (IsStart || Users.Contains(user))
+            if (IsStart || Users.Contains(user) || TimeFinish.Ticks > 0)
             {
                 return false;
             }
@@ -34,7 +34,7 @@ namespace travelOrganizer
             foreach (User user in users.ToArray())
             {
                 Users.Add(user);
-                Distances.Add(user, new List<Distance>() { new Distance("Начало", 0)});
+                Distances.Add(user, new List<Distance>() { new Distance("Начало", 0) });
                 Purchases.Add(user, new List<Purchase>());
                 IsStart = false;
             }
@@ -51,11 +51,11 @@ namespace travelOrganizer
         }
         public bool Finish()
         {
-            if (!IsStart||TimeFinish!=null)
+            if (!IsStart || TimeFinish.Ticks != null)
             {
                 return false;
             }
-            TimeStart = DateTime.Now;
+            TimeFinish = DateTime.Now;
             return true;
         }
         public double GetAmountOfMoney(User user)
@@ -65,6 +65,7 @@ namespace travelOrganizer
         static Journey()
         {
             new Journey("Поездка в артышту", User.Users);
+            Journeys.Last().Start();
         }
         public Journey(string name)
         {
@@ -85,11 +86,14 @@ namespace travelOrganizer
         static public void ListJourney()
         {
             Console.Clear();
+            if (Journeys.Count == 0)
+            {
+                Console.WriteLine("Список пуст.");
+            }
             for (int i = 0; i < Journeys.Count; i++)
             {
                 Console.WriteLine("{0}:Название путешествия - {1}", i + 1, Journeys[i]);
             }
-            Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }
     }

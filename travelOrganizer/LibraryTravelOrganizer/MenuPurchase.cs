@@ -30,13 +30,13 @@ namespace travelOrganizer
         static public void PrintList(List<Purchase> purchases)
         {
             Console.Clear();
-            if (Purchase.Purchases.Count == 0)
+            if (purchases.Count == 0)
             {
                 Console.WriteLine("Список пуст.");
             }
             else
             {
-                foreach (Purchase elem in Purchase.Purchases)
+                foreach (Purchase elem in purchases)
                 {
                     Console.WriteLine("Название продукта = {0}, Его стоймость = {1:N2} руб.", elem.Name, elem.Price);
                 }
@@ -60,7 +60,7 @@ namespace travelOrganizer
             {
                 Console.Write("Попробуйте снова ввести стоимость: ");
             }
-            new Purchase(productName, price);
+            purchases.Add(new Purchase(productName, price));
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }
@@ -74,8 +74,8 @@ namespace travelOrganizer
                 Console.Write("Попробуйте снова ввести название: ");
                 productName = Console.ReadLine();
             }
-            Purchase purchase = Purchase.Purchases.Where(u => u.Name == productName).ToList().FirstOrDefault();
-            if (Purchase.Purchases.Remove(purchase))
+            Purchase purchase = purchases.Where(u => u.Name == productName).ToList().FirstOrDefault();
+            if (purchases.Remove(purchase))
             {
                 Console.Write("Продукт удалён");
             }
@@ -97,10 +97,10 @@ namespace travelOrganizer
                 Console.Write("Попробуйте снова ввести название: ");
                 productName = Console.ReadLine();
             }
-            Purchase purchase = Purchase.Purchases.Where(u => u.Name == productName).ToList().First();
-            if (Purchase.Purchases.Contains(purchase))
+            Purchase purchase = purchases.Where(u => u.Name == productName).ToList().FirstOrDefault();
+            if (purchases.Contains(purchase))
             {
-                Console.Write($"{purchase}");
+                Console.Write($"Стоимость продукта = {productName} руб.");
             }
             else
             {
@@ -113,14 +113,14 @@ namespace travelOrganizer
         static public void Sum(List<Purchase> purchases)
         {
             Console.Clear();
-            if (Purchase.Purchases.Count == 0)
+            if (purchases.Count == 0)
             {
                 Console.WriteLine("Список пуст.");
             }
             else
             {
-                var sum = Purchase.Purchases.Aggregate((elem1, elem2) => new Purchase(elem1.Name, elem1.Price + elem2.Price));
-                Console.WriteLine($"Сумма всех продуктов = {sum.Price:N2} руб.");
+                double sum = purchases.Sum(elem => elem.Price);
+                Console.WriteLine($"Сумма всех продуктов = {sum:N2} руб.");
             }
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
@@ -128,13 +128,13 @@ namespace travelOrganizer
         static public void ListTransferToDollars(List<Purchase> purchases)
         {
             Console.Clear();
-            if (Purchase.Purchases.Count == 0)
+            if (purchases.Count == 0)
             {
                 Console.WriteLine("Список пуст.");
             }
             else
             {
-                foreach (Purchase elem in Purchase.Purchases.Select(elem => new Purchase(elem.Name, elem.Price / 77)))
+                foreach (Purchase elem in purchases.Select(elem => new Purchase(elem.Name, elem.Price / 77)))
                 {
                     Console.WriteLine("Название продукта = {0}, Его стоймость в долларах = {1:N2} usd.", elem.Name, elem.Price);
                 }
@@ -145,13 +145,13 @@ namespace travelOrganizer
         static public void ListSortedIncrease(List<Purchase> purchases)
         {
             Console.Clear();
-            if (Purchase.Purchases.Count == 0)
+            if (purchases.Count == 0)
             {
                 Console.WriteLine("Список пуст.");
             }
             else
             {
-                var sortedPrice = Purchase.Purchases.OrderBy(elem => elem.Name);
+                var sortedPrice = purchases.OrderBy(elem => elem.Name);
                 foreach (Purchase elem in sortedPrice)
                 {
                     Console.WriteLine("Название продукта = {0}, Его стоймость = {1:N2} руб.", elem.Name, elem.Price);
@@ -163,13 +163,13 @@ namespace travelOrganizer
         static public void ListSortedDescending(List<Purchase> purchases)
         {
             Console.Clear();
-            if (Purchase.Purchases.Count == 0)
+            if (purchases.Count == 0)
             {
                 Console.WriteLine("Список пуст.");
             }
             else
             {
-                var sortedPrice = Purchase.Purchases.OrderByDescending(elem => elem.Name);
+                var sortedPrice = purchases.OrderByDescending(elem => elem.Name);
                 foreach (Purchase elem in sortedPrice)
                 {
                     Console.WriteLine("Название продукта = {0}, Его стоймость = {1:N2} руб.", elem.Name, elem.Price);
