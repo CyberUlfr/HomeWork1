@@ -77,9 +77,6 @@ namespace travelOrganizer
                 switch (key)
                 {
                     case ConsoleKey.D1:
-                        MenuPurchase1(ActiveUser);
-                        break;
-                    case ConsoleKey.D2:
                         MenuPurchase.Start(purchases);
                         break;
                     case ConsoleKey.D4:
