@@ -16,7 +16,7 @@ namespace travelOrganizer
              "3 - Управление пользователями",
              "4 - Список путешествий",
              "5 - Меню пользователя",
-             "6 - Выход",
+             "6 - Вернуться назад",
         };
         static public void PrintMenuAdmin()
         {
@@ -219,7 +219,7 @@ namespace travelOrganizer
              "1 - Добавить пользователя",
              "2 - Удалить пользователя",
              "3 - Показать список пользователей",
-             "4 - Выход",
+             "4 - Вернуться назад",
         };
         static public void PrintMenuTravelManagement()
         {

@@ -14,7 +14,7 @@ namespace travelOrganizer
              "2 - Передвижения",
              "3 - Статистика",
              "4 - Выбрать путишествие",
-             "5 - Вернуться в основное меню",
+             "5 - Вернуться назад",
         };
         static void MenuPurchase1(User user)
         {
