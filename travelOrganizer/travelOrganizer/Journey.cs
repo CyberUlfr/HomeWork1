@@ -18,7 +18,6 @@ namespace travelOrganizer
         {
             Console.Clear();
             if (IsStart || Users.Contains(user))
-
             {
                 return false;
             }
@@ -28,14 +27,14 @@ namespace travelOrganizer
                 return true;
             }
         }
-        public Journey(string name, List<User> Users)
+        public Journey(string name, List<User> users)
         {
             Name = name;
             Journeys.Add(this);
-            foreach (User user in Users)
+            foreach (User user in users.ToArray())
             {
                 Users.Add(user);
-                Distances.Add(user, new List<Distance>());
+                Distances.Add(user, new List<Distance>() { new Distance("Начало", 0)});
                 Purchases.Add(user, new List<Purchase>());
                 IsStart = false;
             }

@@ -16,7 +16,7 @@ namespace travelOrganizer
              "3 - Меню управления путешествием",
              "4 - Список путешествий",
              "5 - Меню пользователя",
-             "8 - Выход",
+             "6 - Выход",
         };
         static public void PrintMenuAdmin()
         {
@@ -27,12 +27,13 @@ namespace travelOrganizer
             }
             Console.WriteLine("Нажмите цифру, соответствующую номеру меню.");
         }
-        public static void MenuAdmin()
+        public static void MenuAdmin(User user)
         {
             ConsoleKey key = ConsoleKey.Enter;
+            ActiveUser = user;
             do
             {
-                PrintMenuAdmin();
+               PrintMenuAdmin();
                 key = Console.ReadKey().Key;
                 switch (key)
                 {
@@ -50,8 +51,8 @@ namespace travelOrganizer
                         break;
                     default: continue;
                 }
-            } while (key != ConsoleKey.D8);
-            Input.Main();
+                return;
+            } while (key != ConsoleKey.D6);
             Console.WriteLine("Удачи!");
         }
         public static void AddUsers()
@@ -69,7 +70,7 @@ namespace travelOrganizer
             Console.Clear();
             Console.Write("Введите имя пользователя: ");
             var userName = Console.ReadLine();
-            if (!string.IsNullOrWhiteSpace(userName)) ;
+            if (!string.IsNullOrWhiteSpace(userName));
         }
         public static void AddJourney()
         {
@@ -79,21 +80,21 @@ namespace travelOrganizer
             {
                 Console.Write("Введите название путишествия: ");
                 journeyName = Console.ReadLine();
-            } while (!string.IsNullOrWhiteSpace(journeyName));
+            } while (string.IsNullOrWhiteSpace(journeyName));
             List<User> users = new List<User>();
             string userName;
             do
             {
                 Console.Write("Введите имя пользователя или нажмите Enter чтобы завершить ввод пользователя : ");
                 userName = Console.ReadLine();
-                User user = User.Users.Where(u => u.Name == userName).ToList().First();
-                if (!users.Contains(user))
+                User user = User.Users.Where(u => u.Name == userName).ToList().FirstOrDefault();
+                if (!users.Contains(user) && user != null)
                 {
                     users.Add(user);
                 }
                 else
                 {
-                    Console.Write($"Данный пользователь{userName} уже добавлен!");
+                    Console.Write($"Данный пользователь {userName} уже добавлен!");
                 }
             } while (!string.IsNullOrWhiteSpace(userName));
             new Journey(journeyName,users);
@@ -113,10 +114,8 @@ namespace travelOrganizer
         {
              "1 - Добавить пользователя",
              "2 - Удалить пользователя",
-             "3 - Добавить пользователя в путишествие",
-             "4 - Показать список пользователей",
-             "5 - Запустить путишествие",
-             "6 - Выход",
+             "3 - Показать список пользователей",
+             "4 - Выход",
         };
         static public void PrintMenuTravelManagement()
         {
@@ -144,8 +143,7 @@ namespace travelOrganizer
                         break;
                     default: continue;
                 }
-            } while (key != ConsoleKey.D5);
-            Input.Main();
+            } while (key != ConsoleKey.D4);
             Console.WriteLine("Удачи!");
         }
     }

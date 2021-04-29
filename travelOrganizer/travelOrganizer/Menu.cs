@@ -7,6 +7,7 @@ namespace travelOrganizer
     static public class Menu
     {
         public static User ActiveUser { get; set; }
+        public static List<Purchase> purchases { get; set; }
         static public Journey SelectedJourney { get; set; }
         static private string[] MainMenuStrings { get; set; } =
         {
@@ -16,7 +17,7 @@ namespace travelOrganizer
              "4 - Выбрать путишествие",
              "5 - Вернуться в основное меню",
         };
-        static void MenuPurchase(User user)
+        static void MenuPurchase1(User user)
         {
             ActiveUser = user;
             for (int i = 0; i < SelectedJourney.Purchases[ActiveUser].Count; i++)
@@ -28,22 +29,21 @@ namespace travelOrganizer
         {
             Console.Clear();
             ActiveUser = user;
-            List<Journey> journeys = Journey.Journeys.ToArray().Where(j => j.Users.Contains(ActiveUser)).ToList();
-            for (int i = 0; i < journeys.Count; i++)
+            List<Journey> Journeys = Journey.Journeys.ToArray().Where(j => j.Users.Contains(ActiveUser)).ToList();
+            for (int i = 0; i < Journeys.Count; i++)
             {
-                Console.WriteLine("{0}:Название путешествия - {1}", i + 1, journeys[i]);
+                Console.WriteLine("{0}:Название путешествия - {1}", i + 1, Journeys[i]);
             }
             do
             {
-                if (journeys.Count > 0)
+                if (Journeys.Count > 0)
                 {
                     Console.Write("Введите номер путешествия: ");
                     var journeyNumber = Convert.ToInt32(Console.ReadLine());
-                    if (journeyNumber > 0 && journeyNumber <= journeys.Count)
+                    if (journeyNumber > 0 && journeyNumber <= Journeys.Count)
                     {
-                        SelectedJourney = journeys[journeyNumber - 1];
+                        SelectedJourney = Journeys[journeyNumber - 1];
                         return true;
-
                     }
                     Console.Clear();
                     Console.WriteLine("Номер путешествия введен неверно.");
@@ -77,15 +77,16 @@ namespace travelOrganizer
                 switch (key)
                 {
                     case ConsoleKey.D1:
-                        MenuPurchase(ActiveUser);
+                        MenuPurchase1(ActiveUser);
+                        break;
+                    case ConsoleKey.D2:
+                        MenuPurchase.Start(purchases);
                         break;
                     case ConsoleKey.D4:
                         MenuInit(ActiveUser);
-                        break;
+                        break;    
                 }
             } while (key != ConsoleKey.D5);
-            Input.Main();
         }
-
     }
 }

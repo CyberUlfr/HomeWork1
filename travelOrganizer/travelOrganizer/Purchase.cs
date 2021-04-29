@@ -13,10 +13,11 @@ namespace travelOrganizer
         {
             Name = name;
             Price = price;
+            Purchases.Add(this);
         }
         public override string ToString()
         {
-            return string.Format($"{Name} стоит {Price} руб.");
+            return string.Format($"Продукт {Name} стоит {Price} руб.");
         }
     }
 }

@@ -27,24 +27,24 @@ namespace travelOrganizer
             }
             Console.WriteLine("Нажмите цифру, соответствующую номеру меню.");
         }
-        static public void PrintList(Dictionary<string, double> format)
+        static public void PrintList(List<Purchase> purchases)
         {
             Console.Clear();
-            if (format.Count == 0)
+            if (Purchase.Purchases.Count == 0)
             {
                 Console.WriteLine("Список пуст.");
             }
             else
             {
-                foreach (KeyValuePair<string, double> elem in format)
+                foreach (Purchase elem in Purchase.Purchases)
                 {
-                    Console.WriteLine("Название продукта = {0}, Его стоймость = {1:N2} руб.", elem.Key, elem.Value);
+                    Console.WriteLine("Название продукта = {0}, Его стоймость = {1:N2} руб.", elem.Name, elem.Price);
                 }
             }
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }
-        static public void AddElem(Dictionary<string, double> format)
+        static public void AddElem(List<Purchase> purchases)
         {
             Console.Clear();
             Console.Write("Введите название продукта: ");
@@ -60,11 +60,11 @@ namespace travelOrganizer
             {
                 Console.Write("Попробуйте снова ввести стоимость: ");
             }
-            format.Add(productName, price);
+            new Purchase(productName, price);
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }
-        static public void RemoveElem(Dictionary<string, double> format)
+        static public void RemoveElem(List<Purchase> purchases)
         {
             Console.Clear();
             Console.Write("Введите название продукта который хотите удалить из списка: ");
@@ -74,7 +74,8 @@ namespace travelOrganizer
                 Console.Write("Попробуйте снова ввести название: ");
                 productName = Console.ReadLine();
             }
-            if (format.Remove(productName))
+            Purchase purchase = Purchase.Purchases.Where(u => u.Name == productName).ToList().FirstOrDefault();
+            if (Purchase.Purchases.Remove(purchase))
             {
                 Console.Write("Продукт удалён");
             }
@@ -86,19 +87,20 @@ namespace travelOrganizer
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }
-        static public void SearchElem(Dictionary<string, double> format)
+        static public void SearchElem(List<Purchase> purchases)
         {
             Console.Clear();
             Console.Write("Введите название продукта который хотите хотите найти: ");
-            string productName = Console.ReadLine();
+            var productName = Console.ReadLine();
             while (productName.Trim() == "")
             {
                 Console.Write("Попробуйте снова ввести название: ");
                 productName = Console.ReadLine();
             }
-            if (format.ContainsKey(productName))
+            Purchase purchase = Purchase.Purchases.Where(u => u.Name == productName).ToList().First();
+            if (Purchase.Purchases.Contains(purchase))
             {
-                Console.Write($"Стоимость продукта = {format[productName]} руб.");
+                Console.Write($"{purchase}");
             }
             else
             {
@@ -108,77 +110,76 @@ namespace travelOrganizer
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }
-        static public void Sum(Dictionary<string, double> format)
+        static public void Sum(List<Purchase> purchases)
         {
             Console.Clear();
-            if (format.Count == 0)
+            if (Purchase.Purchases.Count == 0)
             {
                 Console.WriteLine("Список пуст.");
             }
             else
             {
-                var sum = format.Aggregate((elem1, elem2) => new KeyValuePair<string, double>(elem1.Key, elem1.Value + elem2.Value));
-                Console.WriteLine($"Сумма всех продуктов = {sum.Value:N2} руб.");
+                var sum = Purchase.Purchases.Aggregate((elem1, elem2) => new Purchase(elem1.Name, elem1.Price + elem2.Price));
+                Console.WriteLine($"Сумма всех продуктов = {sum.Price:N2} руб.");
             }
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }
-        static public void ListTransferToDollars(Dictionary<string, double> format)
+        static public void ListTransferToDollars(List<Purchase> purchases)
         {
             Console.Clear();
-            if (format.Count == 0)
+            if (Purchase.Purchases.Count == 0)
             {
                 Console.WriteLine("Список пуст.");
             }
             else
             {
-                foreach (KeyValuePair<string, double> elem in format.Select(elem => new KeyValuePair<string, double>(elem.Key, elem.Value / 77)))
+                foreach (Purchase elem in Purchase.Purchases.Select(elem => new Purchase(elem.Name, elem.Price / 77)))
                 {
-                    Console.WriteLine("Название продукта = {0}, Его стоймость в долларах = {1:N2} usd.", elem.Key, elem.Value);
+                    Console.WriteLine("Название продукта = {0}, Его стоймость в долларах = {1:N2} usd.", elem.Name, elem.Price);
                 }
             }
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }
-        static public void ListSortedIncrease(Dictionary<string, double> format)
+        static public void ListSortedIncrease(List<Purchase> purchases)
         {
             Console.Clear();
-            if (format.Count == 0)
+            if (Purchase.Purchases.Count == 0)
             {
                 Console.WriteLine("Список пуст.");
             }
             else
             {
-                var sortedPrice = format.OrderBy(elem => elem.Value);
-                foreach (KeyValuePair<string, double> elem in sortedPrice)
+                var sortedPrice = Purchase.Purchases.OrderBy(elem => elem.Name);
+                foreach (Purchase elem in sortedPrice)
                 {
-                    Console.WriteLine("Название продукта = {0}, Его стоймость = {1:N2} руб.", elem.Key, elem.Value);
+                    Console.WriteLine("Название продукта = {0}, Его стоймость = {1:N2} руб.", elem.Name, elem.Price);
                 }
             }
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }
-        static public void ListSortedDescending(Dictionary<string, double> format)
+        static public void ListSortedDescending(List<Purchase> purchases)
         {
             Console.Clear();
-            if (format.Count == 0)
+            if (Purchase.Purchases.Count == 0)
             {
                 Console.WriteLine("Список пуст.");
             }
             else
             {
-                var sortedPrice = format.OrderByDescending(elem => elem.Value);
-                foreach (KeyValuePair<string, double> elem in sortedPrice)
+                var sortedPrice = Purchase.Purchases.OrderByDescending(elem => elem.Name);
+                foreach (Purchase elem in sortedPrice)
                 {
-                    Console.WriteLine("Название продукта = {0}, Его стоймость = {1:N2} руб.", elem.Key, elem.Value);
+                    Console.WriteLine("Название продукта = {0}, Его стоймость = {1:N2} руб.", elem.Name, elem.Price);
                 }
             }
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }
-        public static void Start()
+        public static void Start(List<Purchase> purchases)
         {
-            Dictionary<string, double> Format = new Dictionary<string, double>();
             ConsoleKey key = ConsoleKey.Enter;
             do
             {
@@ -187,28 +188,28 @@ namespace travelOrganizer
                 switch (key)
                 {
                     case ConsoleKey.D1:
-                        PrintList(Format);
+                        PrintList(purchases);
                         break;
                     case ConsoleKey.D2:
-                        AddElem(Format);
+                        AddElem(purchases);
                         break;
                     case ConsoleKey.D3:
-                        RemoveElem(Format);
+                        RemoveElem(purchases);
                         break;
                     case ConsoleKey.D4:
-                        SearchElem(Format);
+                        SearchElem(purchases);
                         break;
                     case ConsoleKey.D5:
-                        Sum(Format);
+                        Sum(purchases);
                         break;
                     case ConsoleKey.D6:
-                        ListTransferToDollars(Format);
+                        ListTransferToDollars(purchases);
                         break;
                     case ConsoleKey.D7:
-                        ListSortedIncrease(Format);
+                        ListSortedIncrease(purchases);
                         break;
                     case ConsoleKey.D8:
-                        ListSortedDescending(Format);
+                        ListSortedDescending(purchases);
                         break;
                     default: continue;
                 }
