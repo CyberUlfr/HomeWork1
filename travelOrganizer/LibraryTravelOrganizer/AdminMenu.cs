@@ -138,6 +138,10 @@ namespace travelOrganizer
             do
             {
                 Console.Clear();
+                foreach (var user1 in User.Users)
+                {
+                    Console.WriteLine("Список пользователей = {0}", user1.Name);
+                }
                 Console.Write("Введите имя пользователя или нажмите Enter чтобы завершить ввод пользователя : ");
                 userName = Console.ReadLine();
                 User user = User.Users.Where(u => u.Name == userName).ToList().FirstOrDefault();
@@ -152,6 +156,7 @@ namespace travelOrganizer
                         else
                         {
                             Console.Write($"Данный пользователь {userName} уже добавлен!");
+                            Console.ReadKey();
                         }
                     }
                     else

@@ -30,14 +30,14 @@ namespace travelOrganizer
             ActiveUser = user;
             int journeyNumber;
             List<Journey> Journeys = Journey.Journeys.ToArray().Where(j => j.Users.Contains(ActiveUser)).ToList();
-            for (int i = 0; i < Journeys.Count; i++)
-            {
-                Console.WriteLine("{0}:Название путешествия - {1}", i + 1, Journeys[i]);
-            }
             do
             {
                 if (Journeys.Count > 0)
                 {
+                    for (int i = 0; i < Journeys.Count; i++)
+                    {
+                        Console.WriteLine("{0}:Название путешествия - {1}", i + 1, Journeys[i]);
+                    }
                     Console.Write("Введите номер путешествия: ");
                     while (!Int32.TryParse(Console.ReadLine(), out journeyNumber))
                     {
@@ -102,7 +102,7 @@ namespace travelOrganizer
             Console.Clear();
             Console.WriteLine($"Общая статистика по путешествию: {sum1} руб. всего потратил, всего прошел {sum2} км.");
             Console.WriteLine($"Время начала: {SelectedJourney.TimeStart}");
-            Console.WriteLine($"Общее время путешествия: {new DateTime(DateTime.Now.Ticks - SelectedJourney.TimeStart.Ticks).Second} сек.");
+            Console.WriteLine($"Общее время путешествия: {(int)(DateTime.Now - SelectedJourney.TimeStart).TotalSeconds} сек.");
             Console.WriteLine("Для перехода в меню нажмите любую клавишу...");
             Console.ReadKey();
         }

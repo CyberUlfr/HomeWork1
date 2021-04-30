@@ -43,7 +43,7 @@ namespace travelOrganizer
                     var user = Users.First(username => username.Name == userName);
                     if (!user.IsAdmin)
                     {
-                        var users = Users.First(username => username == user);
+                        var users1 = Users.First(username => username == user);
                         Menu.MenuRun(user);
                     }
                     else
@@ -60,56 +60,55 @@ namespace travelOrganizer
                     return;
                 }
             } while (true);
-        }
-        public static class DataBase
+        } 
+    }
+    public static class DataBase
+    {
+        public static string userPath { get; set; } = "C:\\Users\\User\\Desktop\\Учёба в GoodLine\\HomeWork\\travelOrganizer\\Users.txt";
+        public static bool SaveUsers(List<User> users)
         {
-            public static string userPath { get; set; } = "D:\\Users.txt";
-            public static bool SaveUsers(List<User> users)
+            StreamWriter fileIn;
+            try
             {
-                StreamWriter fileIn;
-                try
+                fileIn = new StreamWriter(userPath);
+                foreach (var user in users)
                 {
-                    fileIn = new StreamWriter(userPath);
-                    foreach (var user in users)
-                    {
-                        fileIn.WriteLine(user.Name);
-                    }
-                    fileIn.Close();
+                    fileIn.WriteLine(user.Name);
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Ошибка! {ex.Message}");
-                    return false;
-                }
-                return true;
+                fileIn.Close();
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка! {ex.Message}");
+                return false;
+            }
+            return true;
+        }
 
-            public static List<User> LoadUsers()
+        public static List<User> LoadUsers(List<User> users)
+        {
+            StreamReader fileOut;
+            try
             {
-                List<User> users = new List<User>();
-                StreamReader fileOut;
-                try
+                if (File.Exists(userPath))
                 {
-                    if (File.Exists(userPath))
+                    fileOut = new StreamReader(userPath);
+                    while (!fileOut.EndOfStream)
                     {
-                        fileOut = new StreamReader(userPath);
-                        while (!fileOut.EndOfStream)
-                        {
-                            string name = fileOut.ReadLine();
-                            users.Add(new User(name));
-                        }
-                        fileOut.Close();
+                        string name = fileOut.ReadLine();
+                        users.Add(new User(name));
                     }
-                    else
-                        throw new Exception("Файла не существует!");
+                    fileOut.Close();
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Ошибка! {ex.Message}");
-                    return null;
-                }
-                return users;
+                else
+                    throw new Exception("Файла не существует!");
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка! {ex.Message}");
+                return null;
+            }
+            return users;
         }
     }
 }
