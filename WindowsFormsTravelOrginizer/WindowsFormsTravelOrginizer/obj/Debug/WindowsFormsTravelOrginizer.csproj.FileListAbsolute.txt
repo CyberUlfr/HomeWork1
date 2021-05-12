@@ -1,0 +1,13 @@
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginizer\WindowsFormsTravelOrginizer\bin\Debug\WindowsFormsTravelOrginizer.exe.config
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginizer\WindowsFormsTravelOrginizer\bin\Debug\WindowsFormsTravelOrginizer.exe
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginizer\WindowsFormsTravelOrginizer\bin\Debug\WindowsFormsTravelOrginizer.pdb
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginizer\WindowsFormsTravelOrginizer\obj\Debug\WindowsFormsTravelOrginizer.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginizer\WindowsFormsTravelOrginizer\obj\Debug\WindowsFormsTravelOrginizer.Form1.resources
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginizer\WindowsFormsTravelOrginizer\obj\Debug\WindowsFormsTravelOrginizer.Properties.Resources.resources
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginizer\WindowsFormsTravelOrginizer\obj\Debug\WindowsFormsTravelOrginizer.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginizer\WindowsFormsTravelOrginizer\obj\Debug\WindowsFormsTravelOrginizer.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginizer\WindowsFormsTravelOrginizer\obj\Debug\WindowsFormsTravelOrginizer.exe
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginizer\WindowsFormsTravelOrginizer\obj\Debug\WindowsFormsTravelOrginizer.pdb
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginizer\WindowsFormsTravelOrginizer\bin\Debug\LibraryTravelOrganizer.dll
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginizer\WindowsFormsTravelOrginizer\bin\Debug\LibraryTravelOrganizer.pdb
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginizer\WindowsFormsTravelOrginizer\obj\Debug\WindowsFormsTravelOrginizer.csproj.CopyComplete

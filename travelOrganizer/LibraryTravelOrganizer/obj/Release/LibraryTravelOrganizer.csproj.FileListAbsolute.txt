@@ -1,0 +1,5 @@
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\LibraryTravelOrganizer\bin\Release\LibraryTravelOrganizer.dll
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\LibraryTravelOrganizer\bin\Release\LibraryTravelOrganizer.pdb
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\LibraryTravelOrganizer\obj\Release\LibraryTravelOrganizer.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\LibraryTravelOrganizer\obj\Release\LibraryTravelOrganizer.dll
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\travelOrganizer\LibraryTravelOrganizer\obj\Release\LibraryTravelOrganizer.pdb

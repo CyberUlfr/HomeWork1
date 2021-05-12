@@ -51,7 +51,7 @@ namespace travelOrganizer
         }
         public bool Finish()
         {
-            if (!IsStart || TimeFinish.Ticks != null)
+            if (!IsStart )
             {
                 return false;
             }
