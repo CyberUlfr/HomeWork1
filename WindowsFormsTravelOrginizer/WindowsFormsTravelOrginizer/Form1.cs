@@ -31,7 +31,6 @@ namespace WindowsFormsTravelOrginizer
         private void listBoxSelectedName(object sender, EventArgs e)
         {
             
-
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)

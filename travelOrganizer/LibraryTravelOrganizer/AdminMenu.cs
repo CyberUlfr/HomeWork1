@@ -70,6 +70,7 @@ namespace travelOrganizer
                     if (!User.Users.Any(elem => elem.Name == userName))
                     {
                         User.Users.Add(new User(userName));
+                        DataBase.SaveUsers(User.Users);
                         Console.Write("Пользователь добавлен. Для продолжения нажмите на любую клавишу!");
                         Console.ReadKey();
                     }

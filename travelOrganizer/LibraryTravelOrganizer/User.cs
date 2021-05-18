@@ -21,13 +21,14 @@ namespace travelOrganizer
             Name = name;
             IsAdmin = isAdmin;
         }
-        static User()
+        public static void Init()
         {
             Users.Add(new User("Админ", true));
             Users.Add(new User("Костя"));
         }
         static public void StartUser()
         {
+            List<User> users2 = DataBase.LoadUsers(Users);
             do
             {
                 Console.Clear();

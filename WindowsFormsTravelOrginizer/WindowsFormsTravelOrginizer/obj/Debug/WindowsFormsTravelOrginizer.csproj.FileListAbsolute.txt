@@ -11,3 +11,5 @@ C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginize
 C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginizer\WindowsFormsTravelOrginizer\bin\Debug\LibraryTravelOrganizer.dll
 C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginizer\WindowsFormsTravelOrginizer\bin\Debug\LibraryTravelOrganizer.pdb
 C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginizer\WindowsFormsTravelOrginizer\obj\Debug\WindowsFormsTravelOrginizer.csproj.CopyComplete
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginizer\WindowsFormsTravelOrginizer\obj\Debug\LibraryTravelOrganizer.FormInput.resources
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WindowsFormsTravelOrginizer\WindowsFormsTravelOrginizer\obj\Debug\WindowsFormsTravelOrginizer.FormUsers.resources

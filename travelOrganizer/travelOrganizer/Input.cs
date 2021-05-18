@@ -20,6 +20,11 @@ namespace travelOrganizer
         }
         public static void Main()
         {
+            User.Init();
+            InputMenu();
+        }
+        public static void InputMenu()
+        {
             ConsoleKey key = ConsoleKey.Enter;
             do
             {
