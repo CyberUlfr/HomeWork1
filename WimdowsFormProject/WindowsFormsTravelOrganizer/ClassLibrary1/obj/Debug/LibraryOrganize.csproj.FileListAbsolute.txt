@@ -3,3 +3,9 @@ C:\Users\User\Desktop\WimdowsFormProject\WindowsFormsTravelOrganizer\ClassLibrar
 C:\Users\User\Desktop\WimdowsFormProject\WindowsFormsTravelOrganizer\ClassLibrary1\obj\Debug\LibraryOrganize.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\WimdowsFormProject\WindowsFormsTravelOrganizer\ClassLibrary1\obj\Debug\ClassLibrary1.dll
 C:\Users\User\Desktop\WimdowsFormProject\WindowsFormsTravelOrganizer\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WimdowsFormProject\WindowsFormsTravelOrganizer\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WimdowsFormProject\WindowsFormsTravelOrganizer\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WimdowsFormProject\WindowsFormsTravelOrganizer\ClassLibrary1\obj\Debug\LibraryOrganize.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WimdowsFormProject\WindowsFormsTravelOrganizer\ClassLibrary1\obj\Debug\LibraryOrganize.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WimdowsFormProject\WindowsFormsTravelOrganizer\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\User\Desktop\Учёба в GoodLine\HomeWork\WimdowsFormProject\WindowsFormsTravelOrganizer\ClassLibrary1\obj\Debug\ClassLibrary1.pdb

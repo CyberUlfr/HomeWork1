@@ -47,19 +47,10 @@ namespace ClassLibrary1
             Users[index].Name = name;
             return Users;
         }
-        public bool userIsAdmin(string name, bool isAdmin)
+        public List<User> UserRemove(User user)
         {
-            var user = Users.First(u => u.Name == name);
-            if (!user.IsAdmin)
-            {
-                var users1 = Users.First(u => u == user);
-                return false;
-            }
-            else
-            {
-                var admin = isAdmin;
-                return true;
-            }
+            Users.Remove(user);
+            return Users;
         }
     }
 }

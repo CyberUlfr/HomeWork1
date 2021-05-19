@@ -13,7 +13,6 @@ namespace WindowsFormsApp1
             UserModel userModel = new UserModel();
             userPresenter = new UserPresenter(this, userModel);
             ListBoxUsersUpdate();
-            InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -23,7 +22,7 @@ namespace WindowsFormsApp1
 
         private void listBoxUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
         private void ListBoxUsersUpdate()
         {
