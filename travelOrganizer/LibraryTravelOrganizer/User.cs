@@ -28,7 +28,7 @@ namespace travelOrganizer
         }
         static public void StartUser()
         {
-            List<User> users2 = DataBase.LoadUsers(Users);
+            Users = DataBase.LoadUsers(Users);
             do
             {
                 Console.Clear();
@@ -75,6 +75,7 @@ namespace travelOrganizer
                 foreach (var user in users)
                 {
                     fileIn.WriteLine(user.Name);
+                    fileIn.WriteLine(user.IsAdmin);
                 }
                 fileIn.Close();
             }
@@ -93,13 +94,19 @@ namespace travelOrganizer
             {
                 if (File.Exists(userPath))
                 {
+                    List<User> tempUser = new List<User>();
                     fileOut = new StreamReader(userPath);
                     while (!fileOut.EndOfStream)
                     {
                         string name = fileOut.ReadLine();
-                        users.Add(new User(name));
+                        bool isAdmin = bool.Parse(fileOut.ReadLine());
+                        tempUser.Add(new User(name,isAdmin));
                     }
                     fileOut.Close();
+                    if (tempUser.Count > 0)
+                    {
+                        users = tempUser;
+                    }
                 }
                 else
                     throw new Exception("Файла не существует!");

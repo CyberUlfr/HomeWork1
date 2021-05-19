@@ -1,2 +1,6 @@
 Админ
+True
 Костя
+False
+Рома
+False
