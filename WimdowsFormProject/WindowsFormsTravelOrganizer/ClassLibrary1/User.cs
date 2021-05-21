@@ -8,6 +8,7 @@ namespace ClassLibrary1
     {
         public string Name { get; set; }
         public bool IsAdmin { get; set; }
+
         public User()
         {
             Name = "Без имени";

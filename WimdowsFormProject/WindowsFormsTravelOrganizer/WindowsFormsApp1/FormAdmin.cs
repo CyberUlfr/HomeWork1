@@ -7,17 +7,27 @@ namespace WindowsFormsApp1
     public partial class FormAdmin : Form
     {
         public UserPresenterAdmin userPresenterAdmin;
+        public JourneyPresenter journeyPresenter;
         public FormAdmin()
         {
             InitializeComponent();
+            JourneyModel journeyModel = new JourneyModel();
             UserModel userModel = new UserModel();
             userPresenterAdmin = new UserPresenterAdmin(this, userModel);
+            journeyPresenter = new JourneyPresenter(this, journeyModel, userModel);
             ListBoxUsersUpdate();
+            ListBoxJourneysUpdate();
         }
 
         private void listBoxUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+        private void ListBoxJourneysUpdate()
+        {
+            listBoxJourneys.Items.Clear();
+            foreach (var journey in journeyPresenter.UserGetListJourney())
+                listBoxJourneys.Items.Add(journey);
         }
         private void ListBoxUsersUpdate()
         {
@@ -65,6 +75,11 @@ namespace WindowsFormsApp1
             }
             userPresenterAdmin.UserRemove((User)listBoxUsers.SelectedItem);
             ListBoxUsersUpdate();
+        }
+
+        private void listBoxJourneys_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
