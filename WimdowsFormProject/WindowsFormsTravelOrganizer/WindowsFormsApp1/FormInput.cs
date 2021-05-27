@@ -1,5 +1,6 @@
 ﻿using ClassLibrary1;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -7,11 +8,17 @@ namespace WindowsFormsApp1
     public partial class FormInput : Form
     {
         public UserPresenter userPresenter;
-        public FormInput()
+        public FormInput(List<Journey> Journeys, User user)
         {
             InitializeComponent();
             UserModel userModel = new UserModel();
-            userPresenter = new UserPresenter(this, userModel);
+            JourneyModel journeyModel = new JourneyModel();
+            userPresenter = new UserPresenter(this, journeyModel, userModel);
+            FormSelectJourney fSJ = new FormSelectJourney(Journeys, user);
+            if (fSJ.DialogResult == DialogResult.OK)
+            {
+                userPresenter.SelectedJourney = fSJ.SelectedJourney;
+            }
             ListBoxUsersUpdate();
         }
 
@@ -33,7 +40,7 @@ namespace WindowsFormsApp1
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void buttonSelect_Click(object sender, EventArgs e)
@@ -47,7 +54,7 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    MessageBox.Show("Форма пользователя!");
+                    FormInput.fSJ.Show();
                 }
                 Hide();
             }

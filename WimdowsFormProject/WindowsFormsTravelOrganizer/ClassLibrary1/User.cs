@@ -40,7 +40,7 @@ namespace ClassLibrary1
         public void UserAdd(string name)
         {
             if (Users.Any(u => u.Name == name))
-                throw (new Exception("Данный пользователь уже существует!"));
+                throw new Exception("Данный пользователь уже существует!");
             Users.Add(new User(name));
         }
         public List<User> UserEdit(int index, string name)

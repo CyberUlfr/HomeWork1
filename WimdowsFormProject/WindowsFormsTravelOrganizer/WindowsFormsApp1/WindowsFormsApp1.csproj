@@ -58,9 +58,22 @@
     <Compile Include="FormInput.Designer.cs">
       <DependentUpon>FormInput.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUsers.Designer.cs">
+      <DependentUpon>FormUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="JourneyPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FormSelectJourney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectJourney.Designer.cs">
+      <DependentUpon>FormSelectJourney.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectJourneyPresenter.cs" />
     <Compile Include="UserPresenter.cs" />
     <Compile Include="UserPresenterAdmin.cs" />
     <EmbeddedResource Include="FormAdmin.resx">
@@ -68,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormInput.resx">
       <DependentUpon>FormInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsers.resx">
+      <DependentUpon>FormUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -78,6 +94,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormSelectJourney.resx">
+      <DependentUpon>FormSelectJourney.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

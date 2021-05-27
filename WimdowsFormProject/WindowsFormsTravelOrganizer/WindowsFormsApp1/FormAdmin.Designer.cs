@@ -31,11 +31,12 @@ namespace WindowsFormsApp1
         {
             this.tabControlAdmin = new System.Windows.Forms.TabControl();
             this.tabPageJourneys = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.listBoxUsersAdd = new System.Windows.Forms.ListBox();
             this.buttonAddUsersJourneys = new System.Windows.Forms.Button();
             this.comboBoxAddUsers = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonRemoveJourneys = new System.Windows.Forms.Button();
             this.buttonAddJourneys = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxJourneys = new System.Windows.Forms.TextBox();
@@ -51,6 +52,7 @@ namespace WindowsFormsApp1
             this.listBoxUsers = new System.Windows.Forms.ListBox();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
+            this.buttonDeleteUserAddJourneys = new System.Windows.Forms.Button();
             this.tabControlAdmin.SuspendLayout();
             this.tabPageJourneys.SuspendLayout();
             this.tabPageUsers.SuspendLayout();
@@ -68,11 +70,13 @@ namespace WindowsFormsApp1
             // 
             // tabPageJourneys
             // 
-            this.tabPageJourneys.Controls.Add(this.listBox1);
+            this.tabPageJourneys.Controls.Add(this.buttonDeleteUserAddJourneys);
+            this.tabPageJourneys.Controls.Add(this.label3);
+            this.tabPageJourneys.Controls.Add(this.label2);
+            this.tabPageJourneys.Controls.Add(this.listBoxUsersAdd);
             this.tabPageJourneys.Controls.Add(this.buttonAddUsersJourneys);
             this.tabPageJourneys.Controls.Add(this.comboBoxAddUsers);
-            this.tabPageJourneys.Controls.Add(this.button2);
-            this.tabPageJourneys.Controls.Add(this.button1);
+            this.tabPageJourneys.Controls.Add(this.buttonRemoveJourneys);
             this.tabPageJourneys.Controls.Add(this.buttonAddJourneys);
             this.tabPageJourneys.Controls.Add(this.label1);
             this.tabPageJourneys.Controls.Add(this.textBoxJourneys);
@@ -86,94 +90,117 @@ namespace WindowsFormsApp1
             this.tabPageJourneys.Text = "Путешествия";
             this.tabPageJourneys.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // label3
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(9, 248);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(251, 160);
-            this.listBox1.TabIndex = 12;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label3.Location = new System.Drawing.Point(275, 225);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(171, 20);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Выбор пользователя";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label2.Location = new System.Drawing.Point(8, 207);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(265, 40);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Список выбранных \r\nпользователей для путешествия";
+            // 
+            // listBoxUsersAdd
+            // 
+            this.listBoxUsersAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.listBoxUsersAdd.FormattingEnabled = true;
+            this.listBoxUsersAdd.ItemHeight = 20;
+            this.listBoxUsersAdd.Location = new System.Drawing.Point(9, 248);
+            this.listBoxUsersAdd.Name = "listBoxUsersAdd";
+            this.listBoxUsersAdd.Size = new System.Drawing.Size(264, 144);
+            this.listBoxUsersAdd.TabIndex = 12;
+            this.listBoxUsersAdd.SelectedIndexChanged += new System.EventHandler(this.listBoxUsersAdd_SelectedIndexChanged);
             // 
             // buttonAddUsersJourneys
             // 
-            this.buttonAddUsersJourneys.Location = new System.Drawing.Point(266, 275);
+            this.buttonAddUsersJourneys.Location = new System.Drawing.Point(279, 282);
             this.buttonAddUsersJourneys.Name = "buttonAddUsersJourneys";
-            this.buttonAddUsersJourneys.Size = new System.Drawing.Size(227, 43);
+            this.buttonAddUsersJourneys.Size = new System.Drawing.Size(214, 43);
             this.buttonAddUsersJourneys.TabIndex = 11;
             this.buttonAddUsersJourneys.Text = "Добавить пользователя в путешествие";
             this.buttonAddUsersJourneys.UseVisualStyleBackColor = true;
+            this.buttonAddUsersJourneys.Click += new System.EventHandler(this.buttonAddUsersJourneys_Click);
             // 
             // comboBoxAddUsers
             // 
+            this.comboBoxAddUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxAddUsers.FormattingEnabled = true;
-            this.comboBoxAddUsers.Location = new System.Drawing.Point(266, 248);
+            this.comboBoxAddUsers.Location = new System.Drawing.Point(279, 248);
             this.comboBoxAddUsers.Name = "comboBoxAddUsers";
-            this.comboBoxAddUsers.Size = new System.Drawing.Size(227, 21);
+            this.comboBoxAddUsers.Size = new System.Drawing.Size(214, 28);
             this.comboBoxAddUsers.TabIndex = 10;
+            this.comboBoxAddUsers.SelectedIndexChanged += new System.EventHandler(this.comboBoxAddUsers_SelectedIndexChanged);
             // 
-            // button2
+            // buttonRemoveJourneys
             // 
-            this.button2.Location = new System.Drawing.Point(373, 170);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 43);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Добавить путешествие";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(373, 121);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 43);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Добавить путешествие";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonRemoveJourneys.Location = new System.Drawing.Point(279, 136);
+            this.buttonRemoveJourneys.Name = "buttonRemoveJourneys";
+            this.buttonRemoveJourneys.Size = new System.Drawing.Size(216, 43);
+            this.buttonRemoveJourneys.TabIndex = 8;
+            this.buttonRemoveJourneys.Text = "Удалить путешествие";
+            this.buttonRemoveJourneys.UseVisualStyleBackColor = true;
+            this.buttonRemoveJourneys.Click += new System.EventHandler(this.buttonRemoveJourneys_Click);
             // 
             // buttonAddJourneys
             // 
-            this.buttonAddJourneys.Location = new System.Drawing.Point(373, 72);
+            this.buttonAddJourneys.Location = new System.Drawing.Point(279, 87);
             this.buttonAddJourneys.Name = "buttonAddJourneys";
-            this.buttonAddJourneys.Size = new System.Drawing.Size(120, 43);
+            this.buttonAddJourneys.Size = new System.Drawing.Size(214, 43);
             this.buttonAddJourneys.TabIndex = 7;
-            this.buttonAddJourneys.Text = "Добавить путешествие";
+            this.buttonAddJourneys.Text = "Создать путешествие";
             this.buttonAddJourneys.UseVisualStyleBackColor = true;
+            this.buttonAddJourneys.Click += new System.EventHandler(this.buttonAddJourneys_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(258, 3);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label1.Location = new System.Drawing.Point(279, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(244, 31);
+            this.label1.Size = new System.Drawing.Size(155, 40);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Введите название";
+            this.label1.Text = "Введите название \r\nпутешествия";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBoxJourneys
             // 
-            this.textBoxJourneys.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxJourneys.Location = new System.Drawing.Point(266, 37);
+            this.textBoxJourneys.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxJourneys.Location = new System.Drawing.Point(279, 52);
             this.textBoxJourneys.Name = "textBoxJourneys";
-            this.textBoxJourneys.Size = new System.Drawing.Size(230, 29);
+            this.textBoxJourneys.Size = new System.Drawing.Size(217, 26);
             this.textBoxJourneys.TabIndex = 5;
+            this.textBoxJourneys.TextChanged += new System.EventHandler(this.textBoxJourneys_TextChanged);
             // 
             // labelJourneys
             // 
             this.labelJourneys.AutoSize = true;
-            this.labelJourneys.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelJourneys.Location = new System.Drawing.Point(3, 3);
+            this.labelJourneys.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.labelJourneys.Location = new System.Drawing.Point(5, 9);
             this.labelJourneys.Name = "labelJourneys";
-            this.labelJourneys.Size = new System.Drawing.Size(244, 31);
+            this.labelJourneys.Size = new System.Drawing.Size(167, 20);
             this.labelJourneys.TabIndex = 4;
-            this.labelJourneys.Text = "Лист путешествий";
+            this.labelJourneys.Text = "Список путешествий";
+            this.labelJourneys.Click += new System.EventHandler(this.labelJourneys_Click);
             // 
             // listBoxJourneys
             // 
-            this.listBoxJourneys.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBoxJourneys.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBoxJourneys.FormattingEnabled = true;
-            this.listBoxJourneys.ItemHeight = 24;
-            this.listBoxJourneys.Location = new System.Drawing.Point(9, 37);
+            this.listBoxJourneys.ItemHeight = 20;
+            this.listBoxJourneys.Location = new System.Drawing.Point(9, 32);
             this.listBoxJourneys.Name = "listBoxJourneys";
-            this.listBoxJourneys.Size = new System.Drawing.Size(251, 172);
+            this.listBoxJourneys.Size = new System.Drawing.Size(264, 164);
             this.listBoxJourneys.TabIndex = 3;
             this.listBoxJourneys.SelectedIndexChanged += new System.EventHandler(this.listBoxJourneys_SelectedIndexChanged);
             // 
@@ -197,10 +224,10 @@ namespace WindowsFormsApp1
             // labelTextBoxUserName
             // 
             this.labelTextBoxUserName.AutoSize = true;
-            this.labelTextBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTextBoxUserName.Location = new System.Drawing.Point(298, 3);
+            this.labelTextBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelTextBoxUserName.Location = new System.Drawing.Point(274, 13);
             this.labelTextBoxUserName.Name = "labelTextBoxUserName";
-            this.labelTextBoxUserName.Size = new System.Drawing.Size(175, 31);
+            this.labelTextBoxUserName.Size = new System.Drawing.Size(109, 20);
             this.labelTextBoxUserName.TabIndex = 9;
             this.labelTextBoxUserName.Text = "Введите имя";
             // 
@@ -214,9 +241,9 @@ namespace WindowsFormsApp1
             // 
             // buttonDeleateUser
             // 
-            this.buttonDeleateUser.Location = new System.Drawing.Point(376, 170);
+            this.buttonDeleateUser.Location = new System.Drawing.Point(278, 170);
             this.buttonDeleateUser.Name = "buttonDeleateUser";
-            this.buttonDeleateUser.Size = new System.Drawing.Size(120, 43);
+            this.buttonDeleateUser.Size = new System.Drawing.Size(218, 43);
             this.buttonDeleateUser.TabIndex = 7;
             this.buttonDeleateUser.Text = "Удалить пользователя";
             this.buttonDeleateUser.UseVisualStyleBackColor = true;
@@ -224,9 +251,9 @@ namespace WindowsFormsApp1
             // 
             // buttonEditUsers
             // 
-            this.buttonEditUsers.Location = new System.Drawing.Point(376, 121);
+            this.buttonEditUsers.Location = new System.Drawing.Point(278, 121);
             this.buttonEditUsers.Name = "buttonEditUsers";
-            this.buttonEditUsers.Size = new System.Drawing.Size(120, 43);
+            this.buttonEditUsers.Size = new System.Drawing.Size(218, 43);
             this.buttonEditUsers.TabIndex = 6;
             this.buttonEditUsers.Text = "Изменить имя";
             this.buttonEditUsers.UseVisualStyleBackColor = true;
@@ -234,9 +261,9 @@ namespace WindowsFormsApp1
             // 
             // buttonUserAdd
             // 
-            this.buttonUserAdd.Location = new System.Drawing.Point(376, 72);
+            this.buttonUserAdd.Location = new System.Drawing.Point(278, 72);
             this.buttonUserAdd.Name = "buttonUserAdd";
-            this.buttonUserAdd.Size = new System.Drawing.Size(120, 43);
+            this.buttonUserAdd.Size = new System.Drawing.Size(218, 43);
             this.buttonUserAdd.TabIndex = 5;
             this.buttonUserAdd.Text = "Добавить пользователя";
             this.buttonUserAdd.UseVisualStyleBackColor = true;
@@ -245,18 +272,18 @@ namespace WindowsFormsApp1
             // labelUsers2
             // 
             this.labelUsers2.AutoSize = true;
-            this.labelUsers2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUsers2.Location = new System.Drawing.Point(3, 3);
+            this.labelUsers2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUsers2.Location = new System.Drawing.Point(5, 13);
             this.labelUsers2.Name = "labelUsers2";
-            this.labelUsers2.Size = new System.Drawing.Size(270, 31);
+            this.labelUsers2.Size = new System.Drawing.Size(169, 20);
             this.labelUsers2.TabIndex = 1;
             this.labelUsers2.Text = "Лист пользователей";
             // 
             // listBoxUsers
             // 
-            this.listBoxUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBoxUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBoxUsers.FormattingEnabled = true;
-            this.listBoxUsers.ItemHeight = 24;
+            this.listBoxUsers.ItemHeight = 20;
             this.listBoxUsers.Location = new System.Drawing.Point(9, 37);
             this.listBoxUsers.Name = "listBoxUsers";
             this.listBoxUsers.Size = new System.Drawing.Size(263, 364);
@@ -271,6 +298,7 @@ namespace WindowsFormsApp1
             this.buttonExit.TabIndex = 1;
             this.buttonExit.Text = "Выход";
             this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // buttonBack
             // 
@@ -280,6 +308,17 @@ namespace WindowsFormsApp1
             this.buttonBack.TabIndex = 2;
             this.buttonBack.Text = "Назад";
             this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            // 
+            // buttonDeleteUserAddJourneys
+            // 
+            this.buttonDeleteUserAddJourneys.Location = new System.Drawing.Point(279, 331);
+            this.buttonDeleteUserAddJourneys.Name = "buttonDeleteUserAddJourneys";
+            this.buttonDeleteUserAddJourneys.Size = new System.Drawing.Size(214, 43);
+            this.buttonDeleteUserAddJourneys.TabIndex = 15;
+            this.buttonDeleteUserAddJourneys.Text = "Удалить пользователя списка выбранных";
+            this.buttonDeleteUserAddJourneys.UseVisualStyleBackColor = true;
+            this.buttonDeleteUserAddJourneys.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormAdmin
             // 
@@ -319,10 +358,12 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.TextBox textBoxJourneys;
         private System.Windows.Forms.Label labelJourneys;
         private System.Windows.Forms.ListBox listBoxJourneys;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button buttonRemoveJourneys;
         private System.Windows.Forms.Button buttonAddUsersJourneys;
         private System.Windows.Forms.ComboBox comboBoxAddUsers;
+        private System.Windows.Forms.ListBox listBoxUsersAdd;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonDeleteUserAddJourneys;
     }
 }

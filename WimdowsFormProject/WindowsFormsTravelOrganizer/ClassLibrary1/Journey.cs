@@ -8,32 +8,13 @@ namespace ClassLibrary1
 {
     public class Journey
     {
-        public List<User> Users { get; private set; } = new List<User>();
         public bool IsStart { get; private set; }
         public DateTime TimeStart { get; private set; }
         public DateTime TimeFinish { get; private set; }
         public string Name { get; set; }
-        public bool AddUser(User user)
-        {
-            Console.Clear();
-            if (IsStart || Users.Contains(user) || TimeFinish.Ticks > 0)
-            {
-                return false;
-            }
-            else
-            {
-                Users.Add(user);
-                return true;
-            }
-        }
         public Journey(string name, List<User> users)
         {
             Name = name;
-            foreach (User user in users.ToArray())
-            {
-                Users.Add(user);
-                IsStart = false;
-            }
         }
         public bool Start()
         {
@@ -71,28 +52,38 @@ namespace ClassLibrary1
     }
     public class JourneyModel
     {
+        public JourneyModel SelectedJourney;
         public List<Journey> Journeys = new List<Journey>();
+        public List<User> Users = new List<User>();
         public JourneyModel()
         {
             Journeys.Add(new Journey("Поездка в артышту", new List<User>()));
             Journeys.Last().Start();
         }
-        public void JourneyAdd(string name, string users)
+        public void JourneyAdd(string name, List<User> users)
         {
             if (Journeys.Any(u => u.Name == name))
                 throw (new Exception("Данное путешествие уже существует!"));
-            new Journey(name, users);
+            Journeys.Add(new Journey(name, users));
+        }
+        public void UserAddJourney(User user)
+        {
+            if (Users.Any(u => u.Name == user.Name))
+                throw new Exception("Данный пользователь уже существует!");
+            Users.Add(user);
+        }
+        public void UserRemoveJourney(User user)
+        {
+            Users.Remove(user);
         }
         public List<Journey> JourneyEdit(int index, string name)
         {
             Journeys[index].Name = name;
             return Journeys;
         }
-        public List<Journey> JourneyRemove(Journey journey)
+        public void JourneyRemove(Journey journey)
         {
             Journeys.Remove(journey);
-            return Journeys;
         }
-
     }
 }
