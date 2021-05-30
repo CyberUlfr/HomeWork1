@@ -24,9 +24,20 @@ namespace WindowsFormsApp1
         {
             return model.Users;
         }
-        public void SelectedJourney()
+        public void SelectUser(User user)
         {
-            jModel.SelectedJourney;
+            View.Hide();
+            model.SelectUser(user);
+            if (user.IsAdmin)
+            {
+                FormAdmin fA = new FormAdmin();
+                fA.Show();
+            }
+            else
+            {
+                FormSelectJourney fSJ = new FormSelectJourney(jModel, model);
+                fSJ.Show();
+            }
         }
     }
 }

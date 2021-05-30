@@ -73,6 +73,7 @@
     <Compile Include="FormSelectJourney.Designer.cs">
       <DependentUpon>FormSelectJourney.cs</DependentUpon>
     </Compile>
+    <Compile Include="PurchasePresenter.cs" />
     <Compile Include="SelectJourneyPresenter.cs" />
     <Compile Include="UserPresenter.cs" />
     <Compile Include="UserPresenterAdmin.cs" />

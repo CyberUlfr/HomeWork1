@@ -8,17 +8,12 @@ namespace WindowsFormsApp1
     public partial class FormInput : Form
     {
         public UserPresenter userPresenter;
-        public FormInput(List<Journey> Journeys, User user)
+        public FormInput()
         {
             InitializeComponent();
             UserModel userModel = new UserModel();
-            JourneyModel journeyModel = new JourneyModel();
+            JourneyModel journeyModel = new JourneyModel(userModel);
             userPresenter = new UserPresenter(this, journeyModel, userModel);
-            FormSelectJourney fSJ = new FormSelectJourney(Journeys, user);
-            if (fSJ.DialogResult == DialogResult.OK)
-            {
-                userPresenter.SelectedJourney = fSJ.SelectedJourney;
-            }
             ListBoxUsersUpdate();
         }
 
@@ -47,16 +42,7 @@ namespace WindowsFormsApp1
         {
             if ((User)listBoxUsers.SelectedItem != null)
             {
-                if (((User)listBoxUsers.SelectedItem).IsAdmin)
-                {
-                    FormAdmin fA = new FormAdmin();
-                    fA.Show();
-                }
-                else
-                {
-                    FormInput.fSJ.Show();
-                }
-                Hide();
+                userPresenter.SelectUser((User)listBoxUsers.SelectedItem);
             }
             else
             {

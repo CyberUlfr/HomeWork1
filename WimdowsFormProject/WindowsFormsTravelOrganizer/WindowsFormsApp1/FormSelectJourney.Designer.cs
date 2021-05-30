@@ -69,7 +69,7 @@ namespace WindowsFormsApp1
             // 
             this.labelSelectJourney.AutoSize = true;
             this.labelSelectJourney.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelSelectJourney.Location = new System.Drawing.Point(32, 34);
+            this.labelSelectJourney.Location = new System.Drawing.Point(12, 33);
             this.labelSelectJourney.Name = "labelSelectJourney";
             this.labelSelectJourney.Size = new System.Drawing.Size(193, 20);
             this.labelSelectJourney.TabIndex = 3;

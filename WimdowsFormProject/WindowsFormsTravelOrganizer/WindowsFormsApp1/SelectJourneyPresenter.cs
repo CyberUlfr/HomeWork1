@@ -20,13 +20,21 @@ namespace WindowsFormsApp1
             jModel = journeyModel;
             uModel = userModel;
         }
+        public User GetActiveUser()
+        {
+            return uModel.ActiveUser;
+        }
         public List<Journey> UserGetListJourney()
         {
-            return jModel.Journeys;
+            return jModel.GetUserJourneys(uModel.ActiveUser);
         }
         public List<User> UserJGetList()
         {
             return jModel.Users;
+        }
+        public void SetSelectedJourney(Journey journey)
+        {
+            jModel.SelectedJourney = journey;
         }
     }
 }

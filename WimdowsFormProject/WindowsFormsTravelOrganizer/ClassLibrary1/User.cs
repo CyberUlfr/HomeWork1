@@ -32,6 +32,7 @@ namespace ClassLibrary1
     public class UserModel
     {
         public List<User> Users = new List<User>();
+        public User ActiveUser;
         public UserModel()
         {
             Users.Add(new User("Админ", true));
@@ -52,6 +53,13 @@ namespace ClassLibrary1
         {
             Users.Remove(user);
             return Users;
+        }
+        public void SelectUser (User user)
+        {
+            if (Users.Contains(user))
+                ActiveUser = user;
+            else
+                throw (new Exception("Выбранный пользователь не существует в списке!"));
         }
     }
 }

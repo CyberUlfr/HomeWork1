@@ -12,8 +12,8 @@ namespace WindowsFormsApp1
         public FormAdmin()
         {
             InitializeComponent();
-            JourneyModel journeyModel = new JourneyModel();
             UserModel userModel = new UserModel();
+            JourneyModel journeyModel = new JourneyModel(userModel);
             userPresenterAdmin = new UserPresenterAdmin(this, userModel);
             journeyPresenter = new JourneyPresenter(this, journeyModel, userModel);
             ListBoxUsersUpdate();
@@ -59,6 +59,7 @@ namespace WindowsFormsApp1
             string name = textBoxUserName.Text.Trim();
             userPresenterAdmin.UserAdd(name);
             ListBoxUsersUpdate();
+            ComboBoxUsersUpdate();
         }
         private void buttonEditUsers_Click(object sender, EventArgs e)
         {

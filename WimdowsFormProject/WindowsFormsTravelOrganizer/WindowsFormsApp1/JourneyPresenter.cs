@@ -41,13 +41,13 @@ namespace WindowsFormsApp1
                 return;
             }
         }
-        public void JourneyAdd(string name, List<User> users)
+        public void JourneyAdd(string journey, List<User> users)
         {
             try
             {
-                if (name.Trim() != "")
+                if (journey.Trim() != "")
                 {
-                    jModel.JourneyAdd(name, users);
+                    jModel.JourneyAdd(journey, users);
                 }
                 else
                 {

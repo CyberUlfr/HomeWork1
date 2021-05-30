@@ -14,31 +14,28 @@ namespace WindowsFormsApp1
     public partial class FormSelectJourney : Form
     {
         public SelectJourneyPresenter selectJourneyPresenter;
-        public FormSelectJourney(List<Journey> Journeys, User user)
+        public FormSelectJourney(JourneyModel jModel ,UserModel uModel)
         {
             InitializeComponent();
-            JourneyModel journeyModel = new JourneyModel();
-            UserModel userModel = new UserModel();
-            selectJourneyPresenter = new SelectJourneyPresenter(this, journeyModel, userModel);
-            labelSelectJourney.Text = "Привет, " + user + ". Выбирите путешествие.";
+            selectJourneyPresenter = new SelectJourneyPresenter(this, jModel, uModel);
+            labelSelectJourney.Text = "Привет, " + selectJourneyPresenter.GetActiveUser() + ". Выбирите путешествие.";
             ComboBoxSelectJourneyUpdate();
         }
         private void ComboBoxSelectJourneyUpdate()
         {
             comboBoxSelectJourney.Items.Clear();
-            foreach (var users in selectJourneyPresenter.UserGetListJourney())
-                comboBoxSelectJourney.Items.Add(users);
+            foreach (var journey in selectJourneyPresenter.UserGetListJourney())
+                comboBoxSelectJourney.Items.Add(journey);
         }
         private void comboBoxSelectJourney_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void buttonSelect_Click(object sender, EventArgs e)
         {
             if ((Journey)comboBoxSelectJourney.SelectedItem!= null)
             {
-                SelectedJourney = (Journey)comboBoxSelectJourney.SelectedItem;
+                selectJourneyPresenter.SetSelectedJourney((Journey)comboBoxSelectJourney.SelectedItem);
                 DialogResult = DialogResult.OK;
                 FormUsers fU = new FormUsers();
                 fU.Show();

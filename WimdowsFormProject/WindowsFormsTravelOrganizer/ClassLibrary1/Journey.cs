@@ -8,6 +8,7 @@ namespace ClassLibrary1
 {
     public class Journey
     {
+        public List<User> Users { get; private set; } = new List<User>();
         public bool IsStart { get; private set; }
         public DateTime TimeStart { get; private set; }
         public DateTime TimeFinish { get; private set; }
@@ -52,19 +53,19 @@ namespace ClassLibrary1
     }
     public class JourneyModel
     {
-        public JourneyModel SelectedJourney;
         public List<Journey> Journeys = new List<Journey>();
+        public Journey SelectedJourney;
         public List<User> Users = new List<User>();
-        public JourneyModel()
+        public JourneyModel(UserModel userModel)
         {
-            Journeys.Add(new Journey("Поездка в артышту", new List<User>()));
+            Journeys.Add(new Journey("Поездка в артышту", userModel.Users));
             Journeys.Last().Start();
         }
-        public void JourneyAdd(string name, List<User> users)
+        public void JourneyAdd(string journey, List<User> users)
         {
-            if (Journeys.Any(u => u.Name == name))
+            if (Journeys.Any(u => u.Name == journey))
                 throw (new Exception("Данное путешествие уже существует!"));
-            Journeys.Add(new Journey(name, users));
+            Journeys.Add(new Journey(journey, users));
         }
         public void UserAddJourney(User user)
         {
@@ -85,5 +86,16 @@ namespace ClassLibrary1
         {
             Journeys.Remove(journey);
         }
+        public List<Journey> GetUserJourneys(User user)
+        {
+            List<Journey> journeys = new List<Journey>();
+            foreach (var journey in Journeys)
+            {
+                if (journey.Users.Contains(user))
+                    journeys.Add(journey);
+            }
+            return journeys;
+        }
+        
     }
 }
