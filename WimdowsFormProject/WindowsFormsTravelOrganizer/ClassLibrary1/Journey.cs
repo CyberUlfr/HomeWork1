@@ -16,6 +16,10 @@ namespace ClassLibrary1
         public Journey(string name, List<User> users)
         {
             Name = name;
+            foreach (User user in users.ToArray())
+            {
+                Users.Add(user);
+            }
         }
         public bool Start()
         {
