@@ -1,11 +1,7 @@
-﻿using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Drawing;
-using ClassLibrary1;
-using System.Collections.Generic;
+﻿using ClassLibrary1;
 using System;
-using System.Linq;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
@@ -34,5 +30,36 @@ namespace WindowsFormsApp1
         {
             pModel.RemovePurchase(purchase);
         }
+        public List<Purchase> PurchaseGetList()
+        {
+            return pModel.Purchases;
+        }
+        public void GetSum()
+        {
+            try
+            {
+                double sum = pModel.GetSum();
+                MessageBox.Show($"Сумма всех продуктов = {sum:N2} руб.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!");
+                return;
+            }
+        }
+        public void ConvertRubInDollar()
+        {
+            try
+            {
+                double dollar = pModel.ConvertRubInDollar();
+                MessageBox.Show($"Его стоймость в долларах = {dollar:N2} usd.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!");
+                return;
+            }
+        }
     }
 }
+

@@ -31,6 +31,7 @@ namespace WindowsFormsApp1
         {
             this.tabControlAdmin = new System.Windows.Forms.TabControl();
             this.tabPageJourneys = new System.Windows.Forms.TabPage();
+            this.buttonDeleteUserAddJourneys = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.listBoxUsersAdd = new System.Windows.Forms.ListBox();
@@ -52,7 +53,6 @@ namespace WindowsFormsApp1
             this.listBoxUsers = new System.Windows.Forms.ListBox();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
-            this.buttonDeleteUserAddJourneys = new System.Windows.Forms.Button();
             this.tabControlAdmin.SuspendLayout();
             this.tabPageJourneys.SuspendLayout();
             this.tabPageUsers.SuspendLayout();
@@ -89,6 +89,16 @@ namespace WindowsFormsApp1
             this.tabPageJourneys.TabIndex = 0;
             this.tabPageJourneys.Text = "Путешествия";
             this.tabPageJourneys.UseVisualStyleBackColor = true;
+            // 
+            // buttonDeleteUserAddJourneys
+            // 
+            this.buttonDeleteUserAddJourneys.Location = new System.Drawing.Point(279, 331);
+            this.buttonDeleteUserAddJourneys.Name = "buttonDeleteUserAddJourneys";
+            this.buttonDeleteUserAddJourneys.Size = new System.Drawing.Size(214, 43);
+            this.buttonDeleteUserAddJourneys.TabIndex = 15;
+            this.buttonDeleteUserAddJourneys.Text = "Удалить пользователя списка выбранных";
+            this.buttonDeleteUserAddJourneys.UseVisualStyleBackColor = true;
+            this.buttonDeleteUserAddJourneys.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 
@@ -233,10 +243,10 @@ namespace WindowsFormsApp1
             // 
             // textBoxUserName
             // 
-            this.textBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxUserName.Location = new System.Drawing.Point(278, 37);
             this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(218, 29);
+            this.textBoxUserName.Size = new System.Drawing.Size(218, 26);
             this.textBoxUserName.TabIndex = 8;
             // 
             // buttonDeleateUser
@@ -309,16 +319,6 @@ namespace WindowsFormsApp1
             this.buttonBack.Text = "Назад";
             this.buttonBack.UseVisualStyleBackColor = true;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
-            // 
-            // buttonDeleteUserAddJourneys
-            // 
-            this.buttonDeleteUserAddJourneys.Location = new System.Drawing.Point(279, 331);
-            this.buttonDeleteUserAddJourneys.Name = "buttonDeleteUserAddJourneys";
-            this.buttonDeleteUserAddJourneys.Size = new System.Drawing.Size(214, 43);
-            this.buttonDeleteUserAddJourneys.TabIndex = 15;
-            this.buttonDeleteUserAddJourneys.Text = "Удалить пользователя списка выбранных";
-            this.buttonDeleteUserAddJourneys.UseVisualStyleBackColor = true;
-            this.buttonDeleteUserAddJourneys.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormAdmin
             // 

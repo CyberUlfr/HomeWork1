@@ -9,6 +9,7 @@ namespace ClassLibrary1
     public class Journey
     {
         public List<User> Users { get; private set; } = new List<User>();
+        public Dictionary<User, List<Purchase>> Purchases { get; set; } = new Dictionary<User, List<Purchase>>();
         public bool IsStart { get; private set; }
         public DateTime TimeStart { get; private set; }
         public DateTime TimeFinish { get; private set; }
@@ -19,6 +20,7 @@ namespace ClassLibrary1
             foreach (User user in users.ToArray())
             {
                 Users.Add(user);
+                Purchases.Add(user, new List<Purchase>());
             }
         }
         public bool Start()
@@ -100,6 +102,5 @@ namespace ClassLibrary1
             }
             return journeys;
         }
-        
     }
 }

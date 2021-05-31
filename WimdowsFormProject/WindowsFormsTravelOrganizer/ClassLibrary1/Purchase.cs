@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClassLibrary1
 {
@@ -23,7 +21,7 @@ namespace ClassLibrary1
     }
     public class PurchaseModel
     {
-        List<Purchase> Purchases = new List<Purchase>();
+        public List<Purchase> Purchases = new List<Purchase>();
         public void AddPurchase(string purchase, double price)
         {
             if (Purchases.Any(u => u.Name == purchase))
@@ -34,6 +32,20 @@ namespace ClassLibrary1
         {
             Purchases.Remove(purchase);
         }
+        public double GetSum()
+        {
+            if (Purchases.Count == 0)
+                throw (new Exception("Список пуст."));
+            else
+            {
+                double sum = Purchases.Sum(elem => elem.Price);
+                return sum;
+            }
+        }
+        public double ConvertRubInDollar(Purchase purchase)
+        {
+            double dollar = Purchases.Select(elem => elem.Price / 77));
+            return dollar;
+        }
     }
-    
 }
