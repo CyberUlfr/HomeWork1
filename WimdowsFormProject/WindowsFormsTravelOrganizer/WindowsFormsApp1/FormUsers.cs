@@ -84,7 +84,31 @@ namespace WindowsFormsApp1
 
         private void buttonRubInDollar_Click(object sender, EventArgs e)
         {
-            purchasePresenter.ConvertRubInDollar();
+            if ((Purchase)listBoxPurchase.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите продукт для перевода рублей в доллары!");
+                return;
+            }
+            purchasePresenter.ConvertRubInDollar((Purchase)listBoxPurchase.SelectedItem);
+        }
+
+        private void buttonSortedIncrease_Click(object sender, EventArgs e)
+        {
+            listBoxPurchase.Items.Clear();
+            foreach (var purchase in purchasePresenter.SortedIncrease())
+                listBoxPurchase.Items.Add(purchase);
+        }
+
+        private void buttonSortedDescending_Click(object sender, EventArgs e)
+        {
+            listBoxPurchase.Items.Clear();
+            foreach (var purchase in purchasePresenter.SortedDescending())
+                listBoxPurchase.Items.Add(purchase);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

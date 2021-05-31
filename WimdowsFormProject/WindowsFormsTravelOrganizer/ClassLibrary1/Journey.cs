@@ -9,6 +9,7 @@ namespace ClassLibrary1
     public class Journey
     {
         public List<User> Users { get; private set; } = new List<User>();
+        public Dictionary<User, List<Distance>> Distances { get; set; } = new Dictionary<User, List<Distance>>();
         public Dictionary<User, List<Purchase>> Purchases { get; set; } = new Dictionary<User, List<Purchase>>();
         public bool IsStart { get; private set; }
         public DateTime TimeStart { get; private set; }
@@ -21,6 +22,7 @@ namespace ClassLibrary1
             {
                 Users.Add(user);
                 Purchases.Add(user, new List<Purchase>());
+                Distances.Add(user, new List<Distance>());
             }
         }
         public bool Start()

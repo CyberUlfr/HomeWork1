@@ -44,8 +44,38 @@ namespace ClassLibrary1
         }
         public double ConvertRubInDollar(Purchase purchase)
         {
-            double dollar = Purchases.Select(elem => elem.Price / 77));
-            return dollar;
+            double dollar = purchase.Price / 77;
+                return dollar;
+        }
+        public List<Purchase> SortedIncrease()
+        {
+            List<Purchase> purchases = new List<Purchase>();
+            if (Purchases.Count == 0)
+                throw (new Exception("Список пуст."));
+            else
+            {
+                var sortedPrice = Purchases.OrderBy(elem => elem.Price);
+                foreach (Purchase elem in sortedPrice)
+                {
+                    purchases.Add(elem);
+                }
+                return purchases;
+            }
+        }
+        public List<Purchase> SortedDescending()
+        {
+            List<Purchase> purchases = new List<Purchase>();
+            if (Purchases.Count == 0)
+                throw (new Exception("Список пуст."));
+            else
+            {
+                var sortedPrice = Purchases.OrderByDescending(elem => elem.Price);
+                foreach (Purchase elem in sortedPrice)
+                {
+                    purchases.Add(elem);
+                }
+                return purchases;
+            }
         }
     }
 }

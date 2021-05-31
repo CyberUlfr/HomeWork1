@@ -47,18 +47,26 @@ namespace WindowsFormsApp1
                 return;
             }
         }
-        public void ConvertRubInDollar()
+        public void ConvertRubInDollar(Purchase purchase)
         {
             try
             {
-                double dollar = pModel.ConvertRubInDollar();
-                MessageBox.Show($"Его стоймость в долларах = {dollar:N2} usd.");
+                double dollar = pModel.ConvertRubInDollar(purchase);
+                MessageBox.Show($"Стоймость продукта в долларах = {dollar:N2} usd.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка!");
                 return;
             }
+        }
+        public List<Purchase> SortedIncrease()
+        {
+            return pModel.SortedIncrease();
+        }
+        public List<Purchase> SortedDescending()
+        {
+            return pModel.SortedDescending();
         }
     }
 }

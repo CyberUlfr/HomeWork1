@@ -47,8 +47,17 @@ namespace WindowsFormsApp1
             this.tabPageStatistic = new System.Windows.Forms.TabPage();
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
+            this.listBoxDistance = new System.Windows.Forms.ListBox();
+            this.labelListDistance = new System.Windows.Forms.Label();
+            this.buttonAddDistance = new System.Windows.Forms.Button();
+            this.buttonRemoveDistance = new System.Windows.Forms.Button();
+            this.labelNameDistance = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.labelKmDistance = new System.Windows.Forms.Label();
             this.tabControlUsers.SuspendLayout();
             this.tabPagePurchase.SuspendLayout();
+            this.tabPageDistance.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlUsers
@@ -128,6 +137,7 @@ namespace WindowsFormsApp1
             this.buttonSortedDescending.TabIndex = 7;
             this.buttonSortedDescending.Text = "Сортировать по убыванию";
             this.buttonSortedDescending.UseVisualStyleBackColor = true;
+            this.buttonSortedDescending.Click += new System.EventHandler(this.buttonSortedDescending_Click);
             // 
             // buttonSortedIncrease
             // 
@@ -137,6 +147,7 @@ namespace WindowsFormsApp1
             this.buttonSortedIncrease.TabIndex = 6;
             this.buttonSortedIncrease.Text = "Сортировать по возрастанию";
             this.buttonSortedIncrease.UseVisualStyleBackColor = true;
+            this.buttonSortedIncrease.Click += new System.EventHandler(this.buttonSortedIncrease_Click);
             // 
             // buttonRubInDollar
             // 
@@ -201,6 +212,14 @@ namespace WindowsFormsApp1
             // 
             // tabPageDistance
             // 
+            this.tabPageDistance.Controls.Add(this.labelKmDistance);
+            this.tabPageDistance.Controls.Add(this.textBox2);
+            this.tabPageDistance.Controls.Add(this.textBox1);
+            this.tabPageDistance.Controls.Add(this.labelNameDistance);
+            this.tabPageDistance.Controls.Add(this.buttonRemoveDistance);
+            this.tabPageDistance.Controls.Add(this.buttonAddDistance);
+            this.tabPageDistance.Controls.Add(this.labelListDistance);
+            this.tabPageDistance.Controls.Add(this.listBoxDistance);
             this.tabPageDistance.Location = new System.Drawing.Point(4, 22);
             this.tabPageDistance.Name = "tabPageDistance";
             this.tabPageDistance.Padding = new System.Windows.Forms.Padding(3);
@@ -239,6 +258,81 @@ namespace WindowsFormsApp1
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
+            // listBoxDistance
+            // 
+            this.listBoxDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBoxDistance.FormattingEnabled = true;
+            this.listBoxDistance.ItemHeight = 20;
+            this.listBoxDistance.Location = new System.Drawing.Point(8, 29);
+            this.listBoxDistance.Name = "listBoxDistance";
+            this.listBoxDistance.Size = new System.Drawing.Size(328, 364);
+            this.listBoxDistance.TabIndex = 0;
+            // 
+            // labelListDistance
+            // 
+            this.labelListDistance.AutoSize = true;
+            this.labelListDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelListDistance.Location = new System.Drawing.Point(6, 6);
+            this.labelListDistance.Name = "labelListDistance";
+            this.labelListDistance.Size = new System.Drawing.Size(170, 20);
+            this.labelListDistance.TabIndex = 1;
+            this.labelListDistance.Text = "Список предвижений";
+            // 
+            // buttonAddDistance
+            // 
+            this.buttonAddDistance.Location = new System.Drawing.Point(344, 123);
+            this.buttonAddDistance.Name = "buttonAddDistance";
+            this.buttonAddDistance.Size = new System.Drawing.Size(254, 40);
+            this.buttonAddDistance.TabIndex = 2;
+            this.buttonAddDistance.Text = "Добавить предвижение";
+            this.buttonAddDistance.UseVisualStyleBackColor = true;
+            // 
+            // buttonRemoveDistance
+            // 
+            this.buttonRemoveDistance.Location = new System.Drawing.Point(344, 169);
+            this.buttonRemoveDistance.Name = "buttonRemoveDistance";
+            this.buttonRemoveDistance.Size = new System.Drawing.Size(254, 40);
+            this.buttonRemoveDistance.TabIndex = 3;
+            this.buttonRemoveDistance.Text = "Удалить предвижение";
+            this.buttonRemoveDistance.UseVisualStyleBackColor = true;
+            // 
+            // labelNameDistance
+            // 
+            this.labelNameDistance.AutoSize = true;
+            this.labelNameDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelNameDistance.Location = new System.Drawing.Point(340, 6);
+            this.labelNameDistance.Name = "labelNameDistance";
+            this.labelNameDistance.Size = new System.Drawing.Size(258, 20);
+            this.labelNameDistance.TabIndex = 6;
+            this.labelNameDistance.Text = "Введите название предвижения";
+            this.labelNameDistance.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Location = new System.Drawing.Point(344, 29);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(254, 26);
+            this.textBox1.TabIndex = 7;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox2.Location = new System.Drawing.Point(344, 91);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(254, 26);
+            this.textBox2.TabIndex = 8;
+            // 
+            // labelKmDistance
+            // 
+            this.labelKmDistance.AutoSize = true;
+            this.labelKmDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelKmDistance.Location = new System.Drawing.Point(340, 68);
+            this.labelKmDistance.Name = "labelKmDistance";
+            this.labelKmDistance.Size = new System.Drawing.Size(267, 20);
+            this.labelKmDistance.TabIndex = 9;
+            this.labelKmDistance.Text = "Введите растояние в километрах";
+            // 
             // FormUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,6 +346,8 @@ namespace WindowsFormsApp1
             this.tabControlUsers.ResumeLayout(false);
             this.tabPagePurchase.ResumeLayout(false);
             this.tabPagePurchase.PerformLayout();
+            this.tabPageDistance.ResumeLayout(false);
+            this.tabPageDistance.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -276,5 +372,13 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.TextBox textBoxNamePurchase;
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.Label labelNameDistance;
+        private System.Windows.Forms.Button buttonRemoveDistance;
+        private System.Windows.Forms.Button buttonAddDistance;
+        private System.Windows.Forms.Label labelListDistance;
+        private System.Windows.Forms.ListBox listBoxDistance;
+        private System.Windows.Forms.Label labelKmDistance;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
