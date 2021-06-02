@@ -83,7 +83,6 @@ namespace WindowsFormsApp1
         {
             return (int)(DateTime.Now - jModel.SelectedJourney.TimeStart).TotalSeconds;
         }
-        
     }
 }
 

@@ -17,15 +17,6 @@ namespace WindowsFormsApp1
             userPresenter = new UserPresenter(this, journeyModel, userModel);
             ListBoxUsersUpdate();
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBoxUsers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
         private void ListBoxUsersUpdate()
         {
             listBoxUsers.Items.Clear();

@@ -44,7 +44,6 @@ namespace WindowsFormsApp1
             this.listBoxUsers.Name = "listBoxUsers";
             this.listBoxUsers.Size = new System.Drawing.Size(210, 144);
             this.listBoxUsers.TabIndex = 0;
-            this.listBoxUsers.SelectedIndexChanged += new System.EventHandler(this.listBoxUsers_SelectedIndexChanged);
             // 
             // buttonSelect
             // 
@@ -89,8 +88,7 @@ namespace WindowsFormsApp1
             this.MaximumSize = new System.Drawing.Size(333, 333);
             this.Name = "FormInput";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "Выбор пользователя";
             this.ResumeLayout(false);
             this.PerformLayout();
 

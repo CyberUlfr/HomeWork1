@@ -87,8 +87,4 @@ namespace ClassLibrary1
                 throw (new Exception("Юзера нет в базе данных!"));
         }
     }
-    public class JourneysDataBase
-    {
-
-    }
 }

@@ -75,6 +75,7 @@ namespace ClassLibrary1
             if (Journeys.Any(u => u.Name == journey))
                 throw (new Exception("Данное путешествие уже существует!"));
             Journeys.Add(new Journey(journey, users));
+            Journeys.Last().Start();
         }
         public void UserAddJourney(User user)
         {

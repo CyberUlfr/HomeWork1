@@ -53,6 +53,7 @@ namespace WindowsFormsApp1
             this.listBoxUsers = new System.Windows.Forms.ListBox();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
+            this.buttonInputUser = new System.Windows.Forms.Button();
             this.tabControlAdmin.SuspendLayout();
             this.tabPageJourneys.SuspendLayout();
             this.tabPageUsers.SuspendLayout();
@@ -109,7 +110,6 @@ namespace WindowsFormsApp1
             this.label3.Size = new System.Drawing.Size(171, 20);
             this.label3.TabIndex = 14;
             this.label3.Text = "Выбор пользователя";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -131,7 +131,6 @@ namespace WindowsFormsApp1
             this.listBoxUsersAdd.ScrollAlwaysVisible = true;
             this.listBoxUsersAdd.Size = new System.Drawing.Size(264, 144);
             this.listBoxUsersAdd.TabIndex = 12;
-            this.listBoxUsersAdd.SelectedIndexChanged += new System.EventHandler(this.listBoxUsersAdd_SelectedIndexChanged);
             // 
             // buttonAddUsersJourneys
             // 
@@ -152,7 +151,6 @@ namespace WindowsFormsApp1
             this.comboBoxAddUsers.Name = "comboBoxAddUsers";
             this.comboBoxAddUsers.Size = new System.Drawing.Size(214, 28);
             this.comboBoxAddUsers.TabIndex = 10;
-            this.comboBoxAddUsers.SelectedIndexChanged += new System.EventHandler(this.comboBoxAddUsers_SelectedIndexChanged);
             // 
             // buttonRemoveJourneys
             // 
@@ -183,7 +181,6 @@ namespace WindowsFormsApp1
             this.label1.Size = new System.Drawing.Size(155, 40);
             this.label1.TabIndex = 6;
             this.label1.Text = "Введите название \r\nпутешествия";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBoxJourneys
             // 
@@ -192,7 +189,6 @@ namespace WindowsFormsApp1
             this.textBoxJourneys.Name = "textBoxJourneys";
             this.textBoxJourneys.Size = new System.Drawing.Size(217, 26);
             this.textBoxJourneys.TabIndex = 5;
-            this.textBoxJourneys.TextChanged += new System.EventHandler(this.textBoxJourneys_TextChanged);
             // 
             // labelJourneys
             // 
@@ -203,7 +199,6 @@ namespace WindowsFormsApp1
             this.labelJourneys.Size = new System.Drawing.Size(167, 20);
             this.labelJourneys.TabIndex = 4;
             this.labelJourneys.Text = "Список путешествий";
-            this.labelJourneys.Click += new System.EventHandler(this.labelJourneys_Click);
             // 
             // listBoxJourneys
             // 
@@ -217,7 +212,6 @@ namespace WindowsFormsApp1
             this.listBoxJourneys.ScrollAlwaysVisible = true;
             this.listBoxJourneys.Size = new System.Drawing.Size(264, 164);
             this.listBoxJourneys.TabIndex = 3;
-            this.listBoxJourneys.SelectedIndexChanged += new System.EventHandler(this.listBoxJourneys_SelectedIndexChanged);
             // 
             // tabPageUsers
             // 
@@ -304,7 +298,6 @@ namespace WindowsFormsApp1
             this.listBoxUsers.ScrollAlwaysVisible = true;
             this.listBoxUsers.Size = new System.Drawing.Size(263, 364);
             this.listBoxUsers.TabIndex = 0;
-            this.listBoxUsers.SelectedIndexChanged += new System.EventHandler(this.listBoxUsers_SelectedIndexChanged);
             // 
             // buttonExit
             // 
@@ -326,18 +319,29 @@ namespace WindowsFormsApp1
             this.buttonBack.UseVisualStyleBackColor = true;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
+            // buttonInputUser
+            // 
+            this.buttonInputUser.Location = new System.Drawing.Point(516, 324);
+            this.buttonInputUser.Name = "buttonInputUser";
+            this.buttonInputUser.Size = new System.Drawing.Size(99, 50);
+            this.buttonInputUser.TabIndex = 16;
+            this.buttonInputUser.Text = "Войти как пользователь";
+            this.buttonInputUser.UseVisualStyleBackColor = true;
+            this.buttonInputUser.Click += new System.EventHandler(this.buttonInputUser_Click);
+            // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(627, 450);
+            this.Controls.Add(this.buttonInputUser);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.tabControlAdmin);
             this.Name = "FormAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormAdmin";
+            this.Text = "Меню админа";
             this.tabControlAdmin.ResumeLayout(false);
             this.tabPageJourneys.ResumeLayout(false);
             this.tabPageJourneys.PerformLayout();
@@ -373,5 +377,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonDeleteUserAddJourneys;
+        private System.Windows.Forms.Button buttonInputUser;
     }
 }

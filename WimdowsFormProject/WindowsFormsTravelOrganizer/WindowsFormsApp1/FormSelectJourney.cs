@@ -28,9 +28,6 @@ namespace WindowsFormsApp1
             foreach (var journey in selectJourneyPresenter.UserGetListJourney())
                 comboBoxSelectJourney.Items.Add(journey);
         }
-        private void comboBoxSelectJourney_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
 
         private void buttonSelect_Click(object sender, EventArgs e)
         {
@@ -43,22 +40,12 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Выберите путешествие!");
             }
-            
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
             Application.OpenForms[0].Show();
             Application.OpenForms[1].Close();
-        }
-
-        private void labelSelectJourney_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void FormSelectJourney_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

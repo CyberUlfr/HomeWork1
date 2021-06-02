@@ -44,7 +44,6 @@ namespace WindowsFormsApp1
             this.comboBoxSelectJourney.Name = "comboBoxSelectJourney";
             this.comboBoxSelectJourney.Size = new System.Drawing.Size(260, 28);
             this.comboBoxSelectJourney.TabIndex = 0;
-            this.comboBoxSelectJourney.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelectJourney_SelectedIndexChanged);
             // 
             // buttonSelect
             // 
@@ -75,7 +74,6 @@ namespace WindowsFormsApp1
             this.labelSelectJourney.Size = new System.Drawing.Size(193, 20);
             this.labelSelectJourney.TabIndex = 3;
             this.labelSelectJourney.Text = "Выбирите путешествие,\r\n";
-            this.labelSelectJourney.Click += new System.EventHandler(this.labelSelectJourney_Click);
             // 
             // FormSelectJourney
             // 
@@ -89,8 +87,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.comboBoxSelectJourney);
             this.Name = "FormSelectJourney";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SelectJourney";
-            this.Load += new System.EventHandler(this.FormSelectJourney_Load);
+            this.Text = "Выбор путишествия";
             this.ResumeLayout(false);
             this.PerformLayout();
 

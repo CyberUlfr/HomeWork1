@@ -41,7 +41,10 @@ namespace WindowsFormsApp1
             View.Hide();
             jModel.SelectJourney(journey);
             FormUsers fU = new FormUsers(jModel, uModel);
-            fU.Show();
+            DialogResult result = fU.ShowDialog();
+            if (!(result == DialogResult.OK))
+                fU.Close();
+            View.Show();
         }
     }
 }

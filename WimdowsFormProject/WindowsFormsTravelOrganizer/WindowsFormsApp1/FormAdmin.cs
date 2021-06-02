@@ -20,10 +20,6 @@ namespace WindowsFormsApp1
             ListBoxJourneysUpdate();
             ListBoxUsersAddJourneyUpdate();
         }
-        private void listBoxUsers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         private void ListBoxUsersAddJourneyUpdate()
         {
             listBoxUsersAdd.Items.Clear();
@@ -89,26 +85,6 @@ namespace WindowsFormsApp1
             ListBoxUsersUpdate();
         }
 
-        private void listBoxJourneys_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelJourneys_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonAddJourneys_Click(object sender, EventArgs e)
         {
             if (textBoxJourneys.Text.Trim() == "")
@@ -123,21 +99,6 @@ namespace WindowsFormsApp1
             journeyPresenter.JourneyAdd(name, users);
             ListBoxJourneysUpdate();
             ListBoxUsersAddJourneyUpdate();
-        }
-
-        private void textBoxJourneys_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxAddUsers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBoxUsersAdd_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonAddUsersJourneys_Click(object sender, EventArgs e)
@@ -165,6 +126,7 @@ namespace WindowsFormsApp1
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
             Application.Exit();
         }
 
@@ -183,6 +145,11 @@ namespace WindowsFormsApp1
             }
             journeyPresenter.UserRemoveJourney((User)listBoxUsersAdd.SelectedItem);
             ListBoxUsersAddJourneyUpdate();
+        }
+        private void buttonInputUser_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            journeyPresenter.SelctUserInAdmin(journeyPresenter.GetActiveUser());
         }
     }
 }

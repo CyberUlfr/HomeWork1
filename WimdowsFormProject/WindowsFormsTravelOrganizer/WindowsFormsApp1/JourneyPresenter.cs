@@ -69,6 +69,17 @@ namespace WindowsFormsApp1
         {
             jModel.UserRemoveJourney(user);
         }
-        
+        public User GetActiveUser()
+        {
+            return uModel.ActiveUser;
+        }
+        public void SelctUserInAdmin(User user)
+        {
+            FormSelectJourney fSJ = new FormSelectJourney(jModel, uModel);
+            DialogResult result = fSJ.ShowDialog();
+            if (!(result == DialogResult.OK))
+                fSJ.Close();
+            View.Show();
+        }
     }
 }

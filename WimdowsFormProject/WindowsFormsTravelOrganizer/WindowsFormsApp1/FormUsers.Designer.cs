@@ -61,6 +61,7 @@ namespace WindowsFormsApp1
             this.labelStatisticPurchase = new System.Windows.Forms.Label();
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
+            this.labelNameUser = new System.Windows.Forms.Label();
             this.tabControlUsers.SuspendLayout();
             this.tabPagePurchase.SuspendLayout();
             this.tabPageDistance.SuspendLayout();
@@ -218,7 +219,6 @@ namespace WindowsFormsApp1
             this.listBoxPurchase.ScrollAlwaysVisible = true;
             this.listBoxPurchase.Size = new System.Drawing.Size(389, 364);
             this.listBoxPurchase.TabIndex = 0;
-            this.listBoxPurchase.SelectedIndexChanged += new System.EventHandler(this.listBoxPurchase_SelectedIndexChanged);
             // 
             // tabPageDistance
             // 
@@ -255,7 +255,6 @@ namespace WindowsFormsApp1
             this.textBoxKMetersDistance.Name = "textBoxKMetersDistance";
             this.textBoxKMetersDistance.Size = new System.Drawing.Size(254, 26);
             this.textBoxKMetersDistance.TabIndex = 8;
-            this.textBoxKMetersDistance.TextChanged += new System.EventHandler(this.textBoxKMetersDistance_TextChanged);
             // 
             // textBoxNameDistance
             // 
@@ -274,7 +273,6 @@ namespace WindowsFormsApp1
             this.labelNameDistance.Size = new System.Drawing.Size(258, 20);
             this.labelNameDistance.TabIndex = 6;
             this.labelNameDistance.Text = "Введите название предвижения";
-            this.labelNameDistance.Click += new System.EventHandler(this.label2_Click);
             // 
             // buttonRemoveDistance
             // 
@@ -319,7 +317,6 @@ namespace WindowsFormsApp1
             this.listBoxDistance.Size = new System.Drawing.Size(328, 364);
             this.listBoxDistance.Sorted = true;
             this.listBoxDistance.TabIndex = 0;
-            this.listBoxDistance.SelectedIndexChanged += new System.EventHandler(this.listBoxDistance_SelectedIndexChanged);
             // 
             // tabPageStatistic
             // 
@@ -376,7 +373,6 @@ namespace WindowsFormsApp1
             this.labelStatisticDistance.Size = new System.Drawing.Size(51, 20);
             this.labelStatisticDistance.TabIndex = 5;
             this.labelStatisticDistance.Text = "label2";
-            this.labelStatisticDistance.Click += new System.EventHandler(this.labelStatisticDistance_Click);
             // 
             // labelStatistic
             // 
@@ -387,7 +383,6 @@ namespace WindowsFormsApp1
             this.labelStatistic.Size = new System.Drawing.Size(99, 20);
             this.labelStatistic.TabIndex = 4;
             this.labelStatistic.Text = "Статистика";
-            this.labelStatistic.Click += new System.EventHandler(this.labelStatistic_Click);
             // 
             // labelStatisticPurchase
             // 
@@ -398,7 +393,6 @@ namespace WindowsFormsApp1
             this.labelStatisticPurchase.Size = new System.Drawing.Size(51, 20);
             this.labelStatisticPurchase.TabIndex = 3;
             this.labelStatisticPurchase.Text = "label1";
-            this.labelStatisticPurchase.Click += new System.EventHandler(this.labelStatisticPurchase_Click);
             // 
             // buttonBack
             // 
@@ -420,18 +414,27 @@ namespace WindowsFormsApp1
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
+            // labelNameUser
+            // 
+            this.labelNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelNameUser.Location = new System.Drawing.Point(624, 44);
+            this.labelNameUser.Name = "labelNameUser";
+            this.labelNameUser.Size = new System.Drawing.Size(96, 68);
+            this.labelNameUser.TabIndex = 3;
+            // 
             // FormUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(729, 454);
+            this.Controls.Add(this.labelNameUser);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.tabControlUsers);
             this.Name = "FormUsers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormUsers";
+            this.Text = "Меню пользователя";
             this.tabControlUsers.ResumeLayout(false);
             this.tabPagePurchase.ResumeLayout(false);
             this.tabPagePurchase.PerformLayout();
@@ -477,5 +480,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Label labelTimeAll;
         private System.Windows.Forms.Label labelTimeStart;
         private System.Windows.Forms.Button buttonUpdateTime;
+        private System.Windows.Forms.Label labelNameUser;
     }
 }

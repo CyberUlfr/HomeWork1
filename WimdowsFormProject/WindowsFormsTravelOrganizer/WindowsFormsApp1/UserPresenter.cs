@@ -31,13 +31,27 @@ namespace WindowsFormsApp1
             if (user.IsAdmin)
             {
                 FormAdmin fA = new FormAdmin(jModel, model);
-                fA.Show();
+                DialogResult result = fA.ShowDialog();
+                if (!(result == DialogResult.OK))
+                    fA.Close();
+                View.Show();
             }
             else
             {
                 FormSelectJourney fSJ = new FormSelectJourney(jModel, model);
-                fSJ.Show();
+                DialogResult result = fSJ.ShowDialog();
+                if (!(result == DialogResult.OK))
+                    fSJ.Close();
+                View.Show();
             }
+        }
+        public void SelctUserInAdmin(User user)
+        {
+            FormSelectJourney fSJ = new FormSelectJourney(jModel, model);
+            DialogResult result = fSJ.ShowDialog();
+            if (!(result == DialogResult.OK))
+                fSJ.Close();
+            View.Show();
         }
     }
 }

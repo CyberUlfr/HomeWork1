@@ -23,6 +23,7 @@ namespace WindowsFormsApp1
             DistanceModel distanceModel = new DistanceModel(jModel.SelectedJourney.Distances[uModel.ActiveUser]);
             purchasePresenter = new PurchasePresenter(this, purchaseModel, jModel);
             distancePresenter = new DistancePresenter(this, distanceModel);
+            labelNameUser.Text = "Вы вошли как " + uModel.ActiveUser + ".";
             ListBoxPurchaseUpdate();
             ListBoxDistanceUpdate();
             labelStatisticDistanceUpdate();
@@ -58,20 +59,16 @@ namespace WindowsFormsApp1
             foreach (var purchase in purchasePresenter.PurchaseGetList())
                 listBoxPurchase.Items.Add(purchase);
         }
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
             Application.Exit();
         }
-
         private void buttonBack_Click(object sender, EventArgs e)
         {
             Application.OpenForms[0].Show();
-            Application.OpenForms[2].Close();
+            this.Close();
         }
 
         private void buttonAddPurchase_Click(object sender, EventArgs e)
@@ -105,11 +102,6 @@ namespace WindowsFormsApp1
             labelStatisticPurchaseUpdate();
         }
 
-        private void listBoxPurchase_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonSumPurchase_Click(object sender, EventArgs e)
         {
             purchasePresenter.GetSum();
@@ -139,16 +131,6 @@ namespace WindowsFormsApp1
                 listBoxPurchase.Items.Add(purchase);
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBoxDistance_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonAddDistance_Click(object sender, EventArgs e)
         {
             double kmeters = 0;
@@ -168,11 +150,6 @@ namespace WindowsFormsApp1
             labelStatisticDistanceUpdate();
         }
 
-        private void textBoxKMetersDistance_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonRemoveDistance_Click(object sender, EventArgs e)
         {
             if ((Distance)listBoxDistance.SelectedItem == null)
@@ -183,26 +160,6 @@ namespace WindowsFormsApp1
             distancePresenter.RemoveDistance((Distance)listBoxDistance.SelectedItem);
             ListBoxDistanceUpdate();
             labelStatisticDistanceUpdate();
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelStatisticPurchase_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelStatisticDistance_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelStatistic_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonUpdateTime_Click(object sender, EventArgs e)
