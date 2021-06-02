@@ -9,11 +9,10 @@ namespace WindowsFormsApp1
     {
         public UserPresenterAdmin userPresenterAdmin;
         public JourneyPresenter journeyPresenter;
-        public FormAdmin()
+        public FormAdmin(JourneyModel journeyModel, UserModel userModel)
         {
             InitializeComponent();
-            UserModel userModel = new UserModel();
-            JourneyModel journeyModel = new JourneyModel(userModel);
+            MaximizeBox = false;
             userPresenterAdmin = new UserPresenterAdmin(this, userModel);
             journeyPresenter = new JourneyPresenter(this, journeyModel, userModel);
             ListBoxUsersUpdate();
@@ -75,7 +74,6 @@ namespace WindowsFormsApp1
                 return;
             }
             string name = textBoxUserName.Text.Trim();
-            user.Name = name;
             userPresenterAdmin.UserEdit(listBoxUsers.SelectedIndex, name);
             ListBoxUsersUpdate();
         }

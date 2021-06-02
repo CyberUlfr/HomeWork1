@@ -74,6 +74,18 @@ namespace ClassLibrary1
             else if (DeletedCount == 0)
                 throw (new Exception("Юзера нет в базе данных!"));
         }
+        public static void DataBaseUserUpdate(User user, string newname)
+        {
+            string sql = $"UPDATE Table_users SET name = '{newname}' WHERE name = '{user.Name}'";
+            SqlCommand command = new SqlCommand(sql, sqlConnection);
+            sqlConnection.Open();
+            int UpdatedCount = command.ExecuteNonQuery();
+            sqlConnection.Close();
+            if (UpdatedCount > 1)
+                throw (new Exception("Изменили больше чем 1 юзера!"));
+            else if (UpdatedCount == 0)
+                throw (new Exception("Юзера нет в базе данных!"));
+        }
     }
     public class JourneysDataBase
     {

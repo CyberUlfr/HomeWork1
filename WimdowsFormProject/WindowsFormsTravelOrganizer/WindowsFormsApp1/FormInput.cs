@@ -11,6 +11,7 @@ namespace WindowsFormsApp1
         public FormInput()
         {
             InitializeComponent();
+            MaximizeBox = false;
             UserModel userModel = new UserModel();
             JourneyModel journeyModel = new JourneyModel(userModel);
             userPresenter = new UserPresenter(this, journeyModel, userModel);

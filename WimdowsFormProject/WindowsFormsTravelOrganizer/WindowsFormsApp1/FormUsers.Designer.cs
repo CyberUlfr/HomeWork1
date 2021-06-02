@@ -53,14 +53,14 @@ namespace WindowsFormsApp1
             this.labelListDistance = new System.Windows.Forms.Label();
             this.listBoxDistance = new System.Windows.Forms.ListBox();
             this.tabPageStatistic = new System.Windows.Forms.TabPage();
+            this.buttonUpdateTime = new System.Windows.Forms.Button();
+            this.labelTimeAll = new System.Windows.Forms.Label();
+            this.labelTimeStart = new System.Windows.Forms.Label();
             this.labelStatisticDistance = new System.Windows.Forms.Label();
             this.labelStatistic = new System.Windows.Forms.Label();
             this.labelStatisticPurchase = new System.Windows.Forms.Label();
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
-            this.labelTimeStart = new System.Windows.Forms.Label();
-            this.labelTimeAll = new System.Windows.Forms.Label();
-            this.buttonUpdateTime = new System.Windows.Forms.Button();
             this.tabControlUsers.SuspendLayout();
             this.tabPagePurchase.SuspendLayout();
             this.tabPageDistance.SuspendLayout();
@@ -337,6 +337,36 @@ namespace WindowsFormsApp1
             this.tabPageStatistic.Text = "Статистика";
             this.tabPageStatistic.UseVisualStyleBackColor = true;
             // 
+            // buttonUpdateTime
+            // 
+            this.buttonUpdateTime.Location = new System.Drawing.Point(6, 106);
+            this.buttonUpdateTime.Name = "buttonUpdateTime";
+            this.buttonUpdateTime.Size = new System.Drawing.Size(99, 23);
+            this.buttonUpdateTime.TabIndex = 8;
+            this.buttonUpdateTime.Text = "Обновить время";
+            this.buttonUpdateTime.UseVisualStyleBackColor = true;
+            this.buttonUpdateTime.Click += new System.EventHandler(this.buttonUpdateTime_Click);
+            // 
+            // labelTimeAll
+            // 
+            this.labelTimeAll.AutoSize = true;
+            this.labelTimeAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelTimeAll.Location = new System.Drawing.Point(9, 83);
+            this.labelTimeAll.Name = "labelTimeAll";
+            this.labelTimeAll.Size = new System.Drawing.Size(51, 20);
+            this.labelTimeAll.TabIndex = 7;
+            this.labelTimeAll.Text = "label2";
+            // 
+            // labelTimeStart
+            // 
+            this.labelTimeStart.AutoSize = true;
+            this.labelTimeStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelTimeStart.Location = new System.Drawing.Point(9, 63);
+            this.labelTimeStart.Name = "labelTimeStart";
+            this.labelTimeStart.Size = new System.Drawing.Size(51, 20);
+            this.labelTimeStart.TabIndex = 6;
+            this.labelTimeStart.Text = "label1";
+            // 
             // labelStatisticDistance
             // 
             this.labelStatisticDistance.AutoSize = true;
@@ -390,45 +420,17 @@ namespace WindowsFormsApp1
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
-            // labelTimeStart
-            // 
-            this.labelTimeStart.AutoSize = true;
-            this.labelTimeStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTimeStart.Location = new System.Drawing.Point(9, 63);
-            this.labelTimeStart.Name = "labelTimeStart";
-            this.labelTimeStart.Size = new System.Drawing.Size(51, 20);
-            this.labelTimeStart.TabIndex = 6;
-            this.labelTimeStart.Text = "label1";
-            // 
-            // labelTimeAll
-            // 
-            this.labelTimeAll.AutoSize = true;
-            this.labelTimeAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTimeAll.Location = new System.Drawing.Point(9, 83);
-            this.labelTimeAll.Name = "labelTimeAll";
-            this.labelTimeAll.Size = new System.Drawing.Size(51, 20);
-            this.labelTimeAll.TabIndex = 7;
-            this.labelTimeAll.Text = "label2";
-            // 
-            // buttonUpdateTime
-            // 
-            this.buttonUpdateTime.Location = new System.Drawing.Point(6, 106);
-            this.buttonUpdateTime.Name = "buttonUpdateTime";
-            this.buttonUpdateTime.Size = new System.Drawing.Size(99, 23);
-            this.buttonUpdateTime.TabIndex = 8;
-            this.buttonUpdateTime.Text = "Обновить время";
-            this.buttonUpdateTime.UseVisualStyleBackColor = true;
-            this.buttonUpdateTime.Click += new System.EventHandler(this.buttonUpdateTime_Click);
-            // 
             // FormUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(729, 454);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.tabControlUsers);
             this.Name = "FormUsers";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormUsers";
             this.tabControlUsers.ResumeLayout(false);
             this.tabPagePurchase.ResumeLayout(false);

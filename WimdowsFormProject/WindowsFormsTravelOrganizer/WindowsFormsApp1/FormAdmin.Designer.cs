@@ -145,6 +145,7 @@ namespace WindowsFormsApp1
             // 
             // comboBoxAddUsers
             // 
+            this.comboBoxAddUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxAddUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxAddUsers.FormattingEnabled = true;
             this.comboBoxAddUsers.Location = new System.Drawing.Point(279, 248);
@@ -329,11 +330,13 @@ namespace WindowsFormsApp1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(627, 450);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.tabControlAdmin);
             this.Name = "FormAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAdmin";
             this.tabControlAdmin.ResumeLayout(false);
             this.tabPageJourneys.ResumeLayout(false);

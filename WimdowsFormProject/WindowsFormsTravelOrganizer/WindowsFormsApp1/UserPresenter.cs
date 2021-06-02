@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
             model.SelectUser(user);
             if (user.IsAdmin)
             {
-                FormAdmin fA = new FormAdmin();
+                FormAdmin fA = new FormAdmin(jModel, model);
                 fA.Show();
             }
             else

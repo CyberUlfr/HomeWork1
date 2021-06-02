@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
         public FormSelectJourney(JourneyModel jModel ,UserModel uModel)
         {
             InitializeComponent();
+            MaximizeBox = false;
             selectJourneyPresenter = new SelectJourneyPresenter(this, jModel, uModel);
             labelSelectJourney.Text = "Привет, " + selectJourneyPresenter.GetActiveUser() + ". Выбирите путешествие.";
             ComboBoxSelectJourneyUpdate();
@@ -53,6 +54,11 @@ namespace WindowsFormsApp1
 
         private void labelSelectJourney_Click(object sender, EventArgs e)
         {
+        }
+
+        private void FormSelectJourney_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

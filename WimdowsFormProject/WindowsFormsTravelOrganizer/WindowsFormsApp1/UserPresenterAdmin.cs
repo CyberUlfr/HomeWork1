@@ -62,7 +62,14 @@ namespace WindowsFormsApp1
         }
         public void UserRemove(User user)
         {
-            model.UserRemove(user);
+            if (!user.IsAdmin)
+            {
+                model.UserRemove(user);
+            }
+            else
+            {
+                MessageBox.Show("Ошибка! Нельзя удалять админа!");
+            }    
         }
     }
 }

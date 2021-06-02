@@ -37,6 +37,7 @@ namespace WindowsFormsApp1
             // 
             // comboBoxSelectJourney
             // 
+            this.comboBoxSelectJourney.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSelectJourney.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxSelectJourney.FormattingEnabled = true;
             this.comboBoxSelectJourney.Location = new System.Drawing.Point(36, 69);
@@ -80,13 +81,16 @@ namespace WindowsFormsApp1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(337, 281);
             this.Controls.Add(this.labelSelectJourney);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonSelect);
             this.Controls.Add(this.comboBoxSelectJourney);
             this.Name = "FormSelectJourney";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SelectJourney";
+            this.Load += new System.EventHandler(this.FormSelectJourney_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -18,6 +18,7 @@ namespace WindowsFormsApp1
         public FormUsers(JourneyModel jModel, UserModel uModel)
         {
             InitializeComponent();
+            MaximizeBox = false;
             PurchaseModel purchaseModel = new PurchaseModel(jModel.SelectedJourney.Purchases[uModel.ActiveUser]);
             DistanceModel distanceModel = new DistanceModel(jModel.SelectedJourney.Distances[uModel.ActiveUser]);
             purchasePresenter = new PurchasePresenter(this, purchaseModel, jModel);

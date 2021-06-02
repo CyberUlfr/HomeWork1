@@ -56,6 +56,7 @@ namespace ClassLibrary1
         }
         public List<User> UserEdit(int index, string name)
         {
+            UserDataBase.DataBaseUserUpdate(Users[index], name);
             Users[index].Name = name;
             return Users;
         }
