@@ -56,6 +56,8 @@ namespace ClassLibrary1
         }
         public List<User> UserEdit(int index, string name)
         {
+            if (Users.Any(u => u.Name == name))
+                throw new Exception("Данный пользователь уже существует!");
             UserDataBase.DataBaseUserUpdate(Users[index], name);
             Users[index].Name = name;
             return Users;

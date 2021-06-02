@@ -45,7 +45,7 @@ namespace WindowsFormsApp1
         private void buttonBack_Click(object sender, EventArgs e)
         {
             Application.OpenForms[0].Show();
-            Application.OpenForms[1].Close();
+            this.Close();
         }
     }
 }

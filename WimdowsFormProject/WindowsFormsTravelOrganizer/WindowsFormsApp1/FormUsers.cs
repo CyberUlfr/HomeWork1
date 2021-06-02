@@ -21,9 +21,9 @@ namespace WindowsFormsApp1
             MaximizeBox = false;
             PurchaseModel purchaseModel = new PurchaseModel(jModel.SelectedJourney.Purchases[uModel.ActiveUser]);
             DistanceModel distanceModel = new DistanceModel(jModel.SelectedJourney.Distances[uModel.ActiveUser]);
-            purchasePresenter = new PurchasePresenter(this, purchaseModel, jModel);
+            purchasePresenter = new PurchasePresenter(this, purchaseModel, jModel, uModel);
             distancePresenter = new DistancePresenter(this, distanceModel);
-            labelNameUser.Text = "Вы вошли как " + uModel.ActiveUser + ".";
+            labelNameUser.Text = "Вы вошли как " + purchasePresenter.GetActiveUser() + ".";
             ListBoxPurchaseUpdate();
             ListBoxDistanceUpdate();
             labelStatisticDistanceUpdate();

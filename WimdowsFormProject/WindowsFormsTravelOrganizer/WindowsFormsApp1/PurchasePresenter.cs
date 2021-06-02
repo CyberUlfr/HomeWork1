@@ -9,12 +9,14 @@ namespace WindowsFormsApp1
     {
         public PurchaseModel pModel;
         public JourneyModel jModel;
+        public UserModel uModel;
         public FormUsers View;
-        public PurchasePresenter(FormUsers view, PurchaseModel purchaseModel, JourneyModel journeyModel)
+        public PurchasePresenter(FormUsers view, PurchaseModel purchaseModel, JourneyModel journeyModel, UserModel userModel)
         {
             View = view;
             pModel = purchaseModel;
             jModel = journeyModel;
+            uModel = userModel;
         }
         public void AddPurchase(string name, double price)
         {
@@ -82,6 +84,10 @@ namespace WindowsFormsApp1
         public int TimeAll()
         {
             return (int)(DateTime.Now - jModel.SelectedJourney.TimeStart).TotalSeconds;
+        }
+        public User GetActiveUser()
+        {
+            return uModel.ActiveUser;
         }
     }
 }
