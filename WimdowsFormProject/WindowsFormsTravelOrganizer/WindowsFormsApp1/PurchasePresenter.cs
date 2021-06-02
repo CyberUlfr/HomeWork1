@@ -8,11 +8,13 @@ namespace WindowsFormsApp1
     public class PurchasePresenter
     {
         public PurchaseModel pModel;
+        public JourneyModel jModel;
         public FormUsers View;
-        public PurchasePresenter(FormUsers view, PurchaseModel purchaseModel)
+        public PurchasePresenter(FormUsers view, PurchaseModel purchaseModel, JourneyModel journeyModel)
         {
             View = view;
             pModel = purchaseModel;
+            jModel = journeyModel;
         }
         public void AddPurchase(string name, double price)
         {
@@ -68,6 +70,20 @@ namespace WindowsFormsApp1
         {
             return pModel.SortedDescending();
         }
+        public double StatisticPurchase()
+        {
+            double sum = pModel.PurchaseStatistic();
+            return sum;
+        }
+        public DateTime TimeStart()
+        {
+            return jModel.SelectedJourney.TimeStart;
+        }
+        public int TimeAll()
+        {
+            return (int)(DateTime.Now - jModel.SelectedJourney.TimeStart).TotalSeconds;
+        }
+        
     }
 }
 

@@ -128,6 +128,7 @@ namespace WindowsFormsApp1
             this.listBoxUsersAdd.ItemHeight = 20;
             this.listBoxUsersAdd.Location = new System.Drawing.Point(9, 248);
             this.listBoxUsersAdd.Name = "listBoxUsersAdd";
+            this.listBoxUsersAdd.ScrollAlwaysVisible = true;
             this.listBoxUsersAdd.Size = new System.Drawing.Size(264, 144);
             this.listBoxUsersAdd.TabIndex = 12;
             this.listBoxUsersAdd.SelectedIndexChanged += new System.EventHandler(this.listBoxUsersAdd_SelectedIndexChanged);
@@ -207,9 +208,12 @@ namespace WindowsFormsApp1
             // 
             this.listBoxJourneys.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBoxJourneys.FormattingEnabled = true;
+            this.listBoxJourneys.HorizontalExtent = 500;
+            this.listBoxJourneys.HorizontalScrollbar = true;
             this.listBoxJourneys.ItemHeight = 20;
             this.listBoxJourneys.Location = new System.Drawing.Point(9, 32);
             this.listBoxJourneys.Name = "listBoxJourneys";
+            this.listBoxJourneys.ScrollAlwaysVisible = true;
             this.listBoxJourneys.Size = new System.Drawing.Size(264, 164);
             this.listBoxJourneys.TabIndex = 3;
             this.listBoxJourneys.SelectedIndexChanged += new System.EventHandler(this.listBoxJourneys_SelectedIndexChanged);
@@ -296,6 +300,7 @@ namespace WindowsFormsApp1
             this.listBoxUsers.ItemHeight = 20;
             this.listBoxUsers.Location = new System.Drawing.Point(9, 37);
             this.listBoxUsers.Name = "listBoxUsers";
+            this.listBoxUsers.ScrollAlwaysVisible = true;
             this.listBoxUsers.Size = new System.Drawing.Size(263, 364);
             this.listBoxUsers.TabIndex = 0;
             this.listBoxUsers.SelectedIndexChanged += new System.EventHandler(this.listBoxUsers_SelectedIndexChanged);

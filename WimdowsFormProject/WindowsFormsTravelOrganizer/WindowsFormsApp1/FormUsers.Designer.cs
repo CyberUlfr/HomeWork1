@@ -44,20 +44,27 @@ namespace WindowsFormsApp1
             this.labelListPurchase = new System.Windows.Forms.Label();
             this.listBoxPurchase = new System.Windows.Forms.ListBox();
             this.tabPageDistance = new System.Windows.Forms.TabPage();
+            this.labelKmDistance = new System.Windows.Forms.Label();
+            this.textBoxKMetersDistance = new System.Windows.Forms.TextBox();
+            this.textBoxNameDistance = new System.Windows.Forms.TextBox();
+            this.labelNameDistance = new System.Windows.Forms.Label();
+            this.buttonRemoveDistance = new System.Windows.Forms.Button();
+            this.buttonAddDistance = new System.Windows.Forms.Button();
+            this.labelListDistance = new System.Windows.Forms.Label();
+            this.listBoxDistance = new System.Windows.Forms.ListBox();
             this.tabPageStatistic = new System.Windows.Forms.TabPage();
+            this.labelStatisticDistance = new System.Windows.Forms.Label();
+            this.labelStatistic = new System.Windows.Forms.Label();
+            this.labelStatisticPurchase = new System.Windows.Forms.Label();
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
-            this.listBoxDistance = new System.Windows.Forms.ListBox();
-            this.labelListDistance = new System.Windows.Forms.Label();
-            this.buttonAddDistance = new System.Windows.Forms.Button();
-            this.buttonRemoveDistance = new System.Windows.Forms.Button();
-            this.labelNameDistance = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.labelKmDistance = new System.Windows.Forms.Label();
+            this.labelTimeStart = new System.Windows.Forms.Label();
+            this.labelTimeAll = new System.Windows.Forms.Label();
+            this.buttonUpdateTime = new System.Windows.Forms.Button();
             this.tabControlUsers.SuspendLayout();
             this.tabPagePurchase.SuspendLayout();
             this.tabPageDistance.SuspendLayout();
+            this.tabPageStatistic.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlUsers
@@ -203,9 +210,12 @@ namespace WindowsFormsApp1
             // 
             this.listBoxPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBoxPurchase.FormattingEnabled = true;
+            this.listBoxPurchase.HorizontalExtent = 500;
+            this.listBoxPurchase.HorizontalScrollbar = true;
             this.listBoxPurchase.ItemHeight = 20;
             this.listBoxPurchase.Location = new System.Drawing.Point(6, 26);
             this.listBoxPurchase.Name = "listBoxPurchase";
+            this.listBoxPurchase.ScrollAlwaysVisible = true;
             this.listBoxPurchase.Size = new System.Drawing.Size(389, 364);
             this.listBoxPurchase.TabIndex = 0;
             this.listBoxPurchase.SelectedIndexChanged += new System.EventHandler(this.listBoxPurchase_SelectedIndexChanged);
@@ -213,8 +223,8 @@ namespace WindowsFormsApp1
             // tabPageDistance
             // 
             this.tabPageDistance.Controls.Add(this.labelKmDistance);
-            this.tabPageDistance.Controls.Add(this.textBox2);
-            this.tabPageDistance.Controls.Add(this.textBox1);
+            this.tabPageDistance.Controls.Add(this.textBoxKMetersDistance);
+            this.tabPageDistance.Controls.Add(this.textBoxNameDistance);
             this.tabPageDistance.Controls.Add(this.labelNameDistance);
             this.tabPageDistance.Controls.Add(this.buttonRemoveDistance);
             this.tabPageDistance.Controls.Add(this.buttonAddDistance);
@@ -228,8 +238,97 @@ namespace WindowsFormsApp1
             this.tabPageDistance.Text = "Передвижения";
             this.tabPageDistance.UseVisualStyleBackColor = true;
             // 
+            // labelKmDistance
+            // 
+            this.labelKmDistance.AutoSize = true;
+            this.labelKmDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelKmDistance.Location = new System.Drawing.Point(340, 68);
+            this.labelKmDistance.Name = "labelKmDistance";
+            this.labelKmDistance.Size = new System.Drawing.Size(267, 20);
+            this.labelKmDistance.TabIndex = 9;
+            this.labelKmDistance.Text = "Введите растояние в километрах";
+            // 
+            // textBoxKMetersDistance
+            // 
+            this.textBoxKMetersDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxKMetersDistance.Location = new System.Drawing.Point(344, 91);
+            this.textBoxKMetersDistance.Name = "textBoxKMetersDistance";
+            this.textBoxKMetersDistance.Size = new System.Drawing.Size(254, 26);
+            this.textBoxKMetersDistance.TabIndex = 8;
+            this.textBoxKMetersDistance.TextChanged += new System.EventHandler(this.textBoxKMetersDistance_TextChanged);
+            // 
+            // textBoxNameDistance
+            // 
+            this.textBoxNameDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxNameDistance.Location = new System.Drawing.Point(344, 29);
+            this.textBoxNameDistance.Name = "textBoxNameDistance";
+            this.textBoxNameDistance.Size = new System.Drawing.Size(254, 26);
+            this.textBoxNameDistance.TabIndex = 7;
+            // 
+            // labelNameDistance
+            // 
+            this.labelNameDistance.AutoSize = true;
+            this.labelNameDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelNameDistance.Location = new System.Drawing.Point(340, 6);
+            this.labelNameDistance.Name = "labelNameDistance";
+            this.labelNameDistance.Size = new System.Drawing.Size(258, 20);
+            this.labelNameDistance.TabIndex = 6;
+            this.labelNameDistance.Text = "Введите название предвижения";
+            this.labelNameDistance.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // buttonRemoveDistance
+            // 
+            this.buttonRemoveDistance.Location = new System.Drawing.Point(344, 169);
+            this.buttonRemoveDistance.Name = "buttonRemoveDistance";
+            this.buttonRemoveDistance.Size = new System.Drawing.Size(254, 40);
+            this.buttonRemoveDistance.TabIndex = 3;
+            this.buttonRemoveDistance.Text = "Удалить предвижение";
+            this.buttonRemoveDistance.UseVisualStyleBackColor = true;
+            this.buttonRemoveDistance.Click += new System.EventHandler(this.buttonRemoveDistance_Click);
+            // 
+            // buttonAddDistance
+            // 
+            this.buttonAddDistance.Location = new System.Drawing.Point(344, 123);
+            this.buttonAddDistance.Name = "buttonAddDistance";
+            this.buttonAddDistance.Size = new System.Drawing.Size(254, 40);
+            this.buttonAddDistance.TabIndex = 2;
+            this.buttonAddDistance.Text = "Добавить предвижение";
+            this.buttonAddDistance.UseVisualStyleBackColor = true;
+            this.buttonAddDistance.Click += new System.EventHandler(this.buttonAddDistance_Click);
+            // 
+            // labelListDistance
+            // 
+            this.labelListDistance.AutoSize = true;
+            this.labelListDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelListDistance.Location = new System.Drawing.Point(6, 6);
+            this.labelListDistance.Name = "labelListDistance";
+            this.labelListDistance.Size = new System.Drawing.Size(170, 20);
+            this.labelListDistance.TabIndex = 1;
+            this.labelListDistance.Text = "Список предвижений";
+            // 
+            // listBoxDistance
+            // 
+            this.listBoxDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBoxDistance.FormattingEnabled = true;
+            this.listBoxDistance.HorizontalExtent = 600;
+            this.listBoxDistance.HorizontalScrollbar = true;
+            this.listBoxDistance.ItemHeight = 20;
+            this.listBoxDistance.Location = new System.Drawing.Point(8, 29);
+            this.listBoxDistance.Name = "listBoxDistance";
+            this.listBoxDistance.ScrollAlwaysVisible = true;
+            this.listBoxDistance.Size = new System.Drawing.Size(328, 364);
+            this.listBoxDistance.Sorted = true;
+            this.listBoxDistance.TabIndex = 0;
+            this.listBoxDistance.SelectedIndexChanged += new System.EventHandler(this.listBoxDistance_SelectedIndexChanged);
+            // 
             // tabPageStatistic
             // 
+            this.tabPageStatistic.Controls.Add(this.buttonUpdateTime);
+            this.tabPageStatistic.Controls.Add(this.labelTimeAll);
+            this.tabPageStatistic.Controls.Add(this.labelTimeStart);
+            this.tabPageStatistic.Controls.Add(this.labelStatisticDistance);
+            this.tabPageStatistic.Controls.Add(this.labelStatistic);
+            this.tabPageStatistic.Controls.Add(this.labelStatisticPurchase);
             this.tabPageStatistic.Location = new System.Drawing.Point(4, 22);
             this.tabPageStatistic.Name = "tabPageStatistic";
             this.tabPageStatistic.Padding = new System.Windows.Forms.Padding(3);
@@ -237,6 +336,39 @@ namespace WindowsFormsApp1
             this.tabPageStatistic.TabIndex = 4;
             this.tabPageStatistic.Text = "Статистика";
             this.tabPageStatistic.UseVisualStyleBackColor = true;
+            // 
+            // labelStatisticDistance
+            // 
+            this.labelStatisticDistance.AutoSize = true;
+            this.labelStatisticDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelStatisticDistance.Location = new System.Drawing.Point(9, 43);
+            this.labelStatisticDistance.Name = "labelStatisticDistance";
+            this.labelStatisticDistance.Size = new System.Drawing.Size(51, 20);
+            this.labelStatisticDistance.TabIndex = 5;
+            this.labelStatisticDistance.Text = "label2";
+            this.labelStatisticDistance.Click += new System.EventHandler(this.labelStatisticDistance_Click);
+            // 
+            // labelStatistic
+            // 
+            this.labelStatistic.AutoSize = true;
+            this.labelStatistic.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelStatistic.Location = new System.Drawing.Point(6, 3);
+            this.labelStatistic.Name = "labelStatistic";
+            this.labelStatistic.Size = new System.Drawing.Size(99, 20);
+            this.labelStatistic.TabIndex = 4;
+            this.labelStatistic.Text = "Статистика";
+            this.labelStatistic.Click += new System.EventHandler(this.labelStatistic_Click);
+            // 
+            // labelStatisticPurchase
+            // 
+            this.labelStatisticPurchase.AutoSize = true;
+            this.labelStatisticPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelStatisticPurchase.Location = new System.Drawing.Point(9, 23);
+            this.labelStatisticPurchase.Name = "labelStatisticPurchase";
+            this.labelStatisticPurchase.Size = new System.Drawing.Size(51, 20);
+            this.labelStatisticPurchase.TabIndex = 3;
+            this.labelStatisticPurchase.Text = "label1";
+            this.labelStatisticPurchase.Click += new System.EventHandler(this.labelStatisticPurchase_Click);
             // 
             // buttonBack
             // 
@@ -258,80 +390,35 @@ namespace WindowsFormsApp1
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
-            // listBoxDistance
+            // labelTimeStart
             // 
-            this.listBoxDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listBoxDistance.FormattingEnabled = true;
-            this.listBoxDistance.ItemHeight = 20;
-            this.listBoxDistance.Location = new System.Drawing.Point(8, 29);
-            this.listBoxDistance.Name = "listBoxDistance";
-            this.listBoxDistance.Size = new System.Drawing.Size(328, 364);
-            this.listBoxDistance.TabIndex = 0;
+            this.labelTimeStart.AutoSize = true;
+            this.labelTimeStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelTimeStart.Location = new System.Drawing.Point(9, 63);
+            this.labelTimeStart.Name = "labelTimeStart";
+            this.labelTimeStart.Size = new System.Drawing.Size(51, 20);
+            this.labelTimeStart.TabIndex = 6;
+            this.labelTimeStart.Text = "label1";
             // 
-            // labelListDistance
+            // labelTimeAll
             // 
-            this.labelListDistance.AutoSize = true;
-            this.labelListDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelListDistance.Location = new System.Drawing.Point(6, 6);
-            this.labelListDistance.Name = "labelListDistance";
-            this.labelListDistance.Size = new System.Drawing.Size(170, 20);
-            this.labelListDistance.TabIndex = 1;
-            this.labelListDistance.Text = "Список предвижений";
+            this.labelTimeAll.AutoSize = true;
+            this.labelTimeAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelTimeAll.Location = new System.Drawing.Point(9, 83);
+            this.labelTimeAll.Name = "labelTimeAll";
+            this.labelTimeAll.Size = new System.Drawing.Size(51, 20);
+            this.labelTimeAll.TabIndex = 7;
+            this.labelTimeAll.Text = "label2";
             // 
-            // buttonAddDistance
+            // buttonUpdateTime
             // 
-            this.buttonAddDistance.Location = new System.Drawing.Point(344, 123);
-            this.buttonAddDistance.Name = "buttonAddDistance";
-            this.buttonAddDistance.Size = new System.Drawing.Size(254, 40);
-            this.buttonAddDistance.TabIndex = 2;
-            this.buttonAddDistance.Text = "Добавить предвижение";
-            this.buttonAddDistance.UseVisualStyleBackColor = true;
-            // 
-            // buttonRemoveDistance
-            // 
-            this.buttonRemoveDistance.Location = new System.Drawing.Point(344, 169);
-            this.buttonRemoveDistance.Name = "buttonRemoveDistance";
-            this.buttonRemoveDistance.Size = new System.Drawing.Size(254, 40);
-            this.buttonRemoveDistance.TabIndex = 3;
-            this.buttonRemoveDistance.Text = "Удалить предвижение";
-            this.buttonRemoveDistance.UseVisualStyleBackColor = true;
-            // 
-            // labelNameDistance
-            // 
-            this.labelNameDistance.AutoSize = true;
-            this.labelNameDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelNameDistance.Location = new System.Drawing.Point(340, 6);
-            this.labelNameDistance.Name = "labelNameDistance";
-            this.labelNameDistance.Size = new System.Drawing.Size(258, 20);
-            this.labelNameDistance.TabIndex = 6;
-            this.labelNameDistance.Text = "Введите название предвижения";
-            this.labelNameDistance.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(344, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(254, 26);
-            this.textBox1.TabIndex = 7;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(344, 91);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(254, 26);
-            this.textBox2.TabIndex = 8;
-            // 
-            // labelKmDistance
-            // 
-            this.labelKmDistance.AutoSize = true;
-            this.labelKmDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelKmDistance.Location = new System.Drawing.Point(340, 68);
-            this.labelKmDistance.Name = "labelKmDistance";
-            this.labelKmDistance.Size = new System.Drawing.Size(267, 20);
-            this.labelKmDistance.TabIndex = 9;
-            this.labelKmDistance.Text = "Введите растояние в километрах";
+            this.buttonUpdateTime.Location = new System.Drawing.Point(6, 106);
+            this.buttonUpdateTime.Name = "buttonUpdateTime";
+            this.buttonUpdateTime.Size = new System.Drawing.Size(99, 23);
+            this.buttonUpdateTime.TabIndex = 8;
+            this.buttonUpdateTime.Text = "Обновить время";
+            this.buttonUpdateTime.UseVisualStyleBackColor = true;
+            this.buttonUpdateTime.Click += new System.EventHandler(this.buttonUpdateTime_Click);
             // 
             // FormUsers
             // 
@@ -348,6 +435,8 @@ namespace WindowsFormsApp1
             this.tabPagePurchase.PerformLayout();
             this.tabPageDistance.ResumeLayout(false);
             this.tabPageDistance.PerformLayout();
+            this.tabPageStatistic.ResumeLayout(false);
+            this.tabPageStatistic.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -378,7 +467,13 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Label labelListDistance;
         private System.Windows.Forms.ListBox listBoxDistance;
         private System.Windows.Forms.Label labelKmDistance;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxKMetersDistance;
+        private System.Windows.Forms.TextBox textBoxNameDistance;
+        private System.Windows.Forms.Label labelStatisticDistance;
+        private System.Windows.Forms.Label labelStatistic;
+        private System.Windows.Forms.Label labelStatisticPurchase;
+        private System.Windows.Forms.Label labelTimeAll;
+        private System.Windows.Forms.Label labelTimeStart;
+        private System.Windows.Forms.Button buttonUpdateTime;
     }
 }

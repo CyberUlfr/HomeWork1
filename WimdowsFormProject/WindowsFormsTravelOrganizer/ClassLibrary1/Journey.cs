@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ClassLibrary1
 {
     public class Journey
@@ -103,6 +104,13 @@ namespace ClassLibrary1
                     journeys.Add(journey);
             }
             return journeys;
+        }
+        public void SelectJourney(Journey journey)
+        {
+            if (Journeys.Contains(journey))
+                SelectedJourney = journey;
+            else
+                throw (new Exception("Выбранного путешествия не существует в списке!"));
         }
     }
 }

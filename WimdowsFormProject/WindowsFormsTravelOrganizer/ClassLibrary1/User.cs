@@ -35,6 +35,10 @@ namespace ClassLibrary1
         public User ActiveUser;
         public UserModel()
         {
+            Users = UserDataBase.DataBaseLoad();
+        }
+        public void UserInit()
+        {
             Users.Add(new User("Админ", true));
             Users.Add(new User("Костя"));
         }
@@ -43,6 +47,7 @@ namespace ClassLibrary1
             if (Users.Any(u => u.Name == name))
                 throw new Exception("Данный пользователь уже существует!");
             Users.Add(new User(name));
+            UserDataBase.DataBaseSave(Users);
         }
         public List<User> UserEdit(int index, string name)
         {
@@ -52,6 +57,7 @@ namespace ClassLibrary1
         public List<User> UserRemove(User user)
         {
             Users.Remove(user);
+            UserDataBase.DataBaseUserDelete(user);
             return Users;
         }
         public void SelectUser (User user)

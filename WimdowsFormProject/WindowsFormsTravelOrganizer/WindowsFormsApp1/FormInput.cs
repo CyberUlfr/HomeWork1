@@ -16,7 +16,10 @@ namespace WindowsFormsApp1
             userPresenter = new UserPresenter(this, journeyModel, userModel);
             ListBoxUsersUpdate();
         }
-
+        private void UserSave()
+        {
+            userPresenter.UserSave();
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
 

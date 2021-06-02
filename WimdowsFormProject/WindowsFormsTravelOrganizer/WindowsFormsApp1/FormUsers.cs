@@ -14,12 +14,42 @@ namespace WindowsFormsApp1
     public partial class FormUsers : Form
     {
         public PurchasePresenter purchasePresenter;
-        public FormUsers()
+        public DistancePresenter distancePresenter;
+        public FormUsers(JourneyModel jModel, UserModel uModel)
         {
             InitializeComponent();
-            PurchaseModel purchaseModel = new PurchaseModel();
-            purchasePresenter = new PurchasePresenter(this, purchaseModel);
+            PurchaseModel purchaseModel = new PurchaseModel(jModel.SelectedJourney.Purchases[uModel.ActiveUser]);
+            DistanceModel distanceModel = new DistanceModel(jModel.SelectedJourney.Distances[uModel.ActiveUser]);
+            purchasePresenter = new PurchasePresenter(this, purchaseModel, jModel);
+            distancePresenter = new DistancePresenter(this, distanceModel);
             ListBoxPurchaseUpdate();
+            ListBoxDistanceUpdate();
+            labelStatisticDistanceUpdate();
+            labelStatisticPurchaseUpdate();
+            labelStatisticlabelTimeStartUpdate();
+            labelStatisticlabelTimeAllUpdate();
+        }
+        private void labelStatisticPurchaseUpdate()
+        {
+            labelStatisticPurchase.Text = "Вы потратили " + purchasePresenter.StatisticPurchase() + " руб.";
+        }
+        private void labelStatisticDistanceUpdate()
+        {
+            labelStatisticDistance.Text = "и прошли " + distancePresenter.StatisticDistance() + " км. В этом путешествии.";
+        }
+        private void labelStatisticlabelTimeStartUpdate()
+        {
+            labelTimeStart.Text = "Время начала путешествия: " + purchasePresenter.TimeStart();
+        }
+        private void labelStatisticlabelTimeAllUpdate()
+        {
+            labelTimeAll.Text = "Общее время путешествия: " + purchasePresenter.TimeAll() + " сек.";
+        }
+        private void ListBoxDistanceUpdate()
+        {
+            listBoxDistance.Items.Clear();
+            foreach (var distance in distancePresenter.DistanceGetList())
+                listBoxDistance.Items.Add(distance);
         }
         private void ListBoxPurchaseUpdate()
         {
@@ -58,6 +88,7 @@ namespace WindowsFormsApp1
             }
             string purchase = textBoxNamePurchase.Text.Trim();
             purchasePresenter.AddPurchase(purchase, price);
+            labelStatisticPurchaseUpdate();
             ListBoxPurchaseUpdate();
         }
 
@@ -70,6 +101,7 @@ namespace WindowsFormsApp1
             }
             purchasePresenter.RemovePurchase((Purchase)listBoxPurchase.SelectedItem);
             ListBoxPurchaseUpdate();
+            labelStatisticPurchaseUpdate();
         }
 
         private void listBoxPurchase_SelectedIndexChanged(object sender, EventArgs e)
@@ -109,6 +141,72 @@ namespace WindowsFormsApp1
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void listBoxDistance_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAddDistance_Click(object sender, EventArgs e)
+        {
+            double kmeters = 0;
+            if (textBoxKMetersDistance.Text.Trim() == "" || textBoxNameDistance.Text.Trim() == "")
+            {
+                MessageBox.Show("Не все поля заполнены!", "Ошибка!");
+                return;
+            }
+            if (!double.TryParse(textBoxKMetersDistance.Text, out kmeters))
+            {
+                MessageBox.Show("Не получилось прочесть расстояние!", "Ошибка!");
+                return;
+            }
+            string distance = textBoxNameDistance.Text.Trim();
+            distancePresenter.AddDistance(distance, kmeters);
+            ListBoxDistanceUpdate();
+            labelStatisticDistanceUpdate();
+        }
+
+        private void textBoxKMetersDistance_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonRemoveDistance_Click(object sender, EventArgs e)
+        {
+            if ((Distance)listBoxDistance.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите передвижение для удаления!");
+                return;
+            }
+            distancePresenter.RemoveDistance((Distance)listBoxDistance.SelectedItem);
+            ListBoxDistanceUpdate();
+            labelStatisticDistanceUpdate();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelStatisticPurchase_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelStatisticDistance_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelStatistic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUpdateTime_Click(object sender, EventArgs e)
+        {
+            labelStatisticlabelTimeAllUpdate();
         }
     }
 }

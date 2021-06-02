@@ -16,12 +16,18 @@ namespace ClassLibrary1
         }
         public override string ToString()
         {
-            return string.Format($"Продукт {Name} стоит {Price} руб.");
+            return string.Format($"{Name} стоит {Price} руб.");
         }
     }
     public class PurchaseModel
     {
         public List<Purchase> Purchases = new List<Purchase>();
+
+        public PurchaseModel(List<Purchase> purchases)
+        {
+            Purchases = purchases;
+        }
+
         public void AddPurchase(string purchase, double price)
         {
             if (Purchases.Any(u => u.Name == purchase))
@@ -76,6 +82,11 @@ namespace ClassLibrary1
                 }
                 return purchases;
             }
+        }
+        public double PurchaseStatistic()
+        {
+            double sum = Purchases.Sum(elem => elem.Price);
+            return sum;
         }
     }
 }

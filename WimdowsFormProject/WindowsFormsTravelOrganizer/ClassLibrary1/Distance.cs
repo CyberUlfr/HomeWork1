@@ -15,17 +15,32 @@ namespace ClassLibrary1
         }
         public override string ToString()
         {
-            return string.Format($"{Name} прошел {KMeters} км.");
+            return string.Format($"{Name} пройденное растояние {KMeters} км.");
         }
     }
     public class DistanceModel
     {
         public List<Distance> Distances = new List<Distance>();
-        public void AddElem(string name, double kmeters)
+
+        public DistanceModel(List<Distance> distances)
         {
-            if (Distances.Any(u => u.Name == name))
-                throw (new Exception("Данный продукт уже добавлен!"));
-            Distances.Add(new Distance(name, kmeters));
+            Distances = distances;
+        }
+
+        public void AddDistance(string distance, double kmeters)
+        {
+            if (Distances.Any(u => u.Name == distance))
+                throw (new Exception("Данное передвижение уже добавлено!"));
+            Distances.Add(new Distance(distance, kmeters));
+        }
+        public void RemoveDistance(Distance distance)
+        {
+            Distances.Remove(distance);
+        }
+        public double DistanceStatistic()
+        {
+            double sum = Distances.Sum(elem => elem.KMeters);
+            return sum;
         }
     }
 }

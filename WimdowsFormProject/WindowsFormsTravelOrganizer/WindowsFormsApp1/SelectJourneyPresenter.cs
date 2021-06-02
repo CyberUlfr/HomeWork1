@@ -36,5 +36,12 @@ namespace WindowsFormsApp1
         {
             jModel.SelectedJourney = journey;
         }
+        public void SelectJourney(Journey journey)
+        {
+            View.Hide();
+            jModel.SelectJourney(journey);
+            FormUsers fU = new FormUsers(jModel, uModel);
+            fU.Show();
+        }
     }
 }

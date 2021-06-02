@@ -33,19 +33,16 @@ namespace WindowsFormsApp1
 
         private void buttonSelect_Click(object sender, EventArgs e)
         {
-            if ((Journey)comboBoxSelectJourney.SelectedItem!= null)
+            if ((Journey)comboBoxSelectJourney.SelectedItem != null)
             {
-                selectJourneyPresenter.SetSelectedJourney((Journey)comboBoxSelectJourney.SelectedItem);
-                DialogResult = DialogResult.OK;
-                FormUsers fU = new FormUsers();
-                fU.Show();
+                selectJourneyPresenter.SelectJourney((Journey)comboBoxSelectJourney.SelectedItem);
                 Hide();
             }
             else
             {
                 MessageBox.Show("Выберите путешествие!");
-                return;
             }
+            
         }
 
         private void buttonBack_Click(object sender, EventArgs e)

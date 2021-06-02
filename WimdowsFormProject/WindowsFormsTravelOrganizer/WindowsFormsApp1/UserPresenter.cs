@@ -39,5 +39,10 @@ namespace WindowsFormsApp1
                 fSJ.Show();
             }
         }
+        public void UserSave()
+        {
+            model.UserInit();
+            UserDataBase.DataBaseSave(model.Users);
+        }
     }
 }
