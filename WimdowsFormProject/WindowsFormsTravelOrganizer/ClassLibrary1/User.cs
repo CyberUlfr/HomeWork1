@@ -36,11 +36,16 @@ namespace ClassLibrary1
         public UserModel()
         {
             Users = UserDataBase.DataBaseLoad();
+            if (Users.Count == 0)
+            {
+                UserInit();
+            }
         }
         public void UserInit()
         {
             Users.Add(new User("Админ", true));
             Users.Add(new User("Костя"));
+            UserDataBase.DataBaseSave(Users);
         }
         public void UserAdd(string name)
         {

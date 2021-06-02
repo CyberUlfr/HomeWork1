@@ -16,10 +16,6 @@ namespace WindowsFormsApp1
             userPresenter = new UserPresenter(this, journeyModel, userModel);
             ListBoxUsersUpdate();
         }
-        private void UserSave()
-        {
-            userPresenter.UserSave();
-        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -35,7 +31,6 @@ namespace WindowsFormsApp1
             foreach (var user in userPresenter.UserGetList())
                 listBoxUsers.Items.Add(user);
         }
-
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
