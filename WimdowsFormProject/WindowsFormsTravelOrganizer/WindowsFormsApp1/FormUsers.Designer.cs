@@ -76,7 +76,7 @@ namespace WindowsFormsApp1
             this.tabControlUsers.Location = new System.Drawing.Point(0, 12);
             this.tabControlUsers.Name = "tabControlUsers";
             this.tabControlUsers.SelectedIndex = 0;
-            this.tabControlUsers.Size = new System.Drawing.Size(618, 435);
+            this.tabControlUsers.Size = new System.Drawing.Size(625, 435);
             this.tabControlUsers.TabIndex = 0;
             // 
             // tabPagePurchase
@@ -96,7 +96,7 @@ namespace WindowsFormsApp1
             this.tabPagePurchase.Location = new System.Drawing.Point(4, 22);
             this.tabPagePurchase.Name = "tabPagePurchase";
             this.tabPagePurchase.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePurchase.Size = new System.Drawing.Size(610, 409);
+            this.tabPagePurchase.Size = new System.Drawing.Size(617, 409);
             this.tabPagePurchase.TabIndex = 2;
             this.tabPagePurchase.Text = "Покупки";
             this.tabPagePurchase.UseVisualStyleBackColor = true;
@@ -233,7 +233,7 @@ namespace WindowsFormsApp1
             this.tabPageDistance.Location = new System.Drawing.Point(4, 22);
             this.tabPageDistance.Name = "tabPageDistance";
             this.tabPageDistance.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDistance.Size = new System.Drawing.Size(610, 409);
+            this.tabPageDistance.Size = new System.Drawing.Size(617, 409);
             this.tabPageDistance.TabIndex = 3;
             this.tabPageDistance.Text = "Передвижения";
             this.tabPageDistance.UseVisualStyleBackColor = true;
@@ -244,9 +244,9 @@ namespace WindowsFormsApp1
             this.labelKmDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelKmDistance.Location = new System.Drawing.Point(340, 68);
             this.labelKmDistance.Name = "labelKmDistance";
-            this.labelKmDistance.Size = new System.Drawing.Size(267, 20);
+            this.labelKmDistance.Size = new System.Drawing.Size(275, 20);
             this.labelKmDistance.TabIndex = 9;
-            this.labelKmDistance.Text = "Введите растояние в километрах";
+            this.labelKmDistance.Text = "Введите расстояние в километрах";
             // 
             // textBoxKMetersDistance
             // 
@@ -270,9 +270,9 @@ namespace WindowsFormsApp1
             this.labelNameDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelNameDistance.Location = new System.Drawing.Point(340, 6);
             this.labelNameDistance.Name = "labelNameDistance";
-            this.labelNameDistance.Size = new System.Drawing.Size(258, 20);
+            this.labelNameDistance.Size = new System.Drawing.Size(267, 20);
             this.labelNameDistance.TabIndex = 6;
-            this.labelNameDistance.Text = "Введите название предвижения";
+            this.labelNameDistance.Text = "Введите название передвижения";
             // 
             // buttonRemoveDistance
             // 
@@ -280,7 +280,7 @@ namespace WindowsFormsApp1
             this.buttonRemoveDistance.Name = "buttonRemoveDistance";
             this.buttonRemoveDistance.Size = new System.Drawing.Size(254, 40);
             this.buttonRemoveDistance.TabIndex = 3;
-            this.buttonRemoveDistance.Text = "Удалить предвижение";
+            this.buttonRemoveDistance.Text = "Удалить передвижение";
             this.buttonRemoveDistance.UseVisualStyleBackColor = true;
             this.buttonRemoveDistance.Click += new System.EventHandler(this.buttonRemoveDistance_Click);
             // 
@@ -290,7 +290,7 @@ namespace WindowsFormsApp1
             this.buttonAddDistance.Name = "buttonAddDistance";
             this.buttonAddDistance.Size = new System.Drawing.Size(254, 40);
             this.buttonAddDistance.TabIndex = 2;
-            this.buttonAddDistance.Text = "Добавить предвижение";
+            this.buttonAddDistance.Text = "Добавить передвижение";
             this.buttonAddDistance.UseVisualStyleBackColor = true;
             this.buttonAddDistance.Click += new System.EventHandler(this.buttonAddDistance_Click);
             // 
@@ -300,9 +300,9 @@ namespace WindowsFormsApp1
             this.labelListDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelListDistance.Location = new System.Drawing.Point(6, 6);
             this.labelListDistance.Name = "labelListDistance";
-            this.labelListDistance.Size = new System.Drawing.Size(170, 20);
+            this.labelListDistance.Size = new System.Drawing.Size(179, 20);
             this.labelListDistance.TabIndex = 1;
-            this.labelListDistance.Text = "Список предвижений";
+            this.labelListDistance.Text = "Список передвижений";
             // 
             // listBoxDistance
             // 
@@ -314,7 +314,7 @@ namespace WindowsFormsApp1
             this.listBoxDistance.Location = new System.Drawing.Point(8, 29);
             this.listBoxDistance.Name = "listBoxDistance";
             this.listBoxDistance.ScrollAlwaysVisible = true;
-            this.listBoxDistance.Size = new System.Drawing.Size(328, 364);
+            this.listBoxDistance.Size = new System.Drawing.Size(330, 364);
             this.listBoxDistance.Sorted = true;
             this.listBoxDistance.TabIndex = 0;
             // 
@@ -329,7 +329,7 @@ namespace WindowsFormsApp1
             this.tabPageStatistic.Location = new System.Drawing.Point(4, 22);
             this.tabPageStatistic.Name = "tabPageStatistic";
             this.tabPageStatistic.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStatistic.Size = new System.Drawing.Size(610, 409);
+            this.tabPageStatistic.Size = new System.Drawing.Size(617, 409);
             this.tabPageStatistic.TabIndex = 4;
             this.tabPageStatistic.Text = "Статистика";
             this.tabPageStatistic.UseVisualStyleBackColor = true;
@@ -396,7 +396,7 @@ namespace WindowsFormsApp1
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(624, 356);
+            this.buttonBack.Location = new System.Drawing.Point(631, 356);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(96, 40);
             this.buttonBack.TabIndex = 1;
@@ -406,7 +406,7 @@ namespace WindowsFormsApp1
             // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(624, 402);
+            this.buttonExit.Location = new System.Drawing.Point(631, 402);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(96, 40);
             this.buttonExit.TabIndex = 2;

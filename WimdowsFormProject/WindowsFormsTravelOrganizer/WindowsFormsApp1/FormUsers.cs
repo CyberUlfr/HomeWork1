@@ -166,5 +166,6 @@ namespace WindowsFormsApp1
         {
             labelStatisticlabelTimeAllUpdate();
         }
+
     }
 }

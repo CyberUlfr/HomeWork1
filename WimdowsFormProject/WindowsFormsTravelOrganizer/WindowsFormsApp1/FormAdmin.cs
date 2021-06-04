@@ -72,6 +72,7 @@ namespace WindowsFormsApp1
             string name = textBoxUserName.Text.Trim();
             userPresenterAdmin.UserEdit(listBoxUsers.SelectedIndex, name);
             ListBoxUsersUpdate();
+            ComboBoxUsersUpdate();
         }
 
         private void buttonDeleateUser_Click(object sender, EventArgs e)
@@ -83,6 +84,7 @@ namespace WindowsFormsApp1
             }
             userPresenterAdmin.UserRemove((User)listBoxUsers.SelectedItem);
             ListBoxUsersUpdate();
+            ComboBoxUsersUpdate();
         }
 
         private void buttonAddJourneys_Click(object sender, EventArgs e)
